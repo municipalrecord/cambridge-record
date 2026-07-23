@@ -1,0 +1,107 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Auditor: test-thrush — The Cambridge Record</title><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Auditor: test-thrush">
+<meta property="og:description" content="test-thrush&#x27;s public audit record: every page verified, every finding, measured reliability.">
+<meta property="og:site_name" content="The Cambridge Record">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cambridgerecord.org/auditors/a/test-thrush.html">
+<meta name="description" content="test-thrush&#x27;s public audit record: every page verified, every finding, measured reliability.">
+<link rel="alternate" type="application/rss+xml" title="The Cambridge Record — whole record" href="../../feed.xml">
+<link rel="stylesheet" href="../../style.css?v=ff3136f5"><style>
+.covcard{border:1.5px solid rgba(30,90,58,.5);border-left:5px solid var(--accent2);
+border-radius:6px 14px 14px 6px;background:linear-gradient(90deg,rgba(30,90,58,.12),rgba(30,90,58,.04));
+padding:14px 18px;margin:16px 0}
+.covbar{height:14px;border-radius:7px;background:var(--code);overflow:hidden;margin:8px 0 4px}
+.covbar div{height:100%;background:var(--accent2);border-radius:7px}
+.bignum{font-family:var(--serif);font-size:1.9em;font-weight:700;color:var(--accent2)}
+.ladder{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:14px 0;
+border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rung{flex:1 1 120px;padding:12px 14px;background:var(--card);border-right:1px solid var(--line);
+position:relative;min-width:120px}
+.rung:last-child{border-right:none}
+.rung .rt{font-weight:800;font-size:.95em}
+.rung .rp{color:var(--muted);font-size:.78em;display:block;margin-top:2px}
+.badgecase{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;
+padding:0;list-style:none;margin:12px 0}
+.badgecase li{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:10px 12px;text-align:center}
+.badgecase .be{font-size:1.7em;display:block}
+.badgecase .bn{font-weight:700;font-size:.85em;display:block;margin-top:2px}
+.badgecase .bd{color:var(--muted);font-size:.74em;display:block;margin-top:2px;line-height:1.4}
+.badgecase li.locked{opacity:.45;border-style:dashed}
+.badgecase li.legend{border-color:rgba(176,120,26,.6);
+background:linear-gradient(180deg,rgba(199,138,27,.1),var(--card))}
+.lb{width:100%;border-collapse:collapse;font-size:.95em}
+.lb th{background:var(--code);text-align:left;padding:7px 12px;border:1px solid var(--line);
+font-size:.78em;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.lb td{padding:8px 12px;border:1px solid var(--line)}
+.lb .rank{font-family:var(--serif);font-weight:700;color:var(--accent2);width:36px;text-align:center}
+.lb .pts{font-weight:700;text-align:right}
+.lb .rel{text-align:right}
+.lb a{text-decoration:none;font-weight:600}
+.rankchip{border:1px solid rgba(30,90,58,.4);color:var(--accent2);border-radius:999px;
+padding:0 9px;font-size:.72em;font-weight:700;margin-left:6px;white-space:nowrap}
+.rankchip.warden{border-color:rgba(176,120,26,.5);color:#b0781a}
+.seasontabs{margin:8px 0}
+.seasontabs span{border:1.5px solid var(--line);border-radius:999px;padding:3px 14px;
+font-size:.85em;margin-right:8px;cursor:pointer}
+.seasontabs .on{border-color:var(--accent2);background:rgba(30,90,58,.1);
+color:var(--accent2);font-weight:700}
+.feed{list-style:none;padding:0}
+.feed li{border-left:3px solid var(--accent2);background:var(--card);border-radius:0 10px 10px 0;
+padding:7px 14px;margin:7px 0;font-size:.92em}
+.honest{border:1px dashed var(--line);border-radius:10px;padding:10px 16px;
+margin:16px 0;color:var(--muted);font-size:.9em}
+.almost{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:4px 16px;margin:10px 0}
+.almost .arow{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;
+padding:9px 0;border-bottom:1px solid var(--line)}
+.almost .arow:last-child{border-bottom:none}
+.almost .mini{flex:0 0 130px;height:8px;border-radius:4px;background:var(--code);overflow:hidden}
+.almost .mini div{height:100%;background:#c78a1b;border-radius:4px}
+.almost b{color:var(--accent2)}
+.phero{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:14px 0}
+.pav{width:74px;height:74px;border-radius:50%;background:rgba(30,90,58,.12);
+border:3px solid var(--accent2);display:flex;align-items:center;justify-content:center;
+font-size:2em}
+.pname{font-family:var(--serif);font-size:1.7em;font-weight:700}
+.pstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:14px 0}
+.pstat{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:10px 14px;text-align:center}
+.pstat .n{font-family:var(--serif);font-size:1.5em;font-weight:700;color:var(--accent2);display:block}
+.pstat .k{font-size:.72em;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.brow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.brow span{border:1px solid var(--line);border-radius:999px;background:var(--card);
+padding:3px 13px;font-size:.88em}
+.brow .legend{border-color:rgba(176,120,26,.6);background:rgba(199,138,27,.1);font-weight:700}
+.findcard{border:1.5px solid rgba(30,90,58,.5);border-left:5px solid var(--accent2);
+border-radius:6px 14px 14px 6px;background:linear-gradient(90deg,rgba(30,90,58,.1),rgba(30,90,58,.03));
+padding:12px 16px;margin:10px 0;line-height:1.55}
+.findcard .dim{display:block;margin-top:4px;font-size:.85em}
+.vlist{list-style:none;padding:0;columns:2;column-gap:24px;font-size:.92em}
+.vlist li{margin:.3em 0;break-inside:avoid}
+.relnote{border:1px dashed var(--line);border-radius:10px;padding:8px 14px;
+color:var(--muted);font-size:.88em;margin:12px 0}
+@media(max-width:560px){.vlist{columns:1}}
+</style></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="h2"><a class="site2" href="../../index.html"><span class="t">The</span>Cambridge Record</a>
+<nav aria-label="Site"><a href="../../council/index.html">City&nbsp;Council</a><a href="../../items/index.html">Agenda&nbsp;Items</a>
+<a href="../../boards/school-committee/index.html">School&nbsp;Committee</a>
+<a href="../../boards/index.html">Boards</a>
+<a href="../../search.html">Search</a><a href="../../about.html">About</a></nav></header>
+<main id="main" data-pagefind-body><div class="crumb" data-pagefind-ignore><a href='../../auditors.html'>Become an auditor</a> ▸ <a href='../ledger.html'>the ledger</a> ▸ profile</div>
+<div class='phero'><div class='pav'>🦔</div><div>
+<span class='pname'>test-thrush</span>
+<span class='rankchip'>Examiner</span><br>
+<span class='dim'>On the record since Jun 20, 2026 · chose a pseudonym
+(real names are opt-in)</span></div></div>
+<div class='pstats'><div class='pstat'><span class='n'>5</span><span class='k'>audits filed</span></div><div class='pstat'><span class='n'>2</span><span class='k'>findings reproduced</span></div><div class='pstat'><span class='n'>100.0%</span><span class='k'>reliability (measured)</span></div><div class='pstat'><span class='n'>108</span><span class='k'>points · all-time</span></div></div>
+<div class='relnote'>🎯 Reliability is measured against pages with planted errors and Warden adjudications — test-thrush has passed <b>4 of 4</b> calibration checks. That's what the number means; it isn't self-reported.</div>
+<h2>⚖️ Findings</h2><div class='findcard'><b><a href='../../items/app-2024-14.html'>APP 2024-14</a></b> — flagged links. <i>The city-website button lands on a different docket item than the one this page is about.</i><span class='dim'>Jul 14, 2026 · upheld on adjudication — the finding points are theirs</span></div><div class='findcard'><b><a href='../../items/por-2025-1.html'>POR 2025-1</a></b> — flagged roll call. <i>City minutes show 8-1, our page shows unanimous.</i><span class='dim'>Jul 12, 2026 · reproduced — the finding points are theirs</span></div><h2>🧰 Badges</h2><div class='brow'><span>🎓 Certified</span><span>🔎 First Finding</span></div><h2>🧾 Recently verified by test-thrush</h2><ul class='vlist'><li><a href='../../items/res-2025-303.html'><span class='mono'>RES 2025-303</span></a> — confirmed · Jul 16, 2026</li><li><a href='../../items/cma-2026-2.html'><span class='mono'>CMA 2026-2</span></a> — confirmed · Jul 15, 2026</li><li><a href='../../items/por-2025-10.html'><span class='mono'>POR 2025-10</span></a> — confirmed · Jun 20, 2026</li></ul><p class='dim'>Every entry links to the page, which carries the trust mark. Every audit is a public record in <a href='https://github.com/municipalrecord/cambridge-record/issues?q=label%3Aaudit'>the open repository</a>.</p></main>
+<footer>
+<div class="frow">Assembled from the public record: City Clerk, IQM2 &amp; PrimeGov portals</div>
+<div class="frow">Unofficial, not affiliated with the City of Cambridge</div>
+<div class="frow"><a href="../../about.html">About this project</a> · <a href="../../accuracy.html">Accuracy audit</a> · <a href="https://github.com/municipalrecord/cambridge-record/issues/new?title=Error%20on%20/auditors/a/test-thrush.html&labels=error&body=Page%3A%20/auditors/a/test-thrush.html%0A%0AWhat%27s%20wrong%20%28what%20does%20the%20page%20say%2C%20and%20what%20does%20the%20official%20record%20say%3F%29%3A%0A%0A">Report an error on this page</a> (<a href="mailto:corrections@municipalrecord.org?subject=Error%20on%20/auditors/a/test-thrush.html&body=Page%3A%20/auditors/a/test-thrush.html%0A%0A%0A">or email us</a>) · part of <a href="https://municipalrecord.org">Municipal Record</a></div>
+</footer></body></html>

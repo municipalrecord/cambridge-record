@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Search — The Cambridge Record</title><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Search">
+<meta property="og:description" content="The public record of Cambridge, Massachusetts — readable, searchable, free forever.">
+<meta property="og:site_name" content="The Cambridge Record">
+<meta property="og:type" content="article">
+
+<meta name="description" content="The public record of Cambridge, Massachusetts — readable, searchable, free forever.">
+<link rel="alternate" type="application/rss+xml" title="The Cambridge Record — whole record" href="feed.xml">
+<link rel="stylesheet" href="style.css?v=ff3136f5"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="h2"><a class="site2" href="index.html"><span class="t">The</span>Cambridge Record</a>
+<nav aria-label="Site"><a href="council/index.html">City&nbsp;Council</a><a href="items/index.html">Agenda&nbsp;Items</a>
+<a href="boards/school-committee/index.html">School&nbsp;Committee</a>
+<a href="boards/index.html">Boards</a>
+<a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main id="main" data-pagefind-body><h1>Search the record</h1>
+<p class="meta">Every meeting, agenda item, and board page — newest first, filterable by type.</p>
+<input id="q" type="search" placeholder="e.g. bike lanes, AHO, Mass Ave zoning…" autofocus
+ style="width:100%;padding:10px 14px;font-size:1.05em;border:2px solid var(--line);
+ border-radius:10px;background:var(--card);color:var(--fg)">
+<div class="chips" id="f" style="margin-top:10px"></div>
+<div id="r" style="margin-top:14px" aria-live="polite"></div>
+<script>
+let IDX=null,facet='All';
+const q=document.getElementById('q'),r=document.getElementById('r'),f=document.getElementById('f');
+const q0=new URLSearchParams(location.search).get('q');if(q0)q.value=q0;
+fetch('search_index.json').then(x=>x.json()).then(d=>{IDX=d;go()});
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const KC={"City Manager's Agenda":'c-cma','Policy Orders':'c-por',
+'Communications from City Officers':'c-cof','Resolutions':'c-res',
+'Applications & Petitions':'c-app','Ordinances':'c-ord'};
+function fmtD(d){const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(d||'');
+return m?MON[+m[2]-1]+' '+(+m[3])+', '+m[1]:''}
+function hi(t,terms){
+const lo=t.toLowerCase(),ranges=[];
+for(const w of terms){let i=0;while(true){const j=lo.indexOf(w,i);if(j<0)break;
+ranges.push([j,j+w.length]);i=j+1;}}
+ranges.sort((a,b)=>a[0]-b[0]);
+const merged=[];for(const r of ranges){
+if(merged.length&&r[0]<=merged[merged.length-1][1])
+merged[merged.length-1][1]=Math.max(merged[merged.length-1][1],r[1]);
+else merged.push(r);}
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+let out='',i=0;
+for(const [a,b] of merged){out+=esc(t.slice(i,a))+'<mark>'+esc(t.slice(a,b))+'</mark>';i=b;}
+return out+esc(t.slice(i));}
+function go(){if(!IDX)return;
+const terms=q.value.toLowerCase().split(/\s+/).filter(Boolean);
+if(!terms.length){r.innerHTML='';f.innerHTML='';return}
+const hits=[];for(const e of IDX){
+const ti=e.t.toLowerCase(),bo=(e.t+' '+e.s).toLowerCase(),
+hay=(e.t+' '+e.s+' '+(e.x||'')).toLowerCase();
+if(terms.every(t=>hay.includes(t))){
+e._r=terms.every(t=>ti.includes(t))?2:(terms.every(t=>bo.includes(t))?1:0);
+hits.push(e)}}
+hits.sort((a,b)=>(b._r-a._r)||String(b.d||'').localeCompare(String(a.d||'')));
+const groups={};for(const e of hits)groups[e.g]=(groups[e.g]||0)+1;
+const names=Object.keys(groups).sort((a,b)=>groups[b]-groups[a]);
+if(!(facet in groups)&&facet!=='All')facet='All';
+f.innerHTML=[['All',hits.length],...names.map(n=>[n,groups[n]])].map(([n,c])=>
+`<a href="#" data-f="${n}" class="${facet===n?'on':''}">${n} (${c})</a>`).join('');
+for(const a of f.querySelectorAll('a'))a.onclick=ev=>{ev.preventDefault();facet=a.dataset.f;go()};
+const show=(facet==='All'?hits:hits.filter(e=>e.g===facet));
+r.innerHTML=show.slice(0,100).map(e=>`<div class="hit">
+<span class="hd">${fmtD(e.d)}</span>
+<span class="hb"><a href="${e.u}"><b>${hi(e.T||e.t,terms)}</b></a>${e.T?` <span class="mono dim">${e.t}</span>`:''} <span class="itemchip ${KC[e.k]||'c-x'}"><span class="dot"></span>${e.k}</span><br>
+<span style="font-size:.88em;color:var(--muted)">${hi(e.s,terms)}</span></span></div>`).join('')
+||'<p class="meta">No matches.</p>';
+if(show.length>100)r.innerHTML+=`<p class="meta">Showing the 100 most recent of ${show.length} — narrow the search or pick a chip.</p>`}
+q.addEventListener('input',()=>{facet='All';go()});
+</script>
+<div data-pagefind-ignore>
+<h2 style="margin-top:2.2em">Search inside the documents</h2>
+<p class="meta">Full text of every letter, report, and attachment on the record —
+every word, not just titles.</p>
+<link rel="stylesheet" href="pagefind/pagefind-ui.css">
+<style>
+#docsearch{--pagefind-ui-primary:var(--accent2);--pagefind-ui-text:var(--fg);
+--pagefind-ui-background:var(--card);--pagefind-ui-border:var(--line);
+--pagefind-ui-tag:var(--code);--pagefind-ui-border-width:1px;
+--pagefind-ui-border-radius:10px;--pagefind-ui-font:inherit}
+#docsearch mark{background:rgba(199,138,27,.35)}
+</style>
+<div id="docsearch"></div>
+<script src="pagefind/pagefind-ui.js"></script>
+<script>
+if(window.PagefindUI){
+  new PagefindUI({element:'#docsearch',pageSize:10,showImages:false,showSubResults:true});
+  const q0=new URLSearchParams(location.search).get('q');
+  if(q0){const inp=document.querySelector('#docsearch input');
+    if(inp){inp.value=q0;inp.dispatchEvent(new Event('input',{bubbles:true}));}}
+}else{
+  document.getElementById('docsearch').innerHTML=
+    '<p class="meta">The document index has not been built yet.</p>';
+}
+</script>
+</div></main>
+<footer>
+<div class="frow">Assembled from the public record: City Clerk, IQM2 &amp; PrimeGov portals</div>
+<div class="frow">Unofficial, not affiliated with the City of Cambridge</div>
+<div class="frow"><a href="about.html">About this project</a> · <a href="accuracy.html">Accuracy audit</a> · <a href="https://github.com/municipalrecord/cambridge-record/issues/new?title=Error%20on%20%28site%29&labels=error&body=Page%3A%20%28site%29%0A%0AWhat%27s%20wrong%20%28what%20does%20the%20page%20say%2C%20and%20what%20does%20the%20official%20record%20say%3F%29%3A%0A%0A">Report an error on this page</a> (<a href="mailto:corrections@municipalrecord.org?subject=Error%20on%20%28site%29&body=Page%3A%20%28site%29%0A%0A%0A">or email us</a>) · part of <a href="https://municipalrecord.org">Municipal Record</a></div>
+</footer></body></html>

@@ -1,0 +1,182 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The audit ledger — The Cambridge Record</title><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="The audit ledger">
+<meta property="og:description" content="Who verifies this record, and how: points, measured reliability, civic ranks — every audit a public file.">
+<meta property="og:site_name" content="The Cambridge Record">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cambridgerecord.org/auditors/ledger.html">
+<meta name="description" content="Who verifies this record, and how: points, measured reliability, civic ranks — every audit a public file.">
+<link rel="alternate" type="application/rss+xml" title="The Cambridge Record — whole record" href="../feed.xml">
+<link rel="stylesheet" href="../style.css?v=ff3136f5"><style>
+.covcard{border:1.5px solid rgba(30,90,58,.5);border-left:5px solid var(--accent2);
+border-radius:6px 14px 14px 6px;background:linear-gradient(90deg,rgba(30,90,58,.12),rgba(30,90,58,.04));
+padding:14px 18px;margin:16px 0}
+.covbar{height:14px;border-radius:7px;background:var(--code);overflow:hidden;margin:8px 0 4px}
+.covbar div{height:100%;background:var(--accent2);border-radius:7px}
+.bignum{font-family:var(--serif);font-size:1.9em;font-weight:700;color:var(--accent2)}
+.ladder{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:14px 0;
+border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rung{flex:1 1 120px;padding:12px 14px;background:var(--card);border-right:1px solid var(--line);
+position:relative;min-width:120px}
+.rung:last-child{border-right:none}
+.rung .rt{font-weight:800;font-size:.95em}
+.rung .rp{color:var(--muted);font-size:.78em;display:block;margin-top:2px}
+.badgecase{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;
+padding:0;list-style:none;margin:12px 0}
+.badgecase li{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:10px 12px;text-align:center}
+.badgecase .be{font-size:1.7em;display:block}
+.badgecase .bn{font-weight:700;font-size:.85em;display:block;margin-top:2px}
+.badgecase .bd{color:var(--muted);font-size:.74em;display:block;margin-top:2px;line-height:1.4}
+.badgecase li.locked{opacity:.45;border-style:dashed}
+.badgecase li.legend{border-color:rgba(176,120,26,.6);
+background:linear-gradient(180deg,rgba(199,138,27,.1),var(--card))}
+.lb{width:100%;border-collapse:collapse;font-size:.95em}
+.lb th{background:var(--code);text-align:left;padding:7px 12px;border:1px solid var(--line);
+font-size:.78em;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.lb td{padding:8px 12px;border:1px solid var(--line)}
+.lb .rank{font-family:var(--serif);font-weight:700;color:var(--accent2);width:36px;text-align:center}
+.lb .pts{font-weight:700;text-align:right}
+.lb .rel{text-align:right}
+.lb a{text-decoration:none;font-weight:600}
+.rankchip{border:1px solid rgba(30,90,58,.4);color:var(--accent2);border-radius:999px;
+padding:0 9px;font-size:.72em;font-weight:700;margin-left:6px;white-space:nowrap}
+.rankchip.warden{border-color:rgba(176,120,26,.5);color:#b0781a}
+.seasontabs{margin:8px 0}
+.seasontabs span{border:1.5px solid var(--line);border-radius:999px;padding:3px 14px;
+font-size:.85em;margin-right:8px;cursor:pointer}
+.seasontabs .on{border-color:var(--accent2);background:rgba(30,90,58,.1);
+color:var(--accent2);font-weight:700}
+.feed{list-style:none;padding:0}
+.feed li{border-left:3px solid var(--accent2);background:var(--card);border-radius:0 10px 10px 0;
+padding:7px 14px;margin:7px 0;font-size:.92em}
+.honest{border:1px dashed var(--line);border-radius:10px;padding:10px 16px;
+margin:16px 0;color:var(--muted);font-size:.9em}
+.almost{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:4px 16px;margin:10px 0}
+.almost .arow{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;
+padding:9px 0;border-bottom:1px solid var(--line)}
+.almost .arow:last-child{border-bottom:none}
+.almost .mini{flex:0 0 130px;height:8px;border-radius:4px;background:var(--code);overflow:hidden}
+.almost .mini div{height:100%;background:#c78a1b;border-radius:4px}
+.almost b{color:var(--accent2)}
+.phero{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:14px 0}
+.pav{width:74px;height:74px;border-radius:50%;background:rgba(30,90,58,.12);
+border:3px solid var(--accent2);display:flex;align-items:center;justify-content:center;
+font-size:2em}
+.pname{font-family:var(--serif);font-size:1.7em;font-weight:700}
+.pstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:14px 0}
+.pstat{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:10px 14px;text-align:center}
+.pstat .n{font-family:var(--serif);font-size:1.5em;font-weight:700;color:var(--accent2);display:block}
+.pstat .k{font-size:.72em;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.brow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.brow span{border:1px solid var(--line);border-radius:999px;background:var(--card);
+padding:3px 13px;font-size:.88em}
+.brow .legend{border-color:rgba(176,120,26,.6);background:rgba(199,138,27,.1);font-weight:700}
+.findcard{border:1.5px solid rgba(30,90,58,.5);border-left:5px solid var(--accent2);
+border-radius:6px 14px 14px 6px;background:linear-gradient(90deg,rgba(30,90,58,.1),rgba(30,90,58,.03));
+padding:12px 16px;margin:10px 0;line-height:1.55}
+.findcard .dim{display:block;margin-top:4px;font-size:.85em}
+.vlist{list-style:none;padding:0;columns:2;column-gap:24px;font-size:.92em}
+.vlist li{margin:.3em 0;break-inside:avoid}
+.relnote{border:1px dashed var(--line);border-radius:10px;padding:8px 14px;
+color:var(--muted);font-size:.88em;margin:12px 0}
+@media(max-width:560px){.vlist{columns:1}}
+</style></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="h2"><a class="site2" href="../index.html"><span class="t">The</span>Cambridge Record</a>
+<nav aria-label="Site"><a href="../council/index.html">City&nbsp;Council</a><a href="../items/index.html">Agenda&nbsp;Items</a>
+<a href="../boards/school-committee/index.html">School&nbsp;Committee</a>
+<a href="../boards/index.html">Boards</a>
+<a href="../search.html">Search</a><a href="../about.html">About</a></nav></header>
+<main id="main" data-pagefind-body><div class="crumb" data-pagefind-ignore><a href='../auditors.html'>Become an auditor</a> ▸ the ledger</div>
+<h1>The audit ledger</h1>
+<p class='meta'>Every page of this record can be verified against the
+city's own portal by a trained volunteer. This is who does it — and the
+record remembers them for it. <a href='../auditors.html'>How to become
+one →</a></p>
+<div class='covcard'><span class='bignum'>1</span> of <b>11,486</b> items human-verified — <b>0.0%</b> of the record<div class='covbar'><div style='width:0.0%'></div></div><span class='dim'>1 verified this week · 1 awaiting a blind second audit · every verification is a public file anyone can re-check</span></div>
+<h2>♻ How a page becomes verified — and stays that way</h2>
+<div class='lifecycle'>
+<div><b>○ Unaudited</b><span class='ld'>waiting for its first audit —
+which pays <b>+6</b></span></div>
+<div><b>◐ Audited ×1</b><span class='ld'>needs a <b>blind second
+audit</b> — you can't see the first auditor's verdicts until you file,
+and never your own page twice. <b>+6</b>, concurrence
+bonus <b>+3</b> each.</span></div>
+<div class='lc-v'><b>● Verified ×2</b><span class='ld'>two independent
+auditors concur. Audits stay open forever: <b>+2</b> to
+re-confirm, the full <b>+40</b> standing bounty if
+you catch what everyone missed.</span></div>
+<div class='lc-s'><b>♻ Stale</b><span class='ld'>audits pin the page's
+content hash — if the page changes, verification resets and full points
+return. Verification has a date, never a forever.</span></div>
+</div>
+<p class='dim' style='font-size:.88em'>A discrepancy scores
+<b>+2</b> on filing and
+<b>+40</b> once a second auditor reproduces it —
+findings pay only when they're true. Disagreement between two audits is
+the <b>audit of the audit</b>: a Warden adjudicates, whoever was right
+takes the finding points, and the record shows the resolution
+publicly.</p>
+<h2>🎖 Ranks — the civic ladder</h2>
+<p class='dim' style='margin:.2em 0 .6em'>Ranks borrow Massachusetts'
+own election-officer titles. They're earned with points <i>and
+held</i> with reliability — a rank is a reputation, not a score.</p>
+<div class='ladder'>
+<div class='rung'><span class='rt'>Reader</span><span class='rp'>everyone
+starts here</span></div>
+<div class='rung'><span class='rt'>Examiner</span><span class='rp'>certified ·
+3 practice pages passed</span></div>
+<div class='rung'><span class='rt'>Inspector</span><span class='rp'>500 pts ·
+97%+ reliability</span></div>
+<div class='rung'><span class='rt'>Warden</span><span class='rp'>1,500 pts ·
+5 reproduced findings · adjudicates disagreements</span></div>
+<div class='rung'><span class='rt'>Keeper of the Record</span><span class='rp'>5,000
+pts · enters the honor roll</span></div>
+</div>
+<h2>🧰 The badge case</h2>
+<p class='dim' style='margin:.2em 0 .6em'>Earned by doing, shown on
+every auditor's public profile. The grayed ones wait on surfaces that
+haven't opened yet.</p>
+<ul class='badgecase'><li><span class='be'>🎓</span><span class='bn'>Certified</span><span class='bd'>passed all three seeded practice pages</span></li><li><span class='be'>🔎</span><span class='bn'>First Finding</span><span class='bd'>a discrepancy, reproduced</span></li><li><span class='be'>💯</span><span class='bn'>Century</span><span class='bd'>100 checks filed</span></li><li><span class='be'>🏛</span><span class='bn'>Meeting Closer</span><span class='bd'>filed the check that took a whole meeting to fully-verified</span></li><li><span class='be'>🔁</span><span class='bn'>Reproducer</span><span class='bd'>confirmed 10 of others&#x27; findings — verification of the verifiers</span></li><li><span class='be'>📜</span><span class='bn'>Archivist</span><span class='bd'>25 items from before 2020 — the deep record</span></li><li><span class='be'>🗳</span><span class='bn'>Roll-call Certified</span><span class='bd'>specialty: every-seat vote audits</span></li><li><span class='be'>🕯</span><span class='bn'>Sentinel</span><span class='bd'>audited a meeting within 48h of the city posting it</span></li><li><span class='be'>🧭</span><span class='bn'>Reconciler</span><span class='bd'>resolve a cross-portal disagreement</span></li><li class=legend><span class='be'>⚖️</span><span class='bn'>City Corrector</span><span class='bd'>LEGENDARY — an error found in the city&#x27;s own record, filed with the Clerk</span></li></ul>
+
+<h2>🏆 Leaderboard</h2>
+<div class='seasontabs' id='stabs'>
+<span class='on' data-t='lb-season'>This season (Q3 2026)</span>
+<span data-t='lb-all'>All-time</span>
+<span data-t='lb-week'>This week</span></div>
+<table class='lb' id='lb-season'><tr><th></th><th>Auditor</th><th style='text-align:right'>Points</th><th style='text-align:right'>Checks</th><th style='text-align:right'>Findings</th><th style='text-align:right'>Reliability</th></tr><tr><td class='rank'>1</td><td><a href='a/test-thrush.html'>test-thrush</a><span class='rankchip'>Examiner</span></td><td class='pts'>99</td><td class='rel'>5</td><td class='rel'>2</td><td class='rel'>100.0%</td></tr><tr><td class='rank'>2</td><td><a href='a/test-marten.html'>test-marten</a><span class='rankchip'>Examiner</span></td><td class='pts'>17</td><td class='rel'>3</td><td class='rel'>0</td><td class='rel'>50.0%</td></tr></table>
+<table class='lb' id='lb-all' style='display:none'><tr><th></th><th>Auditor</th><th style='text-align:right'>Points</th><th style='text-align:right'>Checks</th><th style='text-align:right'>Findings</th><th style='text-align:right'>Reliability</th></tr><tr><td class='rank'>1</td><td><a href='a/test-thrush.html'>test-thrush</a><span class='rankchip'>Examiner</span></td><td class='pts'>108</td><td class='rel'>5</td><td class='rel'>2</td><td class='rel'>100.0%</td></tr><tr><td class='rank'>2</td><td><a href='a/test-marten.html'>test-marten</a><span class='rankchip'>Examiner</span></td><td class='pts'>26</td><td class='rel'>3</td><td class='rel'>0</td><td class='rel'>50.0%</td></tr></table>
+<table class='lb' id='lb-week' style='display:none'><tr><th></th><th>Auditor</th><th style='text-align:right'>Points</th><th style='text-align:right'>Checks</th><th style='text-align:right'>Findings</th><th style='text-align:right'>Reliability</th></tr><tr><td class='rank'>1</td><td><a href='a/test-thrush.html'>test-thrush</a><span class='rankchip'>Examiner</span></td><td class='pts'>55</td><td class='rel'>5</td><td class='rel'>2</td><td class='rel'>100.0%</td></tr><tr><td class='rank'>2</td><td><a href='a/test-marten.html'>test-marten</a><span class='rankchip'>Examiner</span></td><td class='pts'>9</td><td class='rel'>3</td><td class='rel'>0</td><td class='rel'>50.0%</td></tr></table>
+<script>document.getElementById('stabs').addEventListener('click',e=>{
+  const t=e.target.dataset.t; if(!t) return;
+  for (const s of document.querySelectorAll('#stabs span'))
+    s.classList.toggle('on', s.dataset.t===t);
+  for (const id of ['lb-season','lb-all','lb-week'])
+    document.getElementById(id).style.display = id===t ? '' : 'none';
+});</script>
+<p class='dim' style='font-size:.88em'>Seasons reset quarterly so
+newcomers can place; all-time never resets — the record doesn't forget.
+⚖️ = City Corrector. Points: +6 confirmed page ·
++40 reproduced finding · calibration misses
+subtract from reliability, and rank is held with it.</p><h2>🔥 Almost there — meetings close to fully verified</h2><div class='almost'><div class='arow'><b>2026-01-12 Regular Meeting</b><span class='mini'><div style='width:6%'></div></span><span class='dim'>1 of 17 · <b>16 to go</b> — the closer gets the badge</span><a href='../council/2026-01-12-regular-meeting.html'>claim one →</a></div></div><h2>🧾 Recently</h2><ul class='feed'><li><a href='../items/app-2024-14.html'><b>APP 2024-14</b></a> finding upheld on adjudication — credit <a href='a/test-thrush.html'>test-thrush</a> <span class='dim'>· Jul 17, 2026 · +40 · the ruling is public</span></li><li><a href='../items/cma-2026-2.html'><b>CMA 2026-2</b></a> went ● verified — <a href='a/test-thrush.html'>test-thrush</a> &amp; <a href='a/test-marten.html'>test-marten</a> <span class='dim'>· Jul 16, 2026</span></li><li><a href='../items/por-2025-1.html'><b>POR 2025-1</b></a> finding reproduced — credit <a href='a/test-thrush.html'>test-thrush</a> &amp; <a href='a/test-marten.html'>test-marten</a> <span class='dim'>· Jul 13, 2026 · +40 · the correction trail is public</span></li><li><a href='a/test-marten.html'>test-marten</a> certified as an auditor <span class='dim'>· Jul 12, 2026</span></li><li><a href='a/test-thrush.html'>test-thrush</a> certified as an auditor <span class='dim'>· Jul 10, 2026</span></li><li><a href='../items/por-2025-10.html'><b>POR 2025-10</b></a> went ● verified — <a href='a/test-thrush.html'>test-thrush</a> &amp; <a href='a/test-marten.html'>test-marten</a> <span class='dim'>· Jun 21, 2026</span></li></ul>
+<h2 id='honor'>📜 The honor roll</h2>
+<p class='dim' style='margin:.2em 0 .6em'>Permanent. Keepers of the
+Record and City Correctors enter the site's colophon — the same page
+that credits the sources. Nobody has climbed that far yet; the ladder
+is open.</p>
+<div class='honest'>⚖️ <b>How to read this page honestly:</b> auditors
+are certified against pages with planted errors and keep being tested —
+reliability is measured, not self-reported. Ranks reward accuracy over
+volume: findings only pay when reproduced, and calibration misses
+subtract. "Verified" means one trained person compared every claim to
+the city's record on that date. <a href='https://github.com/municipalrecord/cambridge-record/issues/new?labels=error&title=Error%20report'>Report
+an error anyway</a> — corrections are public.</div></main>
+<footer>
+<div class="frow">Assembled from the public record: City Clerk, IQM2 &amp; PrimeGov portals</div>
+<div class="frow">Unofficial, not affiliated with the City of Cambridge</div>
+<div class="frow"><a href="../about.html">About this project</a> · <a href="../accuracy.html">Accuracy audit</a> · <a href="https://github.com/municipalrecord/cambridge-record/issues/new?title=Error%20on%20/auditors/ledger.html&labels=error&body=Page%3A%20/auditors/ledger.html%0A%0AWhat%27s%20wrong%20%28what%20does%20the%20page%20say%2C%20and%20what%20does%20the%20official%20record%20say%3F%29%3A%0A%0A">Report an error on this page</a> (<a href="mailto:corrections@municipalrecord.org?subject=Error%20on%20/auditors/ledger.html&body=Page%3A%20/auditors/ledger.html%0A%0A%0A">or email us</a>) · part of <a href="https://municipalrecord.org">Municipal Record</a></div>
+</footer></body></html>

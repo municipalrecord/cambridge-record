@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How accurate is this site? — The Cambridge Record</title><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="How accurate is this site?">
+<meta property="og:description" content="The public record of Cambridge, Massachusetts — readable, searchable, free forever.">
+<meta property="og:site_name" content="The Cambridge Record">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cambridgerecord.org/accuracy.html">
+<meta name="description" content="The public record of Cambridge, Massachusetts — readable, searchable, free forever.">
+<link rel="alternate" type="application/rss+xml" title="The Cambridge Record — whole record" href="feed.xml">
+<link rel="stylesheet" href="style.css?v=ff3136f5"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="h2"><a class="site2" href="index.html"><span class="t">The</span>Cambridge Record</a>
+<nav aria-label="Site"><a href="council/index.html">City&nbsp;Council</a><a href="items/index.html">Agenda&nbsp;Items</a>
+<a href="boards/school-committee/index.html">School&nbsp;Committee</a>
+<a href="boards/index.html">Boards</a>
+<a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main id="main" data-pagefind-body><h1>How accurate is this site?</h1>
+<p class="meta">Audited 2026-07-22 · sample seed 20260712 ·
+<a href="audit/audit_agenda_items.csv">raw results (CSV)</a> ·
+<a href="audit/audit_agenda_items.py">audit code</a></p>
+
+<p>This site is assembled by software (much of it AI-written) from the city's
+own portals. Software makes mistakes, so we measure ours in public: we drew
+<b>1,000 agenda items at random</b> — with a fixed, published random seed, so
+anyone can re-draw the identical sample — fetched the city's live page for
+each, and compared field by field.</p>
+
+<div class="statband">
+  <span class="stat"><span class="n" style="font-size:1.3em">1,000/1,000</span><span class="k">city pages resolved</span></span>
+  <span class="stat"><span class="n" style="font-size:1.3em">100.0%</span><span class="k">tracking codes correct</span></span>
+  <span class="stat"><span class="n" style="font-size:1.3em">100.0%</span><span class="k">titles content-identical</span></span>
+  <span class="stat"><span class="n" style="font-size:1.3em">48/48</span><span class="k">sampled attachments resolve</span></span>
+</div>
+
+<h2>What we compared</h2>
+<ul>
+<li><b>Tracking code</b> (e.g. POR 2020 #173): 998 byte-exact of 1,000;
+2 differ only in the city's own spacing (&ldquo;ORD 2023&nbsp;#&nbsp;9&rdquo;).
+<b>0 mismatches.</b></li>
+<li><b>Title</b>: 184 byte-exact; 816 differ <i>only</i> by the
+city's trailing punctuation (their display appends a period; verified by
+inspection). <b>0 content mismatches.</b></li>
+<li><b>Meeting date</b>: confirmed visible on 998 of 1,000 city pages.
+The 2 exceptions are itemized below — in both, this site dates
+the item to the meeting whose agenda carried it, while the portal shows the
+clerk's next-day action date after a past-midnight adjournment.</li>
+<li><b>Attachments</b> (random subsample): 48/48 of the
+document links we mirror still resolve as valid PDFs at the city.</li>
+</ul>
+
+<h2>Every deviation found (4)</h2>
+<table><tr><th>Item</th><th>Type</th><th>Explanation</th></tr><tr><td class='mono'>ORD 2023 # 9</td><td>tracking format</td><td class='dim'>the city displays a space after # (“ORD 2023 # 9”) our parser didn't expect — content identical</td></tr><tr><td class='mono'>ORD 2025 # 8</td><td>tracking format</td><td class='dim'>the city displays a space after # (“ORD 2025 # 8”) our parser didn't expect — content identical</td></tr><tr><td class='mono'>RES 2024 #82</td><td>date display</td><td class='dim'>we date it to its meeting (2024-04-29); the portal displays the clerk's action date, one day later (past-midnight adjournment)</td></tr><tr><td class='mono'>RES 2024 #90</td><td>date display</td><td class='dim'>we date it to its meeting (2024-04-29); the portal displays the clerk's action date, one day later (past-midnight adjournment)</td></tr></table>
+
+
+<h2>Votes &amp; outcomes audit</h2>
+<p>Roll calls, outcomes, and sponsors on item pages come from a crawl of
+the city's own item records. Same discipline: we drew <b>150 crawled
+items at random</b> (seed 20260713), fetched each city page fresh,
+re-parsed it, and compared status, sponsors, and every named vote.
+Result: <b>150/150 exact</b> · 0 divergent · 0 fetch
+errors. <a href="audit/audit_item_details.csv">raw results</a> ·
+<a href="audit/audit_item_details.py">audit code</a>.
+Separately, every one of the 6,099 recorded roll calls must
+satisfy the city's own tally (&ldquo;[4 TO 5]&rdquo; must equal exactly
+4 + 5 parsed names) or it is withheld from display — 0 failed that
+check in the current build.</p>
+<h2>Method, honestly</h2>
+<p>The comparison is against what the city's portal displays <i>today</i> —
+if the clerk edits a record after we capture it, that surfaces here as a
+deviation. The auditor is software too, so the code and raw results above
+exist for checking the checker. This page regenerates with every audit run.
+Found something wrong anyway? Every page has an error-report link in its
+footer — corrections are public.</p></main>
+<footer>
+<div class="frow">Assembled from the public record: City Clerk, IQM2 &amp; PrimeGov portals</div>
+<div class="frow">Unofficial, not affiliated with the City of Cambridge</div>
+<div class="frow"><a href="about.html">About this project</a> · <a href="accuracy.html">Accuracy audit</a> · <a href="https://github.com/municipalrecord/cambridge-record/issues/new?title=Error%20on%20/accuracy.html&labels=error&body=Page%3A%20/accuracy.html%0A%0AWhat%27s%20wrong%20%28what%20does%20the%20page%20say%2C%20and%20what%20does%20the%20official%20record%20say%3F%29%3A%0A%0A">Report an error on this page</a> (<a href="mailto:corrections@municipalrecord.org?subject=Error%20on%20/accuracy.html&body=Page%3A%20/accuracy.html%0A%0A%0A">or email us</a>) · part of <a href="https://municipalrecord.org">Municipal Record</a></div>
+</footer></body></html>

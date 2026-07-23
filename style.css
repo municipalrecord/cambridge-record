@@ -1,0 +1,536 @@
+
+@font-face{font-family:'Libre Baskerville';font-style:normal;
+font-weight:400 700;font-display:swap;
+src:url(fonts/LibreBaskerville-Var.woff2) format('woff2')}
+:root{--bg:#faf9f6;--fg:#1a1e23;--muted:#6b7280;--line:#e5e1d8;--accent:#7f1d1d;
+--accent2:#1e5a3a;--card:#ffffff;--code:#f1efe9;
+--serif:'Libre Baskerville',Georgia,'Iowan Old Style','Times New Roman',serif}
+@media(prefers-color-scheme:dark){:root{--bg:#15181d;--fg:#e8e6e1;--muted:#9aa1ab;
+--line:#2b3038;--accent:#e08585;--accent2:#7fc9a2;--card:#1c2026;--code:#232830}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+/* serif body (Dan, 2026-07-13): Charter on Apple, Georgia elsewhere;
+   18px base (Dan, 2026-07-14: "the text is so small!") */
+font:18px/1.65 Charter,'Iowan Old Style',Georgia,'Times New Roman',serif}
+/* accessibility: skip link + visible keyboard focus everywhere */
+.skip{position:absolute;left:-9999px;top:0;background:var(--card);
+color:var(--fg);padding:8px 16px;border:2px solid var(--accent2);
+border-radius:8px;z-index:99}
+.skip:focus{left:12px;top:10px}
+a:focus-visible,button:focus-visible,input:focus-visible{
+outline:2px solid var(--accent2);outline-offset:2px;border-radius:3px}
+header{border-bottom:3px double var(--line);padding:14px 20px;display:flex;
+gap:14px;align-items:baseline;flex-wrap:wrap}
+header a.site{font-weight:800;font-size:1.05em;color:var(--accent);text-decoration:none;
+letter-spacing:.01em}header nav a{color:var(--muted);text-decoration:none;margin-right:14px;
+font-size:.92em}header nav a:hover{color:var(--fg)}
+main{max-width:780px;margin:0 auto;padding:28px 20px 80px}
+h1{font-size:1.55em;line-height:1.25;margin:.2em 0 .4em}h2{font-size:1.15em;
+margin:1.6em 0 .5em;padding-bottom:.25em;border-bottom:1px solid var(--line)}
+h3{font-size:1em;margin:1.2em 0 .4em}
+a{color:var(--accent2)}a:hover{text-decoration-thickness:2px}
+ul{padding-left:1.3em}li{margin:.35em 0}
+.meta{color:var(--muted);font-size:.9em;margin-bottom:1.2em}
+.crumb{font-size:.85em;color:var(--muted);margin-bottom:1em}.crumb a{color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:.92em;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+.tag{font-style:italic;color:var(--muted);font-size:.88em}
+.pdf{font-size:.85em;text-decoration:none;border:1px solid var(--line);border-radius:6px;
+padding:1px 7px;background:var(--card);white-space:nowrap}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;
+padding:0;list-style:none}.cardgrid li{border:1px solid var(--line);border-radius:10px;
+padding:10px 14px;background:var(--card);margin:0}.cardgrid a{text-decoration:none;font-weight:600}
+.cardgrid .n{color:var(--muted);font-size:.85em;display:block}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 20px;color:var(--muted);
+font-size:.85em;text-align:center}
+footer .frow{margin:5px auto;max-width:720px;line-height:1.6}
+footer .frow:first-child{font-size:.92em}
+.year{color:var(--muted);font-weight:400}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}
+.dim{color:var(--muted);font-size:.88em}
+td a{text-decoration:none;font-weight:600}
+.cardgrid .d{color:var(--muted);font-size:.85em;display:block;margin-top:3px;font-weight:400}
+blockquote{border-left:3px solid var(--line);margin:0.6em 0;padding:2px 14px;color:var(--muted)}
+.pipe{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.pipe .step{flex:1 1 170px;border:1px solid var(--line);border-radius:10px;
+padding:8px 12px;background:var(--card)}
+.pipe .step.done{border-left:4px solid var(--accent2)}
+.pipe .step.pend{border-style:dashed;border-left:4px dashed #c78a1b}
+.pipe .step.dim{opacity:.65}
+.pipe .k{display:block;font-size:.72em;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.pipe .v{font-weight:700}
+.pipe .d{display:block;font-size:.85em;color:var(--muted)}
+/* the timeline escapes the 780px column on wide screens — five nodes
+   need ~850px and an invisible macOS scrollbar reads as "cut off" */
+.tlwrap{overflow-x:auto;margin:16px 0 4px;width:min(96vw,1100px);
+padding-top:8px;/* dot rings are box-shadows; the scroll box clips them */
+position:relative;left:50%;transform:translateX(-50%);
+scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.tlwrap::-webkit-scrollbar{height:6px}
+.tlwrap::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.tlwrap .tl{justify-content:center}
+.tl{display:flex;align-items:flex-start;min-width:min-content}
+.tlstep{display:flex;flex-direction:column;align-items:center;text-align:center;
+flex:0 1 auto;min-width:108px;max-width:200px;padding:0 4px;
+word-break:break-word}
+.tlstep .dot{width:16px;height:16px;border-radius:50%;background:var(--accent2);
+box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--accent2)}
+.tlstep.pend .dot{background:var(--bg);box-shadow:0 0 0 3px var(--bg),0 0 0 5px #c78a1b}
+.tlstep.dim .dot{background:var(--line);box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--line)}
+.tlstep.hold .dot{background:#c78a1b;box-shadow:0 0 0 3px var(--bg),0 0 0 5px #c78a1b}
+.tlstep.hold .who{color:#b0781a}
+.tlstep.fail .dot{background:var(--accent);box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--accent)}
+.tlstep.fail .who{color:var(--accent)}
+.tlstep .lbl{font-size:.7em;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:9px}
+.tlstep .who{font-weight:700;margin-top:1px}
+.tlstep .when{font-size:.83em;color:var(--muted)}
+.tlstep.pend .when{color:#b0781a;font-weight:600}
+.tlbar{flex:0 1 90px;max-width:130px;height:3px;background:var(--accent2);margin-top:7px;min-width:24px;border-radius:2px}
+.tlbar.pend{background:repeating-linear-gradient(90deg,#c78a1b 0 6px,transparent 6px 11px)}
+.mast{text-align:center;padding:34px 20px 0;max-width:900px;margin:0 auto}
+.mast h1{font-family:var(--serif);
+font-size:2.45em;letter-spacing:.01em;margin:10px 0 6px;color:var(--accent)}
+.mast .dateline{font-size:.78em;letter-spacing:.14em;text-transform:uppercase;
+color:var(--muted);margin:0 0 14px}
+.rule2{border-top:3px double var(--line)}
+.mastnav{padding:10px 0;border-top:1px solid var(--line);border-bottom:3px double var(--line);
+margin-top:14px}
+.mastnav a{color:var(--fg);text-decoration:none;margin:0 13px;font-size:.95em;font-weight:600}
+.mastnav a:hover{color:var(--accent2)}
+/* minimal homepage (Dan, 2026-07-20): C2 masthead, search, three tiles.
+   All selectors scoped/new — Somerville & Medford homepages untouched. */
+.homebody{display:flex;flex-direction:column;min-height:100vh}
+.homebody main{flex:1;display:flex;flex-direction:column;justify-content:center;
+max-width:860px;padding-bottom:8vh}
+.mast .the{display:flex;align-items:center;gap:14px;max-width:520px;margin:0 auto 4px}
+.mast .the::before,.mast .the::after{content:"";flex:1;border-top:1px solid var(--line)}
+.mast .the span{font-family:Didot,var(--serif);font-size:.95em;letter-spacing:.4em;
+text-transform:uppercase;color:var(--muted)}
+.mast h1.didot{font-family:Didot,var(--serif);font-weight:700;font-size:2.6em;margin:0;
+letter-spacing:.06em;text-transform:uppercase;color:var(--fg)}
+.homesearch.big input{font-size:1.15em;padding:16px 22px;border-width:2px;border-radius:14px}
+.homesearch.big input:focus{border-color:var(--accent2);outline:none}
+.bk{display:flex;align-items:center;gap:16px;margin:34px 0 20px;font-size:.75em;
+letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.bk::before,.bk::after{content:"";flex:1;border-top:1px solid var(--line)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0;list-style:none;margin:0}
+@media(max-width:540px){.tiles{grid-template-columns:1fr}}
+.tiles a{display:flex;flex-direction:column;align-items:center;gap:12px;height:100%;
+box-sizing:border-box;border:1px solid var(--line);border-radius:16px;background:var(--card);
+padding:30px 18px 24px;text-decoration:none;color:var(--fg);text-align:center;line-height:1.35;
+position:relative;transition:border-color .15s,transform .15s,box-shadow .15s}
+.tiles a::before{content:"";position:absolute;top:10px;left:18px;right:18px;
+border-top:3px double var(--line);transition:border-color .15s}
+.tiles a:hover{border-color:var(--accent2);transform:translateY(-2px);
+box-shadow:0 6px 18px rgba(0,0,0,.07)}
+.tiles a:hover::before{border-color:var(--accent2)}
+.tiles svg{width:52px;height:52px;color:var(--accent);margin-top:8px;transition:color .15s}
+.tiles a:hover svg{color:var(--accent2)}
+.tiles .bt{display:block;font-family:var(--serif);font-weight:700;font-size:1.02em}
+.tiles .n{color:var(--muted);font-size:.82em;font-weight:400;display:block;margin-top:2px}
+.stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:2.6em;text-align:center}
+.stats .num{display:block;font-family:var(--serif);font-weight:700;font-size:1.5em;line-height:1.2}
+.stats .lab{display:block;font-size:.7em;letter-spacing:.12em;text-transform:uppercase;
+color:var(--muted);margin-top:2px}
+/* interior nameplate (Dan, 2026-07-20: site-wide) + board chips.
+   Old header/.site styles kept above — Somerville & Medford still use them. */
+header.h2{border-bottom:3px double var(--line);padding:14px 20px;display:flex;
+gap:12px 18px;align-items:baseline;flex-wrap:wrap;justify-content:space-between}
+header.h2 .site2{font-family:Didot,var(--serif);font-weight:700;letter-spacing:.09em;
+text-transform:uppercase;color:var(--fg);text-decoration:none;font-size:1.05em}
+header.h2 .site2 .t{color:var(--muted);font-size:.72em;letter-spacing:.32em;margin-right:7px}
+header.h2 nav a{color:var(--muted);text-decoration:none;margin-left:14px;
+font-size:.76em;letter-spacing:.11em;text-transform:uppercase;margin-right:0}
+header.h2 nav a:hover{color:var(--accent2)}
+.pagesub{color:var(--muted);font-size:.9em;margin:-.2em 0 1.4em}
+.bchips{display:flex;flex-direction:column;gap:8px;padding:0;list-style:none;margin:0}
+.bchips li{margin:0}
+.bchips a{display:flex;align-items:center;gap:13px;border:1px solid var(--line);
+border-radius:999px;background:var(--card);padding:12px 24px 12px 18px;
+text-decoration:none;color:var(--fg);font-family:var(--serif);font-weight:700;
+font-size:1.05em;line-height:1.35;transition:border-color .15s,color .15s}
+.bchips a:hover{border-color:var(--accent2);color:var(--accent2)}
+.bchips svg{width:26px;height:26px;color:var(--accent);flex:none;transition:color .15s}
+.bchips a:hover svg{color:var(--accent2)}
+/* board pages: current-members strip + calendar meeting list (Dan, 2026-07-20) */
+.members{display:flex;flex-wrap:wrap;gap:18px 22px;margin:18px 0 8px}
+.member{width:118px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:7px}
+.member img,.member .minit{width:76px;height:76px;border-radius:50%;object-fit:cover;
+border:3px solid var(--line);display:flex;align-items:center;justify-content:center;
+font-family:var(--serif);font-weight:700;font-size:1.35em;background:var(--code);color:var(--muted)}
+.member .mn{font-family:var(--serif);font-weight:700;font-size:.88em;line-height:1.25}
+.member .mr{font-size:.68em;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.member .mv{font-size:.66em;margin-top:1px;color:var(--muted)}
+.member .mv a{text-decoration:none;font-weight:600}
+.member .mv.dim{font-style:italic}
+.member .texp{color:#b0781a;font-style:italic}
+blockquote.callout{border-left:3px solid #c78a1b;background:rgba(199,138,27,.06);
+padding:6px 14px;margin:.8em 0;color:var(--fg)}
+.eyebrow{font-size:.72em;letter-spacing:.13em;text-transform:uppercase;
+color:var(--muted);margin:1.3em 0 .3em}
+.msrc{color:var(--muted);font-size:.8em;font-style:italic;margin:4px 0 10px}
+.mrow.cxl{opacity:.55}
+.cxltag{font-size:.62em;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+border:1px solid var(--accent);border-radius:999px;padding:0 8px;margin-left:8px;
+vertical-align:2px;white-space:nowrap}
+.statband{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;
+margin:26px 0}
+.stat{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:14px 16px;text-align:center;text-decoration:none;display:block}
+.stat .n{font-family:var(--serif);font-size:2em;
+font-weight:700;color:var(--fg);display:block;line-height:1.15}
+.stat .k{font-size:.74em;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:6px 0 26px}
+.featcard{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:16px 18px}
+.featcard.fresh{border-left:4px solid var(--accent2)}
+.featcard.wait{border-left:4px solid #c78a1b}
+.featcard .k{font-size:.74em;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.featcard .big{font-family:var(--serif);font-size:1.5em;font-weight:700;line-height:1.25}
+.featcard p{margin:.5em 0}
+.homesearch{margin:0 0 26px}
+.homesearch input{width:100%;padding:12px 16px;font-size:1.05em;border:2px solid var(--line);
+border-radius:12px;background:var(--card);color:var(--fg)}
+.chips{margin-top:10px}
+.chips a{display:inline-block;border:1px solid var(--line);border-radius:999px;background:var(--card);
+padding:3px 13px;margin:0 6px 6px 0;font-size:.88em;text-decoration:none;color:var(--fg)}
+.chips a:hover{border-color:var(--accent2)}
+.chips a.on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+mark{background:rgba(199,138,27,.35);color:inherit;padding:0 1px;border-radius:2px}
+.hit{display:flex;gap:14px;margin:.8em 0;align-items:baseline}
+.hit .hd{flex:0 0 118px;color:var(--accent2);font-weight:700;font-size:.85em;text-align:right;white-space:nowrap}
+.hit .hb{flex:1;min-width:0}
+@media(max-width:540px){.hit{display:block}.hit .hd{text-align:left;display:block;margin-bottom:2px}}
+/* meetings index: month-grouped rows, not a data table */
+.month{font-size:.78em;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);
+margin:1.6em 0 .5em;border:none;padding:0}
+.mrow{display:flex;gap:14px;align-items:center;border:1px solid var(--line);
+border-radius:12px;background:var(--card);padding:10px 16px;margin:8px 0;
+text-decoration:none;color:var(--fg)}
+.mrow:hover{border-color:var(--accent2)}
+.mrow .cal{flex:0 0 52px;text-align:center;border-right:1px solid var(--line);padding-right:12px}
+.mrow .cal .dd{font-family:var(--serif);font-size:1.5em;
+font-weight:700;line-height:1.1;display:block;color:var(--accent)}
+.mrow .cal .dw{font-size:.68em;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.mrow .mb{flex:1;min-width:0}
+.mrow .mt{font-weight:700}
+.mrow .mc{display:block;color:var(--muted);font-size:.85em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mrow .mt{display:block}
+.mrow .mn{flex:0 0 auto;font-family:var(--serif);font-size:1.15em;font-weight:700;
+color:var(--accent2);white-space:nowrap}
+.mrow .mn .u{display:block;font-family:-apple-system,sans-serif;font-size:.6em;font-weight:400;
+color:var(--muted);text-transform:uppercase;letter-spacing:.07em;text-align:right}
+/* meeting pages: agenda item tiles instead of walls of text */
+.secband{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}
+.secband a{border:1px solid var(--line);border-radius:999px;background:var(--card);
+padding:3px 13px;font-size:.85em;text-decoration:none;color:var(--fg)}
+.secband a b{color:var(--accent2)}
+.igrid{display:grid;grid-template-columns:1fr;gap:10px;
+padding:0;list-style:none;margin:.6em 0 1.4em}
+.itile{border:1px solid var(--line);border-left-width:5px;border-radius:12px;
+background:var(--card);padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+.itile .code{align-self:flex-start;font-family:ui-monospace,Menlo,monospace;font-size:.72em;
+font-weight:700;border-radius:6px;padding:1px 7px;letter-spacing:.02em}
+/* the chip: every referencable item's plain-English identity (Dan,
+   2026-07-13) — official code demoted to hover + .ocode in the footer */
+.chip{display:inline-flex;align-items:center;gap:7px;border-radius:999px;
+padding:2px 11px 2px 8px;font-size:.8em;font-weight:700;text-decoration:none;
+border:1px solid;line-height:1.5;align-self:flex-start;
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
+.chip .num{font-weight:400;opacity:.75}
+.itile .hl{font-size:.98em;line-height:1.5;display:-webkit-box;-webkit-line-clamp:6;
+-webkit-box-orient:vertical;overflow:hidden}
+.chiprow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.obadge{font-size:.78em;font-weight:600;color:var(--muted);
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.decided{font-size:.9em;margin:.3em 0}
+.doccards{display:flex;flex-direction:column;gap:8px;margin:6px 0 16px}
+.doccard{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;
+border:1px solid var(--line);border-radius:10px;background:var(--card);
+padding:8px 14px;font-size:.9em}
+.doccard .dk{font-weight:600}.doccard .dp{color:var(--muted);font-size:.85em}
+.citebtn{border:1px solid var(--line);border-radius:8px;background:var(--card);
+color:var(--fg);padding:3px 12px;font-size:.82em;cursor:pointer;
+font-family:inherit}
+.citebtn:hover{border-color:var(--accent2);color:var(--accent2)}
+.itile .hl::first-letter{text-transform:uppercase}
+.itile .by{color:var(--muted);font-size:.8em}
+.itile .proc{font-size:.7em;color:var(--muted);border:1px dashed var(--line);
+border-radius:6px;padding:1px 7px;letter-spacing:.02em}
+.itile .ocode{font-family:ui-monospace,Menlo,monospace;font-size:.68em;
+color:var(--muted);margin-left:auto}
+.itile .tt{font-size:.9em;line-height:1.45;display:-webkit-box;-webkit-line-clamp:4;
+-webkit-box-orient:vertical;overflow:hidden}
+.itile .tfoot{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:auto}
+.itile .tag2{font-size:.72em;color:var(--muted);border:1px solid var(--line);
+border-radius:999px;padding:0 8px}
+a.tag2{text-decoration:none}a.tag2:hover{color:var(--accent2);border-color:var(--accent2)}
+a.tag{text-decoration:none}
+/* issue pages: letter volume as year aggregates (ethics-safe) */
+.stance{display:inline-block;border-radius:6px;padding:0 8px;font-size:.85em}
+.stance.pro{background:rgba(30,90,58,.15);color:var(--accent2)}
+.stance.anti{background:rgba(127,29,29,.12);color:var(--accent)}
+.yearbar{display:flex;align-items:center;gap:8px;margin:.2em 0}
+.yearbar .bar{height:14px;background:var(--accent2);border-radius:3px;min-width:2px}
+.t-cma{border-left-color:#1e5a3a}.t-cma .code{background:rgba(30,90,58,.12);color:var(--accent2)}
+.t-por{border-left-color:#7f1d1d}.t-por .code{background:rgba(127,29,29,.1);color:var(--accent)}
+.t-cof{border-left-color:#1d4f7f}.t-cof .code{background:rgba(29,79,127,.1);color:#3b7bb8}
+.t-res{border-left-color:#6b4f7f}.t-res .code{background:rgba(107,79,127,.12);color:#8a63a8}
+.t-app{border-left-color:#b0781a}.t-app .code{background:rgba(199,138,27,.14);color:#b0781a}
+.t-ord{border-left-color:#0f766e}.t-ord .code{background:rgba(15,118,110,.1);color:#14a396}
+.t-x{border-left-color:var(--line)}.t-x .code{background:var(--code);color:var(--muted)}
+.t-cma .chip{color:#1e5a3a;border-color:rgba(30,90,58,.3);background:rgba(30,90,58,.08)}.t-cma .chip .dot{background:#1e5a3a}
+.t-por .chip{color:#7f1d1d;border-color:rgba(127,29,29,.3);background:rgba(127,29,29,.07)}.t-por .chip .dot{background:#7f1d1d}
+.t-cof .chip{color:#1d4f7f;border-color:rgba(29,79,127,.3);background:rgba(29,79,127,.07)}.t-cof .chip .dot{background:#1d4f7f}
+.t-res .chip{color:#6b4f7f;border-color:rgba(107,79,127,.3);background:rgba(107,79,127,.08)}.t-res .chip .dot{background:#6b4f7f}
+.t-app .chip{color:#b0781a;border-color:rgba(176,120,26,.35);background:rgba(199,138,27,.1)}.t-app .chip .dot{background:#b0781a}
+.t-ord .chip{color:#0f766e;border-color:rgba(15,118,110,.3);background:rgba(15,118,110,.07)}.t-ord .chip .dot{background:#0f766e}
+.t-x .chip{color:var(--muted);border-color:var(--line);background:var(--code)}.t-x .chip .dot{background:var(--muted)}
+@media(prefers-color-scheme:dark){
+.t-cma .chip{color:#7fc9a2}.t-por .chip{color:#e08585}.t-cof .chip{color:#7fb0e2}
+.t-res .chip{color:#c9a2e2}.t-app .chip{color:#e2c06a}.t-ord .chip{color:#6ad4c9}}
+/* item pages: compact meta bar + lead paragraph */
+.metabar{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;
+border:1px solid var(--line);border-radius:10px;background:var(--card);
+padding:8px 14px;margin:10px 0 16px;font-size:.9em}
+.lead{font-size:1.08em;line-height:1.7;margin:.4em 0 .2em}
+.lawquote{border-left:4px solid var(--accent2);margin:.6em 0 .4em;
+padding:8px 16px;background:var(--card);border-radius:0 10px 10px 0;
+font-style:italic;line-height:1.6}
+.typenote{color:var(--muted);font-size:.92em;margin:.1em 0 1em;
+font-style:italic}
+.oblig{border:1.5px solid rgba(30,90,58,.45);border-radius:12px;
+background:rgba(30,90,58,.06);padding:10px 16px;margin:12px 0;
+line-height:1.55}.oblig b{color:var(--accent2)}
+/* inline-block: the official-term parenthetical never splits mid-phrase */
+.ohow{font-weight:400;font-size:.85em;color:var(--muted);display:inline-block}
+.crumbdef{text-decoration:underline dotted var(--muted);
+text-underline-offset:3px;cursor:help}
+.kicker{margin:.3em 0 -.4em}
+abbr{text-decoration:underline dotted var(--muted);text-underline-offset:3px;
+cursor:help}
+.leadby{color:var(--muted);font-size:.95em;margin:0 0 1em}
+.docsec{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:14px 18px;margin:6px 0 18px}
+.docsec .dochd{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;
+margin-bottom:8px}
+.docsec .dochd b{font-size:.8em;text-transform:uppercase;letter-spacing:.07em;
+color:var(--muted)}
+.docsec .doctext{max-height:none}
+.docflow p{margin:.5em 0;line-height:1.6;white-space:pre-line}
+.docflow .docph{font-weight:700;margin:1.1em 0 .3em;font-size:1.02em}
+.sprow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.sprow .splbl{font-size:.78em;text-transform:uppercase;letter-spacing:.07em;
+color:var(--muted);margin-right:2px}
+.sponsor{display:inline-flex;align-items:center;gap:7px;border:1px solid
+var(--line);border-radius:999px;background:var(--card);padding:2px 12px
+2px 3px;font-size:.9em}
+.sponsor img,.sponsor .vinit{width:28px;height:28px;border-radius:50%;
+object-fit:cover;display:inline-flex;align-items:center;
+justify-content:center;background:var(--code);font-size:.7em;font-weight:700}
+.sponsor.noface{padding:2px 12px}
+/* consensus facepile: overlapping avatars, one calm row */
+.fpile{display:flex;flex-wrap:wrap;padding:0 0 0 8px;margin:6px 0;
+list-style:none}
+.fpile .voter{margin-left:-9px;display:block}
+.fpile .voter img,.fpile .voter .vinit{width:38px;height:38px;
+border-radius:50%;border:2.5px solid var(--card);object-fit:cover;
+display:inline-flex;align-items:center;justify-content:center;
+background:var(--code);font-size:.65em;font-weight:700}
+.fpile .voter .vn{position:absolute;width:1px;height:1px;overflow:hidden;
+clip:rect(0 0 0 0)}
+.voter.v-pres img,.voter.v-pres .vinit{box-shadow:0 0 0 3px #4a7ab5}
+h3[title]{cursor:help;text-decoration:underline dotted var(--muted);
+text-underline-offset:3px}
+.itemchip{display:inline-flex;align-items:center;gap:5px;border:1px solid;
+border-radius:999px;padding:0 9px 0 6px;font-size:.85em;font-weight:600;
+text-decoration:none;line-height:1.6;
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.itemchip .dot{width:7px;height:7px;border-radius:50%}
+.itemchip .num{font-weight:400;opacity:.75}
+.c-cma{color:var(--accent2);border-color:rgba(30,90,58,.3);background:rgba(30,90,58,.07)}.c-cma .dot{background:#1e5a3a}
+.c-por{color:var(--accent);border-color:rgba(127,29,29,.3);background:rgba(127,29,29,.06)}.c-por .dot{background:#7f1d1d}
+.c-cof{color:#3b7bb8;border-color:rgba(29,79,127,.3);background:rgba(29,79,127,.06)}.c-cof .dot{background:#1d4f7f}
+.c-res{color:#8a63a8;border-color:rgba(107,79,127,.3);background:rgba(107,79,127,.07)}.c-res .dot{background:#6b4f7f}
+.c-app{color:#b0781a;border-color:rgba(176,120,26,.35);background:rgba(199,138,27,.09)}.c-app .dot{background:#b0781a}
+.c-ord{color:#14a396;border-color:rgba(15,118,110,.3);background:rgba(15,118,110,.06)}.c-ord .dot{background:#0f766e}
+.c-x{color:var(--muted);border-color:var(--line);background:var(--code)}.c-x .dot{background:var(--muted)}
+/* item pages: outcome banner + roll call (Dan, 2026-07-13 — the answer
+   to "what happened?" comes first, with faces on the votes) */
+.obanner{display:flex;align-items:center;gap:10px;border-radius:12px;
+padding:10px 16px;margin:12px 0;font-weight:700;font-size:1.05em;
+border:1.5px solid var(--line);background:var(--card)}
+.obanner .oe{font-size:1.3em}
+.obanner.o-pass{border-color:rgba(30,90,58,.45);background:rgba(30,90,58,.07);color:var(--accent2)}
+.obanner.o-fail{border-color:rgba(127,29,29,.45);background:rgba(127,29,29,.06);color:var(--accent)}
+.obanner.o-hold{border-color:rgba(176,120,26,.5);background:rgba(199,138,27,.08);color:#b0781a}
+.obanner.o-refer{border-color:rgba(29,79,127,.4);background:rgba(29,79,127,.06);color:#3b7bb8}
+/* filed shares the oblig card's green family — the two chips read as a
+   pair (Dan, 2026-07-14: "I really like that pop of green") */
+.obanner.o-file{border-color:rgba(30,90,58,.45);
+background:rgba(30,90,58,.06);color:var(--accent2)}
+.obanner.o-gone{color:var(--muted)}
+.sponsors{color:var(--muted);font-size:.9em;margin:2px 0 14px}
+.voteblock{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:14px 16px;margin:0 0 18px}
+.voteblock h3{margin:.1em 0 .5em;font-size:.8em;text-transform:uppercase;
+letter-spacing:.07em;color:var(--muted)}
+.vgrid{display:flex;flex-wrap:wrap;gap:12px 14px;margin:0 0 10px;
+padding:0;list-style:none}
+.pn{display:flex;justify-content:space-between;gap:12px;margin:18px 0 6px;
+font-size:.9em}
+.voter{display:flex;flex-direction:column;align-items:center;width:82px;
+text-align:center;gap:4px}
+.voter img,.voter .vinit{width:54px;height:54px;border-radius:50%;
+object-fit:cover;border:3px solid var(--line);display:flex;
+align-items:center;justify-content:center;font-weight:700;
+background:var(--code);color:var(--muted);font-size:1em}
+.voter.v-yes img,.voter.v-yes .vinit{border-color:#2e8b57}
+.voter.v-no img,.voter.v-no .vinit{border-color:#b0304d}
+/* absent/did-not-vote: neutral gray ring only — never gray out a
+   person (dignity rule; portraits always full color) */
+.voter.v-abs img,.voter.v-abs .vinit{border-color:var(--line)}
+/* "present" = recorded strategic abstention (Rule 14) — distinct, not
+   grayed out like absence */
+.voter.v-pres img,.voter.v-pres .vinit{border-color:#c78a1b}
+.voter.v-pres .vn::after{content:" ⊘";color:#b0781a}
+.voter .vn{font-size:.68em;line-height:1.25;color:var(--fg)}
+/* student reps: initials-only by policy (minors — no name, no photo),
+   dashed ring in the vote color = recorded but non-binding */
+.voter.student .vinit{border-style:dashed}
+.voter.student .vn{color:var(--muted)}
+.vcredit{font-size:.66em;color:var(--muted)}
+/* ---- item-page template: fact pills + the three slots ---- */
+.factrow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.fact{border:1.5px solid var(--line);border-radius:999px;padding:4px 14px;
+background:var(--card);font-size:.95em;line-height:1.45}
+.fact.kind{border-color:rgba(30,90,58,.5);background:rgba(30,90,58,.07);
+color:var(--accent2);font-weight:700;text-transform:uppercase;
+font-size:.78em;letter-spacing:.07em;display:flex;align-items:center}
+.fact b{color:var(--accent2)}
+.slots{margin:22px 0 8px}
+.slot{margin:0 0 26px}
+.slotlab{display:block;font-size:.74em;font-weight:800;
+text-transform:uppercase;letter-spacing:.11em;color:var(--accent2);
+margin:0 0 4px 2px}
+.slotval{border:1.5px solid rgba(30,90,58,.5);border-left:5px solid
+var(--accent2);border-radius:6px 14px 14px 6px;
+background:linear-gradient(90deg,rgba(30,90,58,.12),rgba(30,90,58,.04));
+padding:13px 18px;line-height:1.6;font-size:1.04em;
+box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.slotval b{color:var(--accent2)}
+/* vote blocks inside the What-happened slot: flat, names under photos */
+.slotval .voteblock{background:transparent;border:none;padding:8px 0 0;margin:0}
+.slotval .fpile{display:flex;flex-wrap:wrap;justify-content:flex-start;
+padding:0;margin:6px 0;gap:6px 8px}
+.slotval .fpile .voter{flex:0 0 62px;max-width:62px;margin:0;
+text-align:center}
+.slotval .fpile .voter img,.slotval .fpile .voter .vinit{margin:0 auto}
+.slotval .fpile .voter .vn{position:static;width:auto;height:auto;
+overflow:visible;display:block;font-size:.62em;line-height:1.2;
+color:var(--muted);margin-top:3px;overflow-wrap:break-word}
+.slotval .vgrid{margin:8px 0 4px;gap:8px 14px}
+.slotval .vgrid .voter{width:86px;text-align:center}
+.slotval .vgrid .voter .vn{display:block;font-size:.62em;line-height:1.2;
+color:var(--muted);margin-top:3px;overflow-wrap:break-word}
+.slotval .voteblock h3{margin:.9em 0 .2em;font-size:.72em;
+text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.slotval .voter.v-abs img{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--line)}
+.slotval .dnv-note{font-size:.82em;margin:.4em 0 0;color:var(--muted)}
+/* ---- the document section: header line + ONE button row ---- */
+.dochd2{display:block;margin-bottom:8px}
+.dochd2>b{font-size:.8em;text-transform:uppercase;letter-spacing:.07em;
+color:var(--muted)}
+.dochd2 .dp{color:var(--muted);font-size:.85em}
+.docbtns{display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+margin-top:10px}
+/* memo genre: letterhead + To/From/Date/Re + bold-lead bullets */
+.memo{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:26px 32px;margin:14px 0;line-height:1.6}
+.lh{border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:16px}
+.lhbig{font-size:1.25em;font-weight:700}
+.lhsmall{color:var(--muted);font-size:.82em;margin-top:4px}
+.memohd{border-collapse:collapse;margin:0 0 14px;font-size:.98em;width:auto;
+display:table}
+.memohd td{padding:2px 0;vertical-align:top;border:none}
+.memohd .fk{color:var(--muted);width:64px;text-transform:uppercase;
+font-size:.78em;letter-spacing:.06em;padding-top:5px}
+.memohd .fv{padding-left:8px}
+.memo ul{margin:.4em 0;padding-left:1.3em}
+.memo li{margin:.35em 0}
+/* council-order genre: the centered order format */
+.ordercard{border:1px solid var(--line);border-radius:12px;
+background:var(--card);padding:26px 32px;margin:14px 0;line-height:1.7}
+.ordhead{text-align:center;margin-bottom:18px}
+.ordhead .oc1{font-weight:700;font-size:1.15em}
+.ordhead .oc2{letter-spacing:.12em;font-size:.85em;margin-top:8px}
+.ordhead2{text-align:center;margin-bottom:14px}
+hr.ordsep{border:none;border-top:1px solid var(--line);margin:14px 0}
+/* curated layers inside the What-happened card (editor-fed, verbatim) */
+.curlayer{margin:14px 0 0;padding:12px 0 0;
+border-top:1px solid rgba(30,90,58,.25)}
+.curlab{font-size:.72em;text-transform:uppercase;letter-spacing:.09em;
+color:var(--muted)}
+.curlayer ul{margin:.5em 0 .4em;padding-left:1.2em}
+.curlayer p{margin:.5em 0 .3em}
+.curattrib{font-size:.88em;display:block;margin-top:2px}
+/* about page: hero image + the trust list */
+.abouthero{margin:22px 0}
+/* the figure's and the h2's margins collapse — this rule, not the
+   figure margin, owns the caption→header gap */
+.abouthero+h2{margin-top:18px}
+.abouthero img{width:100%;max-height:420px;object-fit:cover;
+object-position:center 58%;border-radius:14px;border:1px solid var(--line);
+display:block}
+.abouthero figcaption{color:var(--muted);font-size:.78em;margin-top:6px;
+text-align:right}
+/* about page: the trust list */
+.trust{counter-reset:t;list-style:none;padding:0}
+.trust li{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:12px 16px 12px 54px;margin:10px 0;position:relative;line-height:1.6}
+.trust li::before{counter-increment:t;content:counter(t);position:absolute;
+left:14px;top:12px;width:26px;height:26px;border-radius:50%;
+background:rgba(30,90,58,.1);border:2px solid var(--accent2);
+color:var(--accent2);font-weight:800;font-size:.85em;display:flex;
+align-items:center;justify-content:center;font-family:var(--serif)}
+.trust b{color:var(--accent2)}
+/* auditor trust marks on item pages */
+.audrow{margin:2px 0 14px;font-size:.85em;color:var(--muted)}
+.audrow .v{color:var(--accent2);font-weight:700}
+.audrow .h{color:#b0781a;font-weight:700}
+/* auditors program page */
+.astep{display:flex;gap:14px;margin:16px 0;align-items:flex-start}
+.astep .n{flex:0 0 40px;height:40px;border-radius:50%;
+background:rgba(30,90,58,.1);border:2px solid var(--accent2);
+color:var(--accent2);font-weight:800;display:flex;align-items:center;
+justify-content:center;font-size:1.1em;font-family:var(--serif)}
+.astep .b{flex:1}.astep b{color:var(--accent2)}
+.astep .d{color:var(--muted);font-size:.92em;margin-top:2px}
+.lifecycle{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;
+margin:12px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.lifecycle>div{flex:1 1 150px;min-width:150px;padding:12px 14px;
+background:var(--card);border-right:1px solid var(--line)}
+.lifecycle>div:last-child{border-right:none}
+.lifecycle .lc-v{background:rgba(30,90,58,.1)}
+.lifecycle .lc-s{background:rgba(199,138,27,.1)}
+.lifecycle .ld{color:var(--muted);font-size:.8em;display:block;margin-top:3px}
+.covenant{border-left:4px solid var(--accent2);background:rgba(30,90,58,.06);
+border-radius:0 10px 10px 0;padding:10px 16px;margin:14px 0;line-height:1.6}
+/* amendment-markup + table-stop honesty cards */
+.marknote{border:1px dashed #c78a1b;border-left:4px solid #c78a1b;
+border-radius:8px;padding:6px 12px;margin:8px 0;font-size:.88em;
+color:var(--muted)}
+.stopcard{border:1px dashed var(--line);border-radius:10px;
+padding:10px 16px;margin:12px 0;color:var(--muted)}
+
+.docbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+border:1px solid var(--line);border-radius:10px;background:var(--card);
+padding:8px 14px;margin:10px 0 18px;font-size:.9em}
+.docbar .sep{color:var(--line)}
+.docpage{border:1px solid var(--line);border-radius:12px;background:var(--card);
+padding:16px 20px;margin:14px 0}
+.doctext{white-space:pre-wrap;overflow-wrap:break-word;font-size:.95em;line-height:1.55}
+.pgnum{font-size:.72em;text-transform:uppercase;letter-spacing:.08em;
+color:var(--muted);margin-bottom:8px}.pgnum a{color:var(--muted);text-decoration:none}
+.scannote{border:1px dashed #c78a1b;border-left:4px solid #c78a1b;border-radius:10px;
+padding:12px 16px;background:var(--card)}

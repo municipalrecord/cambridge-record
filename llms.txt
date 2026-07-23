@@ -1,0 +1,17 @@
+# The Cambridge Record
+
+> The public record of Cambridge, Massachusetts city government, readable: every council meeting, agenda item, board, and official document, assembled from the city's own portals. Unofficial, free, primary-sources-only. Cite pages by URL; document reader pages have per-page anchors (#p3) for precise citation. Original city PDFs are linked from every document page and are authoritative.
+
+- [Search](https://cambridgerecord.org/search.html): full-text search over every official document and page
+- [City Council](https://cambridgerecord.org/council/index.html): members, every meeting since 2018, and its committees
+- [Agenda items](https://cambridgerecord.org/items/index.html): policy orders, ordinances, appointments — one page each
+- [School Committee](https://cambridgerecord.org/boards/school-committee/index.html): members, meetings, and tracked items
+- [Other boards & commissions](https://cambridgerecord.org/boards/index.html): 14 city bodies: minutes, membership, terms; council committees under council/
+- [Requests & answers](https://cambridgerecord.org/pipeline.html): policy order → awaiting report → answer, tracked
+- [Missing minutes](https://cambridgerecord.org/missing-minutes.html): meetings whose minutes were never published
+- [The Rulebook](https://cambridgerecord.org/rulebook.html): the Charter, Code, and Council Rules — governing provisions quoted verbatim
+- [Whole-record RSS](https://cambridgerecord.org/feed.xml): newest documents and items; per-issue feeds under /feeds/
+
+## Policies
+- Resident communications are not published in full text, by policy; official documents are. Corrections are public.
+- Part of Municipal Record (https://municipalrecord.org).

@@ -1,0 +1,128 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About this project — The Cambridge Record</title><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="About this project">
+<meta property="og:description" content="An experiment in vibe-coding: the public record of Cambridge, readable — and the systems this site uses to earn your trust.">
+<meta property="og:site_name" content="The Cambridge Record">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cambridgerecord.org/about.html">
+<meta name="description" content="An experiment in vibe-coding: the public record of Cambridge, readable — and the systems this site uses to earn your trust.">
+<link rel="alternate" type="application/rss+xml" title="The Cambridge Record — whole record" href="feed.xml">
+<link rel="stylesheet" href="style.css?v=ff3136f5"><style>main{padding-bottom:24px}</style></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="h2"><a class="site2" href="index.html"><span class="t">The</span>Cambridge Record</a>
+<nav aria-label="Site"><a href="council/index.html">City&nbsp;Council</a><a href="items/index.html">Agenda&nbsp;Items</a>
+<a href="boards/school-committee/index.html">School&nbsp;Committee</a>
+<a href="boards/index.html">Boards</a>
+<a href="search.html">Search</a><a href="about.html">About</a></nav></header>
+<main id="main" data-pagefind-body>
+<h1>Welcome to the Cambridge Record</h1>
+<p class='lead'>This site is an experiment in vibe-coding an accessible
+portal to the civic record.</p>
+<figure class='abouthero'>
+<img src='about-assets/cityhall-entrance-habs.jpg'
+ alt='The entrance hall of Cambridge City Hall: through open doors, a grand
+ staircase rises toward tall, light-filled windows.'>
+<figcaption>City Hall's entrance hall · George M. Cushing, Historic
+American Buildings Survey · Library of Congress · public domain</figcaption>
+</figure>
+<h2>Why this exists</h2>
+<p>The city's existing portal is difficult to use, and the council's records
+are scattered across four systems. Cambridge kept paper records of council
+business until 2003, when it moved online for the first time. The city's
+original records database, where policy orders and committee reports from
+2003 onward lived, is no longer online at all: the links remain, but the
+server is gone. The Open Meeting Portal carried meetings from 2006 and
+became the city's main system around 2016; many people had gotten used to
+it, but it was never easy to work with. In January 2026 the city switched
+systems again, so everything from this January forward lives in a brand new
+database on top of everything else.</p>
+<p>Legislation develops over time. When the record is fragmented like this,
+the storyline gets lost. We are recovering the missing years from the city's
+archive portal and the Internet Archive, so the record can be read in one
+place again. We are preparing for a world in which the City of Cambridge
+has digitized their remarkable record, and we may be able to create one
+searchable database going back as far as 1630, but certainly at least as
+far back as the advent of Plan E Government in 1941.</p>
+<p>The aim here is an interface for viewing the record that is <b>useful,
+ethical, complete, and accessible to everyone</b>.</p>
+<ul>
+<li><b>Useful</b> means you can easily find what you're looking for and
+understand what you found.</li>
+<li><b>Ethical</b> means that we won't reveal the personal information of
+those who give public comment or write on the record, even if that record
+is already available elsewhere. We hope to develop ways to display data
+about public comment and emails in aggregate.</li>
+<li><b>Complete</b> means harmonizing the record by bringing together the
+various databases that currently house it.</li>
+<li><b>Accessible</b> means the site works for everyone: built for screen
+readers and keyboard navigation, written in plain language, and free — no
+paywall, ever.</li>
+</ul>
+<h2>Earning your trust</h2>
+<p>Because this site was built with generative AI, there will be mistakes.
+Humans make mistakes too: in building this site, the AI has already caught
+clerical errors in the city's own record, like roll-call tallies that
+don't match the names recorded. We are building systems for catching
+mistakes in both directions and verifying what's published here, so the
+site can earn your trust. The most important ones:</p>
+<ol class='trust'>
+<li><b>Every page links to the source.</b> The city's own document is
+always one click away, and it is always the authority. This website is not
+ready to be cited as a source — always cite the original record.</li>
+<li><b>A public log of reported errors.</b> We fix small things
+constantly, but when someone reports an error, the report and what we did
+about it stay <a href='https://github.com/municipalrecord/cambridge-record/issues?q=label%3Aerror'>visible</a>.</li>
+<li><b>Human verification of individual pages.</b> We are training
+volunteer auditors to compare pages against the city's record — two
+independent audits before a page is marked verified, with the auditors'
+screen names and dates on the page. <a href='auditors.html'>The program
+is starting now</a>.</li>
+<li><b>Redaction of personal information.</b> Contact details are removed
+from documents before they render, and letters from residents stay
+unpublished entirely until our ethics code is finished. Public record
+doesn't automatically mean ethical to database.</li>
+<li><b>Verify it yourself.</b> Every archived PDF carries a SHA-256
+fingerprint, so anyone can verify our copy against the city's — or prove
+the original changed. The AI audits a random sample of its own pages
+against the city's portal with a published seed, so anyone can re-run the
+audit: results, failures, and the audit script itself are at
+<a href='accuracy.html'>the accuracy page</a>. The build refuses to
+publish any roll call whose tally doesn't match the recorded names. And
+everything served here lives, complete, in
+<a href='https://github.com/municipalrecord/cambridge-record'>a public repository</a> — a mirror of the current build,
+not an archive of past versions; each deploy replaces the last.</li>
+</ol>
+<p>If you find a mistake, telling us is the most useful thing you can do:
+<a href='https://github.com/municipalrecord/cambridge-record/issues/new?labels=error&title=Error%20report'>report an
+error</a> (or email <a href='mailto:corrections@municipalrecord.org'>corrections@municipalrecord.org</a>).</p>
+<h2>Who's behind this</h2>
+<p>One Cambridge resident. Want to chat? Send an email:
+<a href='mailto:corrections@municipalrecord.org'>corrections@municipalrecord.org</a>.</p>
+<p>The site is <b>not affiliated with the City of Cambridge</b>. The
+project is unfunded: a personal experiment, run at personal cost.</p>
+<h2>Make this better</h2>
+<div class="featcard" id="suggest">
+  <span class="k">💬 How could this site have been more useful to you?</span>
+  <textarea id="sg" rows="3" placeholder="I came here trying to find…"
+   style="width:100%;border:1px solid var(--line);border-radius:8px;background:var(--bg);
+   color:var(--fg);padding:10px 12px;font:inherit;margin:6px 0"></textarea>
+  <p style="margin:.3em 0"><a href="#" id="sg-mail" class="pdf">📧 Send privately</a>
+  <a href="#" id="sg-gh" class="pdf">🌐 Post publicly on the tracker</a><br>
+  <span class="dim">Spotted a factual error? Every page has a “report an error”
+  link in its footer — corrections are public.</span></p>
+</div>
+<script>
+(function(){const s=document.getElementById('sg');
+document.getElementById('sg-mail').onclick=function(e){e.preventDefault();
+location.href='mailto:corrections@municipalrecord.org?subject='+encodeURIComponent('Suggestion')+
+'&body='+encodeURIComponent(s.value||'');};
+document.getElementById('sg-gh').onclick=function(e){e.preventDefault();
+window.open('https://github.com/municipalrecord/cambridge-record/issues/new?title='+encodeURIComponent('Suggestion')+
+'&labels=suggestion&body='+encodeURIComponent(s.value||''),'_blank');};})();
+</script></main>
+<footer>
+<div class="frow">Assembled from the public record: City Clerk, IQM2 &amp; PrimeGov portals</div>
+<div class="frow">Unofficial, not affiliated with the City of Cambridge</div>
+<div class="frow"><a href="about.html">About this project</a> · <a href="accuracy.html">Accuracy audit</a> · <a href="https://github.com/municipalrecord/cambridge-record/issues/new?title=Error%20on%20/about.html&labels=error&body=Page%3A%20/about.html%0A%0AWhat%27s%20wrong%20%28what%20does%20the%20page%20say%2C%20and%20what%20does%20the%20official%20record%20say%3F%29%3A%0A%0A">Report an error on this page</a> (<a href="mailto:corrections@municipalrecord.org?subject=Error%20on%20/about.html&body=Page%3A%20/about.html%0A%0A%0A">or email us</a>) · part of <a href="https://municipalrecord.org">Municipal Record</a></div>
+</footer></body></html>
