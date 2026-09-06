@@ -1,0 +1,181 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Docket, 1942–2015 · The Cambridge Record</title><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-src 'self' https://cambridgema.iqm2.com https://cambridgema.primegov.com; connect-src 'self' https://cloudflareinsights.com https://plausible.io https://audit-intake.municipalrecord.workers.dev; base-uri 'self'"><meta name="referrer" content="strict-origin-when-cross-origin"><script defer data-domain="cambridgerecord.org" src="https://plausible.io/js/script.js"></script>
+<meta property="og:title" content="The Docket, 1942–2015">
+<meta property="og:description" content="Every Cambridge City Council action 1942–2015, from the City Clerk&#x27;s annual indexes and Final Actions documents, including what the city never scanned.">
+<meta property="og:site_name" content="The Cambridge Record">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cambridgerecord.org/docket/index.html">
+<meta property="og:image" content="https://cambridgerecord.org/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Cambridge Record: the City Council and every board, readable. Built from the public record.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Every Cambridge City Council action 1942–2015, from the City Clerk&#x27;s annual indexes and Final Actions documents, including what the city never scanned.">
+<link rel="alternate" type="application/rss+xml" title="The Cambridge Record: the whole record" href="../feed.xml">
+<link rel="stylesheet" href="../style.css?v=94a98c88"><style>
+.dk-lede{max-width:66ch}
+.dk-mast{border-bottom:3px double var(--accent);margin:6px 0 2px}
+.dk-mast h1{font-size:clamp(2.2rem,6vw,3.2rem);margin:0 0 6px}
+.dk-sec{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;
+ border-bottom:1px solid var(--accent);padding:22px 0 6px;margin-bottom:6px}
+.dk-sec h2{margin:0;font-size:1.15em}
+.dk-chip{font-family:ui-monospace,Menlo,monospace;font-size:.68em;
+ background:var(--code);color:var(--muted);padding:2px 8px;border-radius:2px;
+ white-space:nowrap}
+ol.docket{list-style:none;margin:0 0 8px;padding:0}
+ol.docket li{display:grid;grid-template-columns:3.4rem 1fr 3.6rem;gap:12px;
+ padding:5px 0;border-bottom:1px solid var(--line);font-size:.86em}
+/* the live site's type chips, at ledger density: same colors, same dot,
+   sized to sit inside a row among 1,400 others */
+ol.docket .chip{display:inline-flex;align-items:center;gap:4px;
+ border:1px solid;border-radius:999px;padding:0 6px 0 5px;font-size:.68rem;
+ font-weight:600;line-height:1.5;vertical-align:1px;
+ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+ol.docket .chip .dot{width:6px;height:6px;border-radius:50%;flex:none}
+.dk-sec .chip{display:inline-flex;align-items:center;gap:5px;
+ border:1px solid;border-radius:999px;padding:0 8px 0 6px;font-size:.66em;
+ font-weight:600;line-height:1.7;
+ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.dk-sec .chip .dot{width:7px;height:7px;border-radius:50%;flex:none}
+.dk-no{font-family:ui-monospace,Menlo,monospace;font-size:.82em;
+ color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;
+ padding-top:2px}
+.dk-dt{font-family:ui-monospace,Menlo,monospace;font-size:.78em;
+ color:var(--muted);text-align:right;white-space:nowrap;padding-top:3px;
+ font-variant-numeric:tabular-nums}
+.dk-dt.dim{opacity:.35}
+.dk-out{margin-left:8px;font-size:.74em;color:var(--muted);
+ border:1px solid var(--line);border-radius:9px;padding:0 6px;white-space:nowrap}
+.dk-sp{margin-left:8px;font-size:.82em;color:var(--muted);white-space:nowrap}
+.dk-sp::before{content:'§ ';opacity:.55}
+.dk-more{margin-left:3px;font-size:.85em;opacity:.7}
+.dk-vt{margin-left:7px;font-size:.78em;color:var(--accent2);
+border:1px solid var(--line);border-radius:9px;padding:0 6px;white-space:nowrap}
+.dk-vt::after{content:' aye';opacity:.6;font-size:.9em}
+.dk-vt.roll{color:var(--fg);border-color:var(--accent2)}
+.dk-vt.roll::after{content:' roll call';opacity:.55;font-size:.9em}
+.dk-vt.roll.lost{color:var(--accent);border-color:var(--accent)}
+.dk-vt.roll.lost::after{content:' defeated';opacity:.75;font-size:.9em}
+.unc{color:var(--accent);font-size:.8em}
+a.scan{font-family:ui-monospace,Menlo,monospace;font-size:.7em;
+ text-decoration:none;border:1px solid currentColor;border-radius:2px;
+ padding:0 5px;margin-left:6px;white-space:nowrap}
+.noscan{font-family:ui-monospace,Menlo,monospace;font-size:.7em;
+ color:var(--accent);border:1px dashed var(--accent);border-radius:2px;
+ padding:0 5px;margin-left:6px;white-space:nowrap;opacity:.8;cursor:help}
+li.hole{background:var(--dk-hole)}
+li.hole .dk-tx{color:var(--accent);font-style:italic;font-size:.92em}
+/* arrived from search: say which row was meant */
+ol.docket li:target{background:var(--code);
+ box-shadow:inset 3px 0 0 var(--accent2);scroll-margin-top:70px}
+:root{--dk-hole:#fbf1ef}
+@media(prefers-color-scheme:dark){:root{--dk-hole:#2b1f1e}}
+.dk-note{font-size:.85em;color:var(--muted);max-width:66ch;margin:14px 0}
+.dk-years{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+ gap:10px;padding:0;list-style:none}
+.dk-years li{border:1px solid var(--line);border-radius:10px;padding:10px 14px;
+ background:var(--card)}
+.dk-years a{font-weight:700;font-size:1.2em;text-decoration:none;
+ font-family:var(--serif)}
+.dk-years .k{display:block;color:var(--muted);font-size:.78em;margin-top:3px}
+.statrow{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+.statrow .st{border:1px solid var(--line);border-radius:10px;padding:10px 16px;
+ background:var(--card);text-align:center;flex:1;min-width:120px}
+.statrow .st .n{font-family:var(--serif);font-size:1.6em;font-weight:700;display:block}
+.statrow .st .k{color:var(--muted);font-size:.8em}
+.dk-banner{border:1px solid var(--line);border-left:4px solid #b45309;
+ border-radius:8px;padding:10px 14px;margin:14px 0;font-size:.9em;
+ background:var(--card)}
+/* the structure chart: a fixed label rail beside a percentage-positioned
+   plot, so a bar's left/width is just its years over the whole span */
+.strwrap{overflow-x:auto;margin:22px 0 6px;
+ scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.strwrap::-webkit-scrollbar{height:6px}
+.strwrap::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.strtable{display:flex;min-width:720px}
+.strlabels{flex:0 0 208px}
+.strplot{flex:1;position:relative}
+.strlab,.strrow{height:26px;display:flex;align-items:center}
+.strlab{font-size:.78em;justify-content:flex-end;padding-right:12px;
+ text-align:right;line-height:1.2;color:var(--fg)}
+.strlab .n{color:var(--muted);font-size:.85em;margin-left:6px;
+ font-variant-numeric:tabular-nums}
+.strhead{height:30px;font-size:.7em;color:var(--muted);position:relative}
+.strhead span{position:absolute;transform:translateX(-50%);
+ font-family:ui-monospace,Menlo,monospace}
+/* the closing tick sits on the plot's right edge — centre it and half
+   the label hangs outside the scroll box */
+.strhead span.end{transform:translateX(-100%)}
+.strrow{position:relative}
+.strbar{position:absolute;height:11px;border-radius:2px;
+ background:var(--accent2);opacity:.85}
+.strdot{position:absolute;width:7px;height:7px;border-radius:50%;
+ background:var(--muted);margin-left:-3px}
+/* the band marks a year, not the year labels above it */
+.strband{position:absolute;top:30px;bottom:0;background:var(--dk-hole);
+ border-left:1px dashed var(--accent);border-right:1px dashed var(--accent)}
+.strchart{position:relative}
+.streras{display:flex;font-size:.7em;color:var(--muted);margin-top:2px;
+ text-transform:uppercase;letter-spacing:.08em}
+.streras div{border-top:2px solid var(--line);padding-top:4px;
+ padding-right:8px}
+.strkey{display:flex;flex-wrap:wrap;gap:14px;font-size:.78em;
+ color:var(--muted);margin:10px 0 0}
+.strkey i{display:inline-block;width:22px;height:8px;border-radius:2px;
+ background:var(--accent2);opacity:.85;margin-right:6px;vertical-align:1px}
+.strkey i.dot{width:7px;height:7px;border-radius:50%;
+ background:var(--muted);opacity:1}
+.strkey i.band{background:var(--dk-hole);border:1px dashed var(--accent)}
+</style></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="h2"><a class="site2" href="../index.html"><span class="t">The</span>Cambridge Record</a>
+<nav aria-label="Site"><a href="../council/index.html">City&nbsp;Council</a><a href="../items/index.html">Agenda&nbsp;Items</a>
+<a href="../boards/school-committee/index.html">School&nbsp;Committee</a>
+<a href="../boards/index.html">Boards</a>
+<a href="../search.html">Search</a><a href="../about.html">About</a></nav></header>
+<main id="main" data-pagefind-body>
+<h1>The Docket, 1942–2015</h1>
+<div class='dk-lede'>
+<p class='lead'>Every action the City Council took from 1942 to 2015.
+131,752 entries; 71,974 link to the city's scan of the document.
+Through 2003 this is the City Clerk's annual index volumes, which list
+actions the city never scanned, so the record here is wider than the
+scanned collection. From 2004 it is the Final Actions document the clerk
+publishes after every meeting.</p>
+<p>The clerk's sections and numbering are kept as written. Which sections
+exist changes over the period:
+<a href='structure.html'>see the sections by year</a>. The committee
+sections give way after 2003 to the item codes the clerk still numbers by
+today, which is why the later pages read differently. The charter does
+not change: Plan E was adopted by referendum in 1940, the first council and
+city manager took office in January 1942, and it was not amended until
+2021, then amended by substitution in 2025.</p>
+</div>
+<div class='statrow'>
+<span class='st'><span class='n'>131,752</span><span class='k'>council actions</span></span>
+<span class='st'><span class='n'>71,974</span><span class='k'>linked to city scans</span></span>
+<span class='st'><span class='n'>74</span><span class='k'>years</span></span>
+<span class='st'><span class='n'>27</span><span class='k'>clerk's sections</span></span>
+</div>
+<div class='dk-banner'><b>Gaps.</b> A number missing from a section's
+sequence shows as a hole. A missing run longer than 50 is the clerk
+renumbering rather than a lost document, and shows as one ⤳ row. The 1970
+and 1977 volumes are incomplete in the city's scans. And from 1969 to
+2003, a row marked <span class='noscan'>not scanned</span> is a paper the
+city's digitization skipped: the index entry survives, the document
+itself is only on paper at City Hall.</div>
+<ul class='dk-years'><li><a href='1942.html'>1942</a><span class='k'>1,123 actions · 22 scanned</span></li><li><a href='1943.html'>1943</a><span class='k'>1,025 actions · 32 scanned</span></li><li><a href='1944.html'>1944</a><span class='k'>977 actions · 32 scanned</span></li><li><a href='1945.html'>1945</a><span class='k'>1,112 actions · 42 scanned</span></li><li><a href='1946.html'>1946</a><span class='k'>1,347 actions · 38 scanned</span></li><li><a href='1947.html'>1947</a><span class='k'>1,391 actions · 20 scanned</span></li><li><a href='1948.html'>1948</a><span class='k'>1,168 actions · 75 scanned</span></li><li><a href='1949.html'>1949</a><span class='k'>1,317 actions · 10 scanned</span></li><li><a href='1950.html'>1950</a><span class='k'>1,332 actions · 30 scanned</span></li><li><a href='1951.html'>1951</a><span class='k'>1,400 actions · 57 scanned</span></li><li><a href='1952.html'>1952</a><span class='k'>1,376 actions · 1 scanned</span></li><li><a href='1953.html'>1953</a><span class='k'>1,462 actions · 54 scanned</span></li><li><a href='1954.html'>1954</a><span class='k'>1,139 actions · 29 scanned</span></li><li><a href='1955.html'>1955</a><span class='k'>1,224 actions · 46 scanned</span></li><li><a href='1956.html'>1956</a><span class='k'>1,077 actions · 25 scanned</span></li><li><a href='1957.html'>1957</a><span class='k'>1,152 actions · 44 scanned</span></li><li><a href='1958.html'>1958</a><span class='k'>1,146 actions · 32 scanned</span></li><li><a href='1959.html'>1959</a><span class='k'>1,030 actions · 27 scanned</span></li><li><a href='1960.html'>1960</a><span class='k'>940 actions · 13 scanned</span></li><li><a href='1961.html'>1961</a><span class='k'>1,038 actions · 31 scanned</span></li><li><a href='1962.html'>1962</a><span class='k'>1,101 actions · 20 scanned</span></li><li><a href='1963.html'>1963</a><span class='k'>1,256 actions · 27 scanned</span></li><li><a href='1964.html'>1964</a><span class='k'>1,239 actions · 22 scanned</span></li><li><a href='1965.html'>1965</a><span class='k'>1,416 actions · 11 scanned</span></li><li><a href='1966.html'>1966</a><span class='k'>1,423 actions · 18 scanned</span></li><li><a href='1967.html'>1967</a><span class='k'>1,424 actions · 14 scanned</span></li><li><a href='1968.html'>1968</a><span class='k'>1,404 actions · 0 scanned</span></li><li><a href='1969.html'>1969</a><span class='k'>1,326 actions · 277 scanned</span></li><li><a href='1970.html'>1970</a><span class='k'>292 actions · 292 scanned</span></li><li><a href='1971.html'>1971</a><span class='k'>1,365 actions · 322 scanned</span></li><li><a href='1972.html'>1972</a><span class='k'>1,316 actions · 1,008 scanned</span></li><li><a href='1973.html'>1973</a><span class='k'>1,521 actions · 1,070 scanned</span></li><li><a href='1974.html'>1974</a><span class='k'>1,543 actions · 1,507 scanned</span></li><li><a href='1975.html'>1975</a><span class='k'>1,513 actions · 1,510 scanned</span></li><li><a href='1976.html'>1976</a><span class='k'>1,378 actions · 1,333 scanned</span></li><li><a href='1977.html'>1977</a><span class='k'>659 actions · 641 scanned</span></li><li><a href='1978.html'>1978</a><span class='k'>1,412 actions · 1,394 scanned</span></li><li><a href='1979.html'>1979</a><span class='k'>1,600 actions · 1,587 scanned</span></li><li><a href='1980.html'>1980</a><span class='k'>1,426 actions · 1,425 scanned</span></li><li><a href='1981.html'>1981</a><span class='k'>1,476 actions · 1,476 scanned</span></li><li><a href='1982.html'>1982</a><span class='k'>1,365 actions · 1,365 scanned</span></li><li><a href='1983.html'>1983</a><span class='k'>1,453 actions · 1,439 scanned</span></li><li><a href='1984.html'>1984</a><span class='k'>1,599 actions · 1,598 scanned</span></li><li><a href='1985.html'>1985</a><span class='k'>1,655 actions · 1,653 scanned</span></li><li><a href='1986.html'>1986</a><span class='k'>1,489 actions · 1,471 scanned</span></li><li><a href='1987.html'>1987</a><span class='k'>1,776 actions · 1,774 scanned</span></li><li><a href='1988.html'>1988</a><span class='k'>1,731 actions · 1,451 scanned</span></li><li><a href='1989.html'>1989</a><span class='k'>1,847 actions · 1,806 scanned</span></li><li><a href='1990.html'>1990</a><span class='k'>2,259 actions · 2,254 scanned</span></li><li><a href='1991.html'>1991</a><span class='k'>2,292 actions · 2,283 scanned</span></li><li><a href='1992.html'>1992</a><span class='k'>2,047 actions · 1,793 scanned</span></li><li><a href='1993.html'>1993</a><span class='k'>2,045 actions · 1,804 scanned</span></li><li><a href='1994.html'>1994</a><span class='k'>2,347 actions · 2,337 scanned</span></li><li><a href='1995.html'>1995</a><span class='k'>2,451 actions · 2,435 scanned</span></li><li><a href='1996.html'>1996</a><span class='k'>2,878 actions · 2,600 scanned</span></li><li><a href='1997.html'>1997</a><span class='k'>3,805 actions · 3,776 scanned</span></li><li><a href='1998.html'>1998</a><span class='k'>3,320 actions · 3,311 scanned</span></li><li><a href='1999.html'>1999</a><span class='k'>2,867 actions · 2,601 scanned</span></li><li><a href='2000.html'>2000</a><span class='k'>2,767 actions · 2,739 scanned</span></li><li><a href='2001.html'>2001</a><span class='k'>2,826 actions · 2,783 scanned</span></li><li><a href='2002.html'>2002</a><span class='k'>2,470 actions · 2,456 scanned</span></li><li><a href='2003.html'>2003</a><span class='k'>2,421 actions · 2,398 scanned</span></li><li><a href='2004.html'>2004</a><span class='k'>2,850 actions · 1,585 scanned</span></li><li><a href='2005.html'>2005</a><span class='k'>3,903 actions · 2,354 scanned</span></li><li><a href='2006.html'>2006</a><span class='k'>3,799 actions · 2,256 scanned</span></li><li><a href='2007.html'>2007</a><span class='k'>3,526 actions · 2,091 scanned</span></li><li><a href='2008.html'>2008</a><span class='k'>2,086 actions · 947 scanned</span></li><li><a href='2009.html'>2009</a><span class='k'>2,024 actions · 0 scanned</span></li><li><a href='2010.html'>2010</a><span class='k'>2,121 actions · 0 scanned</span></li><li><a href='2011.html'>2011</a><span class='k'>2,327 actions · 0 scanned</span></li><li><a href='2012.html'>2012</a><span class='k'>2,146 actions · 0 scanned</span></li><li><a href='2013.html'>2013</a><span class='k'>2,275 actions · 0 scanned</span></li><li><a href='2014.html'>2014</a><span class='k'>2,343 actions · 0 scanned</span></li><li><a href='2015.html'>2015</a><span class='k'>2,776 actions · 0 scanned</span></li></ul>
+<p class='dk-note'>To 2003, transcribed from the City Clerk's index volumes
+at the city's legislative archive; <span class='unc'>[?]</span> marks an
+uncertain reading of the handwriting. From 2004, read from the clerk's
+Final Actions documents; the city stopped scanning the documents
+themselves, so those years carry no <b>scan</b> link except Resolutions,
+which the city kept scanning to 2008. After 2015 the record continues in
+<a href='../archive/index.html'>the recovered record</a> and the
+portal-era pages.</p></main>
+<footer>
+<div class="frow">Assembled from the public record: City Clerk, IQM2 &amp; PrimeGov portals</div>
+<div class="frow">Unofficial, not affiliated with the City of Cambridge</div>
+<div class="frow"><a href="../about.html">About this project</a> · <a href="../accuracy.html">Accuracy audit</a> · <a href="../corrections.html">Corrections</a> · <a href="https://github.com/municipalrecord/cambridge-record/issues/new?title=Error%20on%20/docket/index.html&labels=error&body=Page%3A%20/docket/index.html%0A%0AWhat%27s%20wrong%20%28what%20does%20the%20page%20say%2C%20and%20what%20does%20the%20official%20record%20say%3F%29%3A%0A%0A">Report an error on this page</a> (<a href="mailto:corrections@municipalrecord.org?subject=Error%20on%20/docket/index.html&body=Page%3A%20/docket/index.html%0A%0A%0A">or email us</a>) · part of <a href="https://municipalrecord.org">Municipal Record</a></div>
+</footer></body></html>

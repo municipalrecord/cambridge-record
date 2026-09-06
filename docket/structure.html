@@ -1,0 +1,184 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How the record changed shape · The Cambridge Record</title><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-src 'self' https://cambridgema.iqm2.com https://cambridgema.primegov.com; connect-src 'self' https://cloudflareinsights.com https://plausible.io https://audit-intake.municipalrecord.workers.dev; base-uri 'self'"><meta name="referrer" content="strict-origin-when-cross-origin"><script defer data-domain="cambridgerecord.org" src="https://plausible.io/js/script.js"></script>
+<meta property="og:title" content="How the record changed shape">
+<meta property="og:description" content="The City Clerk&#x27;s own sections, 1942–2003: what changed in Cambridge&#x27;s council record, and the charter that didn&#x27;t.">
+<meta property="og:site_name" content="The Cambridge Record">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cambridgerecord.org/docket/structure.html">
+<meta property="og:image" content="https://cambridgerecord.org/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Cambridge Record: the City Council and every board, readable. Built from the public record.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="The City Clerk&#x27;s own sections, 1942–2003: what changed in Cambridge&#x27;s council record, and the charter that didn&#x27;t.">
+<link rel="alternate" type="application/rss+xml" title="The Cambridge Record: the whole record" href="../feed.xml">
+<link rel="stylesheet" href="../style.css?v=94a98c88"><style>
+.dk-lede{max-width:66ch}
+.dk-mast{border-bottom:3px double var(--accent);margin:6px 0 2px}
+.dk-mast h1{font-size:clamp(2.2rem,6vw,3.2rem);margin:0 0 6px}
+.dk-sec{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;
+ border-bottom:1px solid var(--accent);padding:22px 0 6px;margin-bottom:6px}
+.dk-sec h2{margin:0;font-size:1.15em}
+.dk-chip{font-family:ui-monospace,Menlo,monospace;font-size:.68em;
+ background:var(--code);color:var(--muted);padding:2px 8px;border-radius:2px;
+ white-space:nowrap}
+ol.docket{list-style:none;margin:0 0 8px;padding:0}
+ol.docket li{display:grid;grid-template-columns:3.4rem 1fr 3.6rem;gap:12px;
+ padding:5px 0;border-bottom:1px solid var(--line);font-size:.86em}
+/* the live site's type chips, at ledger density: same colors, same dot,
+   sized to sit inside a row among 1,400 others */
+ol.docket .chip{display:inline-flex;align-items:center;gap:4px;
+ border:1px solid;border-radius:999px;padding:0 6px 0 5px;font-size:.68rem;
+ font-weight:600;line-height:1.5;vertical-align:1px;
+ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+ol.docket .chip .dot{width:6px;height:6px;border-radius:50%;flex:none}
+.dk-sec .chip{display:inline-flex;align-items:center;gap:5px;
+ border:1px solid;border-radius:999px;padding:0 8px 0 6px;font-size:.66em;
+ font-weight:600;line-height:1.7;
+ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.dk-sec .chip .dot{width:7px;height:7px;border-radius:50%;flex:none}
+.dk-no{font-family:ui-monospace,Menlo,monospace;font-size:.82em;
+ color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;
+ padding-top:2px}
+.dk-dt{font-family:ui-monospace,Menlo,monospace;font-size:.78em;
+ color:var(--muted);text-align:right;white-space:nowrap;padding-top:3px;
+ font-variant-numeric:tabular-nums}
+.dk-dt.dim{opacity:.35}
+.dk-out{margin-left:8px;font-size:.74em;color:var(--muted);
+ border:1px solid var(--line);border-radius:9px;padding:0 6px;white-space:nowrap}
+.dk-sp{margin-left:8px;font-size:.82em;color:var(--muted);white-space:nowrap}
+.dk-sp::before{content:'§ ';opacity:.55}
+.dk-more{margin-left:3px;font-size:.85em;opacity:.7}
+.dk-vt{margin-left:7px;font-size:.78em;color:var(--accent2);
+border:1px solid var(--line);border-radius:9px;padding:0 6px;white-space:nowrap}
+.dk-vt::after{content:' aye';opacity:.6;font-size:.9em}
+.dk-vt.roll{color:var(--fg);border-color:var(--accent2)}
+.dk-vt.roll::after{content:' roll call';opacity:.55;font-size:.9em}
+.dk-vt.roll.lost{color:var(--accent);border-color:var(--accent)}
+.dk-vt.roll.lost::after{content:' defeated';opacity:.75;font-size:.9em}
+.unc{color:var(--accent);font-size:.8em}
+a.scan{font-family:ui-monospace,Menlo,monospace;font-size:.7em;
+ text-decoration:none;border:1px solid currentColor;border-radius:2px;
+ padding:0 5px;margin-left:6px;white-space:nowrap}
+.noscan{font-family:ui-monospace,Menlo,monospace;font-size:.7em;
+ color:var(--accent);border:1px dashed var(--accent);border-radius:2px;
+ padding:0 5px;margin-left:6px;white-space:nowrap;opacity:.8;cursor:help}
+li.hole{background:var(--dk-hole)}
+li.hole .dk-tx{color:var(--accent);font-style:italic;font-size:.92em}
+/* arrived from search: say which row was meant */
+ol.docket li:target{background:var(--code);
+ box-shadow:inset 3px 0 0 var(--accent2);scroll-margin-top:70px}
+:root{--dk-hole:#fbf1ef}
+@media(prefers-color-scheme:dark){:root{--dk-hole:#2b1f1e}}
+.dk-note{font-size:.85em;color:var(--muted);max-width:66ch;margin:14px 0}
+.dk-years{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+ gap:10px;padding:0;list-style:none}
+.dk-years li{border:1px solid var(--line);border-radius:10px;padding:10px 14px;
+ background:var(--card)}
+.dk-years a{font-weight:700;font-size:1.2em;text-decoration:none;
+ font-family:var(--serif)}
+.dk-years .k{display:block;color:var(--muted);font-size:.78em;margin-top:3px}
+.statrow{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+.statrow .st{border:1px solid var(--line);border-radius:10px;padding:10px 16px;
+ background:var(--card);text-align:center;flex:1;min-width:120px}
+.statrow .st .n{font-family:var(--serif);font-size:1.6em;font-weight:700;display:block}
+.statrow .st .k{color:var(--muted);font-size:.8em}
+.dk-banner{border:1px solid var(--line);border-left:4px solid #b45309;
+ border-radius:8px;padding:10px 14px;margin:14px 0;font-size:.9em;
+ background:var(--card)}
+/* the structure chart: a fixed label rail beside a percentage-positioned
+   plot, so a bar's left/width is just its years over the whole span */
+.strwrap{overflow-x:auto;margin:22px 0 6px;
+ scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.strwrap::-webkit-scrollbar{height:6px}
+.strwrap::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.strtable{display:flex;min-width:720px}
+.strlabels{flex:0 0 208px}
+.strplot{flex:1;position:relative}
+.strlab,.strrow{height:26px;display:flex;align-items:center}
+.strlab{font-size:.78em;justify-content:flex-end;padding-right:12px;
+ text-align:right;line-height:1.2;color:var(--fg)}
+.strlab .n{color:var(--muted);font-size:.85em;margin-left:6px;
+ font-variant-numeric:tabular-nums}
+.strhead{height:30px;font-size:.7em;color:var(--muted);position:relative}
+.strhead span{position:absolute;transform:translateX(-50%);
+ font-family:ui-monospace,Menlo,monospace}
+/* the closing tick sits on the plot's right edge — centre it and half
+   the label hangs outside the scroll box */
+.strhead span.end{transform:translateX(-100%)}
+.strrow{position:relative}
+.strbar{position:absolute;height:11px;border-radius:2px;
+ background:var(--accent2);opacity:.85}
+.strdot{position:absolute;width:7px;height:7px;border-radius:50%;
+ background:var(--muted);margin-left:-3px}
+/* the band marks a year, not the year labels above it */
+.strband{position:absolute;top:30px;bottom:0;background:var(--dk-hole);
+ border-left:1px dashed var(--accent);border-right:1px dashed var(--accent)}
+.strchart{position:relative}
+.streras{display:flex;font-size:.7em;color:var(--muted);margin-top:2px;
+ text-transform:uppercase;letter-spacing:.08em}
+.streras div{border-top:2px solid var(--line);padding-top:4px;
+ padding-right:8px}
+.strkey{display:flex;flex-wrap:wrap;gap:14px;font-size:.78em;
+ color:var(--muted);margin:10px 0 0}
+.strkey i{display:inline-block;width:22px;height:8px;border-radius:2px;
+ background:var(--accent2);opacity:.85;margin-right:6px;vertical-align:1px}
+.strkey i.dot{width:7px;height:7px;border-radius:50%;
+ background:var(--muted);opacity:1}
+.strkey i.band{background:var(--dk-hole);border:1px dashed var(--accent)}
+</style></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="h2"><a class="site2" href="../index.html"><span class="t">The</span>Cambridge Record</a>
+<nav aria-label="Site"><a href="../council/index.html">City&nbsp;Council</a><a href="../items/index.html">Agenda&nbsp;Items</a>
+<a href="../boards/school-committee/index.html">School&nbsp;Committee</a>
+<a href="../boards/index.html">Boards</a>
+<a href="../search.html">Search</a><a href="../about.html">About</a></nav></header>
+<main id="main" data-pagefind-body><div class="crumb" data-pagefind-ignore><a href='index.html'>The Docket</a> ▸ Structure</div>
+<header class='dk-mast'><h1>How the record changed shape</h1></header>
+<p class='meta'>The City Clerk's own sections, 1942–2003 · 27
+sections · 131,752 actions</p>
+<div class='dk-lede'>
+<p class='lead'>Each bar is one section of the City Clerk's annual index,
+over the years it carries entries. The sections are how the clerk filed
+the council's work, so they show when the work changed.</p>
+<p>Council rules, state law and the clerk's filing practice all changed
+across this period. The charter did not: Plan E was adopted by referendum
+in 1940, the first council and city manager took office in January 1942,
+and it was not amended until 2021, then amended by substitution in
+2025.</p>
+</div>
+<div class='strwrap'><div class='strtable'>
+<div class='strlabels'><div class='strhead'></div><div class='strlab'>Finance<span class='n'>30,340</span></div><div class='strlab'>Sundries<span class='n'>25,315</span></div><div class='strlab'>Highways<span class='n'>12,709</span></div><div class='strlab'>Appointments<span class='n'>5,061</span></div><div class='strlab'>Ordinances<span class='n'>3,636</span></div><div class='strlab'>Public Safety<span class='n'>2,061</span></div><div class='strlab'>Public Service<span class='n'>853</span></div><div class='strlab'>Claims<span class='n'>167</span></div><div class='strlab'>Public Celebrations &amp; Military Affairs<span class='n'>127</span></div><div class='strlab'>Public Aid<span class='n'>12</span></div><div class='strlab'>Industrial Development<span class='n'>1</span></div><div class='strlab'>Post War Conditions<span class='n'>1</span></div><div class='strlab'>Unresolved<span class='n'>38</span></div><div class='strlab'>Incorporations<span class='n'>26</span></div><div class='strlab'>Special Sub-Committees<span class='n'>4</span></div><div class='strlab'>Impounded Records<span class='n'>1</span></div><div class='strlab'>Public Disclosure Statements<span class='n'>1</span></div><div class='strlab'>Miscellaneous Documents<span class='n'>62</span></div><div class='strlab'>Resolutions<span class='n'>30,151</span></div><div class='strlab'>City Manager Requests<span class='n'>5,237</span></div><div class='strlab'>Recessed Meetings<span class='n'>56</span></div><div class='strlab'>Policy Orders<span class='n'>6,069</span></div><div class='strlab'>City Manager Agenda<span class='n'>4,207</span></div><div class='strlab'>Communications<span class='n'>3,260</span></div><div class='strlab'>Applications &amp; Petitions<span class='n'>1,234</span></div><div class='strlab'>Committee Reports<span class='n'>855</span></div><div class='strlab'>Communications from City Officers<span class='n'>268</span></div></div>
+<div class='strplot'><div class='strchart'>
+<div class='strhead'><span style='left:0.676%'>1942</span><span style='left:11.486%'>1950</span><span style='left:25.000%'>1960</span><span style='left:38.514%'>1970</span><span style='left:52.027%'>1980</span><span style='left:65.541%'>1990</span><span style='left:79.054%'>2000</span><span class='end' style='left:100%'>2015</span></div><span class='strband' style='left:37.838%;width:1.351%' title='1970: the city's scan of this volume is incomplete'></span><span class='strband' style='left:47.297%;width:1.351%' title='1977: the city's scan of this volume is incomplete'></span><div class='strrow' title='Finance'><span class='strbar' style='left:0.000%;width:83.784%' title='1942–2003: 30,340 actions'></span></div><div class='strrow' title='Sundries'><span class='strbar' style='left:0.000%;width:83.784%' title='1942–2003: 25,315 actions'></span></div><div class='strrow' title='Highways'><span class='strbar' style='left:0.000%;width:83.784%' title='1942–2003: 12,709 actions'></span></div><div class='strrow' title='Appointments'><span class='strbar' style='left:0.000%;width:83.784%' title='1942–2003: 5,061 actions'></span></div><div class='strrow' title='Ordinances'><span class='strbar' style='left:0.000%;width:100.000%' title='1942–2015: 3,636 actions'></span></div><div class='strrow' title='Public Safety: runs to 1979'><span class='strbar' style='left:0.000%;width:48.649%' title='1942–1977: 2,061 actions'></span></div><div class='strrow' title='Public Service: runs to 1980'><span class='strbar' style='left:0.000%;width:41.892%' title='1942–1972: 853 actions'></span><span class='strbar' style='left:47.297%;width:4.054%' title='1977–1979: 853 actions'></span></div><div class='strrow' title='Claims: small and intermittent, last entry 1969'><span class='strbar' style='left:0.000%;width:27.027%' title='1942–1961: 167 actions'></span><span class='strbar' style='left:28.378%;width:6.757%' title='1963–1967: 167 actions'></span><span class='strdot' style='left:37.162%' title='1969'></span></div><div class='strrow' title='Public Celebrations &amp; Military Affairs: named the squares, tot-lots and playgrounds after the city&#x27;s war dead, last entry 1963'><span class='strbar' style='left:0.000%;width:2.703%' title='1942–1943: 127 actions'></span><span class='strbar' style='left:4.054%;width:12.162%' title='1945–1953: 127 actions'></span><span class='strdot' style='left:18.243%' title='1955'></span><span class='strbar' style='left:20.270%;width:4.054%' title='1957–1959: 127 actions'></span><span class='strbar' style='left:25.676%;width:4.054%' title='1961–1963: 127 actions'></span></div><div class='strrow' title='Public Aid'><span class='strdot' style='left:0.676%' title='1942'></span></div><div class='strrow' title='Industrial Development'><span class='strdot' style='left:0.676%' title='1942'></span></div><div class='strrow' title='Post War Conditions'><span class='strdot' style='left:3.378%' title='1944'></span></div><div class='strrow' title='Unresolved'><span class='strdot' style='left:26.351%' title='1961'></span><span class='strdot' style='left:29.054%' title='1963'></span><span class='strdot' style='left:38.514%' title='1970'></span><span class='strdot' style='left:47.973%' title='1977'></span><span class='strdot' style='left:80.405%' title='2001'></span></div><div class='strrow' title='Incorporations'><span class='strdot' style='left:26.351%' title='1961'></span></div><div class='strrow' title='Special Sub-Committees'><span class='strdot' style='left:41.216%' title='1972'></span></div><div class='strrow' title='Impounded Records'><span class='strdot' style='left:46.622%' title='1976'></span></div><div class='strrow' title='Public Disclosure Statements'><span class='strdot' style='left:49.324%' title='1978'></span></div><div class='strrow' title='Miscellaneous Documents: appears 1971, never large'><span class='strbar' style='left:66.216%;width:5.405%' title='1991–1994: 62 actions'></span><span class='strbar' style='left:72.973%;width:2.703%' title='1996–1997: 62 actions'></span><span class='strdot' style='left:77.703%' title='1999'></span><span class='strdot' style='left:81.757%' title='2002'></span></div><div class='strrow' title='Resolutions: appears 1993 and is at once the largest section in the book: today&#x27;s RES items'><span class='strbar' style='left:68.919%;width:31.081%' title='1993–2015: 30,151 actions'></span></div><div class='strrow' title='City Manager Requests: appears 1993 beside Resolutions: today&#x27;s CMA items'><span class='strbar' style='left:68.919%;width:14.865%' title='1993–2003: 5,237 actions'></span></div><div class='strrow' title='Recessed Meetings'><span class='strdot' style='left:73.649%' title='1996'></span></div><div class='strrow' title='Policy Orders'><span class='strbar' style='left:83.784%;width:16.216%' title='2004–2015: 6,069 actions'></span></div><div class='strrow' title='City Manager Agenda'><span class='strbar' style='left:83.784%;width:16.216%' title='2004–2015: 4,207 actions'></span></div><div class='strrow' title='Communications'><span class='strbar' style='left:83.784%;width:16.216%' title='2004–2015: 3,260 actions'></span></div><div class='strrow' title='Applications &amp; Petitions'><span class='strbar' style='left:83.784%;width:16.216%' title='2004–2015: 1,234 actions'></span></div><div class='strrow' title='Committee Reports'><span class='strbar' style='left:83.784%;width:16.216%' title='2004–2015: 855 actions'></span></div><div class='strrow' title='Communications from City Officers'><span class='strbar' style='left:83.784%;width:16.216%' title='2004–2015: 268 actions'></span></div></div>
+<div class='streras'><div style='width:29.730%'>the committee sections</div><div style='width:39.189%'>they thin out</div><div style='width:14.865%'>the modern shape</div></div></div>
+</div></div>
+<p class='strkey'><span><i></i>years the section carries entries</span>
+<span><i class='dot'></i>a single year: a one-off or occasional section</span>
+<span><i class='band'></i>1970 and 1977: the city's scans of these two
+volumes are incomplete, so every bar is bridged across them rather than
+showing a hole the council never had</span></p>
+<h2>What the chart shows</h2>
+<p>Five sections run the whole period: Appointments, Finance, Highways,
+Ordinances and Sundries.</p>
+<p>Public Celebrations &amp; Military Affairs ends after 1963. It is the
+section that named squares, tot-lots and playgrounds after the city's war
+dead: 127 actions, each sponsored by a named councillor. Claims ends in
+1969, Public Safety in 1979, Public Service in 1980. Miscellaneous
+Documents starts in 1971 and stays small.</p>
+<p>Resolutions and City Manager Requests both start in 1993 and at once
+account for most of the book: 14,052 and 5,245 actions in eleven years.
+They are the ancestors of two item types the site files today,
+<a href='../items/resolutions.html'>Resolutions</a> and the
+<a href='../items/city-manager-s-agenda.html'>City Manager's Agenda</a>.</p>
+<p class='dk-note'>Read the years themselves in
+<a href='index.html'>the docket</a>. A section with no entries in a year
+has no bar there. The exceptions are 1970 and 1977, where the city's scans
+are incomplete. Those two years are marked, and bars are drawn through
+them rather than showing a gap the council did not have.</p></main>
+<footer>
+<div class="frow">Assembled from the public record: City Clerk, IQM2 &amp; PrimeGov portals</div>
+<div class="frow">Unofficial, not affiliated with the City of Cambridge</div>
+<div class="frow"><a href="../about.html">About this project</a> · <a href="../accuracy.html">Accuracy audit</a> · <a href="../corrections.html">Corrections</a> · <a href="https://github.com/municipalrecord/cambridge-record/issues/new?title=Error%20on%20/docket/structure.html&labels=error&body=Page%3A%20/docket/structure.html%0A%0AWhat%27s%20wrong%20%28what%20does%20the%20page%20say%2C%20and%20what%20does%20the%20official%20record%20say%3F%29%3A%0A%0A">Report an error on this page</a> (<a href="mailto:corrections@municipalrecord.org?subject=Error%20on%20/docket/structure.html&body=Page%3A%20/docket/structure.html%0A%0A%0A">or email us</a>) · part of <a href="https://municipalrecord.org">Municipal Record</a></div>
+</footer></body></html>
