@@ -13,16 +13,27 @@ import json, collections, pathlib, sys
 ROOT = pathlib.Path(__file__).resolve().parent
 CORPUS = ROOT / "corpus"
 
-# Per-shard expectations. min_per_item is deliberately above 1.0: an average at
-# or near 1.0 is the signature of one boilerplate entity per row.
+# Roles that come from the structured `requesters` column rather than from
+# reading the title. An extraction consisting only of these is the failure
+# mode this module exists to catch.
+BOILERPLATE_ROLES = {"sponsor", "requester"}
+
+# Per-shard expectations.
+#
+# Raw entities-per-item is NOT a usable signal on its own: the verified
+# deterministic CMA pass yields 1.14/item because most City Manager items are
+# appropriations that name no one, while the failed model pass also sat near
+# 1.0. What separates them is whether anything was extracted from the TITLE --
+# measured here as the share of items carrying at least one non-boilerplate
+# entity. The failed pass scored 0.0%; the verified pass scores 12%.
 EXPECT = {
-    "cma":     {"min_per_item": 1.3, "kinds": {"person", "gov_body"},
+    "cma":     {"min_substantive": 0.05, "kinds": {"person", "gov_body"},
                 "roles": {"appointee"}, "target_types": ["CMA"]},
-    "landuse": {"min_per_item": 1.3, "kinds": {"address"},
+    "landuse": {"min_substantive": 0.40, "kinds": {"address"},
                 "roles": {"applicant"}, "target_types": ["APP", "ORD"]},
-    "por":     {"min_per_item": 1.3, "kinds": {"gov_body"},
+    "por":     {"min_substantive": 0.30, "kinds": {"gov_body"},
                 "roles": {"subject", "target"}, "target_types": ["POR"]},
-    "res":     {"min_per_item": 1.3, "kinds": {"person"},
+    "res":     {"min_substantive": 0.50, "kinds": {"person"},
                 "roles": {"honoree", "decedent"}, "target_types": ["RES"]},
 }
 
@@ -59,10 +70,16 @@ def check(shard, spec):
 
     if bad:
         fails.append(f"{shard}: {bad} malformed lines")
-    if per < spec["min_per_item"]:
+    substantive = sum(
+        1 for r in rows
+        if any((e.get("role") or "") not in BOILERPLATE_ROLES
+               for e in (r.get("entities") or [])))
+    share = substantive / len(rows)
+    if share < spec["min_substantive"]:
         fails.append(
-            f"{shard}: {per:.2f} entities/item is below {spec['min_per_item']} "
-            f"-- likely read the requesters column and skipped the titles")
+            f"{shard}: only {share:.1%} of items carry a non-boilerplate entity "
+            f"(need {spec['min_substantive']:.0%}) -- the pass read the "
+            f"requesters column and skipped the titles")
     if len(kinds) < 2:
         fails.append(f"{shard}: only one entity kind present ({list(kinds)}) "
                      f"-- extraction is degenerate")
@@ -86,7 +103,8 @@ def check(shard, spec):
                          f"-- pass did not finish")
 
     print(f"{shard:9} {len(rows):6} items  {len(ents):7} entities  "
-          f"{per:5.2f}/item  kinds={len(kinds)} roles={len(roles)}"
+          f"{per:5.2f}/item  substantive={share:5.1%}  "
+          f"kinds={len(kinds)} roles={len(roles)}"
           f"{'  OK' if not fails else '  FAIL'}")
     return fails
 

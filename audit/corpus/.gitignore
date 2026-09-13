@@ -5,4 +5,6 @@ shards/
 # Raw per-shard extraction output. Gated by audit/validate_entities.py:
 # a pass can emit valid JSONL that is entirely boilerplate, so these are not
 # committed until they pass validation and are merged into the entity index.
-entities_*.jsonl
+# Deterministic output regenerates in seconds; model-derived shards are
+# force-added once they pass validation.
+entities_cma.jsonl
