@@ -1,0 +1,192 @@
+# Investigative leads
+
+Generated from 39041 items and 24971 resolved entities.
+
+Every lead below is a *pattern in the record*, not a finding. Each needs a human to check it against the underlying documents before it is worth anything.
+
+
+## Serially-named entities (US-Parcel A/B/C/D shape) (1)
+
+- 4 serially-named entities share the stem `us parcel`
+  - us parcel a
+  - us parcel b
+  - us parcel c
+  - us parcel d
+  - items: [APP 2016-67](https://cambridgerecord.org/items/app-2016-67.html), [APP 2016-68](https://cambridgerecord.org/items/app-2016-68.html), [APP 2016-69](https://cambridgerecord.org/items/app-2016-69.html), [APP 2016-75](https://cambridgerecord.org/items/app-2016-75.html)
+
+## Filing bursts — one representative, 3+ entities within 120 days (1)
+
+- `hirsch, jeffrey` filed for 4 distinct entities within 7 days (2016-09-12)
+  - us parcel a
+  - us parcel b
+  - us parcel c
+  - us parcel d
+  - items: [APP 2016-67](https://cambridgerecord.org/items/app-2016-67.html), [APP 2016-68](https://cambridgerecord.org/items/app-2016-68.html), [APP 2016-69](https://cambridgerecord.org/items/app-2016-69.html), [APP 2016-75](https://cambridgerecord.org/items/app-2016-75.html)
+
+## Role conflicts — seeking and appointed (30)
+
+- `Michael Monestime` appears both as ['applicant', 'petitioner'] and ['appointee', 'reappointee']
+  - roles: {'appointee': 3, 'applicant': 4, 'reappointee': 1, 'representative': 3, 'petitioner': 1, 'other': 1, 'honoree': 4}
+  - items: [APP 2019-31](https://cambridgerecord.org/items/app-2019-31.html), [APP 2020-8](https://cambridgerecord.org/items/app-2020-8.html), [APP 2020-9](https://cambridgerecord.org/items/app-2020-9.html), [APP 2023-12](https://cambridgerecord.org/items/app-2023-12.html), [APP 2023-33](https://cambridgerecord.org/items/app-2023-33.html), [APP 2025-24](https://cambridgerecord.org/items/app-2025-24.html), [CMA 2014-58](https://cambridgerecord.org/items/cma-2014-58.html), [CMA 2017-240](https://cambridgerecord.org/items/cma-2017-240.html)
+- `Burton Malkofsky` appears both as ['applicant'] and ['appointee', 'reappointee']
+  - roles: {'appointee': 5, 'reappointee': 3, 'applicant': 6}
+  - items: [APP 2004-50](https://cambridgerecord.org/items/app-2004-50.html), [APP 2007-17](https://cambridgerecord.org/items/app-2007-17.html), [APP 2010-15](https://cambridgerecord.org/items/app-2010-15.html), [APP 2013-2](https://cambridgerecord.org/items/app-2013-2.html), [APP 2016-1](https://cambridgerecord.org/items/app-2016-1.html), [APP 2019-14](https://cambridgerecord.org/items/app-2019-14.html), [CMA 2004-92](https://cambridgerecord.org/items/cma-2004-92.html), [CMA 2007-46](https://cambridgerecord.org/items/cma-2007-46.html)
+- `James Desrosiers` appears both as ['applicant'] and ['appointee', 'reappointee']
+  - roles: {'appointee': 5, 'reappointee': 2, 'applicant': 6}
+  - items: [APP 2005-65](https://cambridgerecord.org/items/app-2005-65.html), [APP 2008-58](https://cambridgerecord.org/items/app-2008-58.html), [APP 2011-43](https://cambridgerecord.org/items/app-2011-43.html), [APP 2014-5](https://cambridgerecord.org/items/app-2014-5.html), [APP 2017-7](https://cambridgerecord.org/items/app-2017-7.html), [APP 2018-326](https://cambridgerecord.org/items/app-2018-326.html), [CMA 2005-88](https://cambridgerecord.org/items/cma-2005-88.html), [CMA 2008-64](https://cambridgerecord.org/items/cma-2008-64.html)
+- `Charles M. Durrah` appears both as ['applicant'] and ['appointee', 'reappointee']
+  - roles: {'appointee': 3, 'reappointee': 5, 'applicant': 5}
+  - items: [APP 2006-44](https://cambridgerecord.org/items/app-2006-44.html), [APP 2009-14](https://cambridgerecord.org/items/app-2009-14.html), [APP 2012-21](https://cambridgerecord.org/items/app-2012-21.html), [APP 2015-16](https://cambridgerecord.org/items/app-2015-16.html), [APP 2018-16](https://cambridgerecord.org/items/app-2018-16.html), [CMA 2006-52](https://cambridgerecord.org/items/cma-2006-52.html), [CMA 2009-35](https://cambridgerecord.org/items/cma-2009-35.html), [CMA 2012-26](https://cambridgerecord.org/items/cma-2012-26.html)
+- `Ronald DiGiorgio` appears both as ['applicant'] and ['appointee', 'reappointee']
+  - roles: {'appointee': 4, 'reappointee': 2, 'applicant': 5}
+  - items: [APP 2007-38](https://cambridgerecord.org/items/app-2007-38.html), [APP 2010-71](https://cambridgerecord.org/items/app-2010-71.html), [APP 2013-1](https://cambridgerecord.org/items/app-2013-1.html), [APP 2016-7](https://cambridgerecord.org/items/app-2016-7.html), [APP 2019-13](https://cambridgerecord.org/items/app-2019-13.html), [CMA 2007-93](https://cambridgerecord.org/items/cma-2007-93.html), [CMA 2010-156](https://cambridgerecord.org/items/cma-2010-156.html), [CMA 2013-4](https://cambridgerecord.org/items/cma-2013-4.html)
+- `Nicola Williams` appears both as ['applicant'] and ['reappointee']
+  - roles: {'reappointee': 1, 'applicant': 2, 'honoree': 7}
+  - items: [APP 2018-330](https://cambridgerecord.org/items/app-2018-330.html), [APP 2019-59](https://cambridgerecord.org/items/app-2019-59.html), [CMA 2024-247](https://cambridgerecord.org/items/cma-2024-247.html), [RES 2005-1790](https://cambridgerecord.org/items/res-2005-1790.html), [RES 2005-360](https://cambridgerecord.org/items/res-2005-360.html), [RES 2010-406](https://cambridgerecord.org/items/res-2010-406.html), [RES 2013-795](https://cambridgerecord.org/items/res-2013-795.html), [RES 2014-762](https://cambridgerecord.org/items/res-2014-762.html)
+- `Richard Harding` appears both as ['petitioner'] and ['appointee']
+  - roles: {'appointee': 1, 'petitioner': 1, 'honoree': 7}
+  - items: [APP 2017-2](https://cambridgerecord.org/items/app-2017-2.html), [CMA 2006-114](https://cambridgerecord.org/items/cma-2006-114.html), [RES 2008-594](https://cambridgerecord.org/items/res-2008-594.html), [RES 2008-945](https://cambridgerecord.org/items/res-2008-945.html), [RES 2010-601](https://cambridgerecord.org/items/res-2010-601.html), [RES 2011-1125](https://cambridgerecord.org/items/res-2011-1125.html), [RES 2012-418](https://cambridgerecord.org/items/res-2012-418.html), [RES 2015-787](https://cambridgerecord.org/items/res-2015-787.html)
+- `Albert Darling` appears both as ['applicant'] and ['appointee', 'reappointee']
+  - roles: {'appointee': 4, 'reappointee': 2, 'applicant': 3}
+  - items: [APP 2006-95](https://cambridgerecord.org/items/app-2006-95.html), [APP 2009-83](https://cambridgerecord.org/items/app-2009-83.html), [APP 2012-58](https://cambridgerecord.org/items/app-2012-58.html), [CMA 2006-126](https://cambridgerecord.org/items/cma-2006-126.html), [CMA 2009-289](https://cambridgerecord.org/items/cma-2009-289.html), [CMA 2012-117](https://cambridgerecord.org/items/cma-2012-117.html), [CMA 2015-193](https://cambridgerecord.org/items/cma-2015-193.html), [CMA 2018-37](https://cambridgerecord.org/items/cma-2018-37.html)
+- `Philip Sciandra` appears both as ['applicant'] and ['reappointee']
+  - roles: {'reappointee': 3, 'applicant': 5}
+  - items: [APP 2005-26](https://cambridgerecord.org/items/app-2005-26.html), [APP 2008-18](https://cambridgerecord.org/items/app-2008-18.html), [APP 2011-5](https://cambridgerecord.org/items/app-2011-5.html), [APP 2013-91](https://cambridgerecord.org/items/app-2013-91.html), [APP 2017-50](https://cambridgerecord.org/items/app-2017-50.html), [CMA 2013-315](https://cambridgerecord.org/items/cma-2013-315.html), [CMA 2020-59](https://cambridgerecord.org/items/cma-2020-59.html), [CMA 2023-4](https://cambridgerecord.org/items/cma-2023-4.html)
+- `David Sullivan` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 2, 'applicant': 2, 'honoree': 3}
+  - items: [APP 2004-3](https://cambridgerecord.org/items/app-2004-3.html), [APP 2013-72](https://cambridgerecord.org/items/app-2013-72.html), [CMA 2006-294](https://cambridgerecord.org/items/cma-2006-294.html), [CMA 2006-383](https://cambridgerecord.org/items/cma-2006-383.html), [RES 2006-2330](https://cambridgerecord.org/items/res-2006-2330.html), [RES 2008-7](https://cambridgerecord.org/items/res-2008-7.html), [RES 2018-268](https://cambridgerecord.org/items/res-2018-268.html)
+- `Taylor Massie` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 3, 'applicant': 3}
+  - items: [APP 2004-6](https://cambridgerecord.org/items/app-2004-6.html), [APP 2007-2](https://cambridgerecord.org/items/app-2007-2.html), [APP 2010-12](https://cambridgerecord.org/items/app-2010-12.html), [CMA 2004-5](https://cambridgerecord.org/items/cma-2004-5.html), [CMA 2007-1](https://cambridgerecord.org/items/cma-2007-1.html), [CMA 2010-23](https://cambridgerecord.org/items/cma-2010-23.html)
+- `Patricia Breen` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 3, 'applicant': 3}
+  - items: [APP 2007-64](https://cambridgerecord.org/items/app-2007-64.html), [APP 2010-48](https://cambridgerecord.org/items/app-2010-48.html), [APP 2013-36](https://cambridgerecord.org/items/app-2013-36.html), [CMA 2007-132](https://cambridgerecord.org/items/cma-2007-132.html), [CMA 2010-86](https://cambridgerecord.org/items/cma-2010-86.html), [CMA 2012-297](https://cambridgerecord.org/items/cma-2012-297.html)
+- `Sean Hope` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 1, 'applicant': 2, 'honoree': 3}
+  - items: [APP 2019-39](https://cambridgerecord.org/items/app-2019-39.html), [APP 2019-49](https://cambridgerecord.org/items/app-2019-49.html), [CMA 2007-27](https://cambridgerecord.org/items/cma-2007-27.html), [RES 2010-410](https://cambridgerecord.org/items/res-2010-410.html), [RES 2011-412](https://cambridgerecord.org/items/res-2011-412.html), [RES 2013-180](https://cambridgerecord.org/items/res-2013-180.html)
+- `Elizabeth Speakman` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 1, 'applicant': 1, 'honoree': 2}
+  - items: [APP 2020-21](https://cambridgerecord.org/items/app-2020-21.html), [CMA 2014-250](https://cambridgerecord.org/items/cma-2014-250.html), [RES 2020-42](https://cambridgerecord.org/items/res-2020-42.html), [RES 2021-104](https://cambridgerecord.org/items/res-2021-104.html)
+- `Kelley Brown` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 2, 'applicant': 2}
+  - items: [APP 2022-7](https://cambridgerecord.org/items/app-2022-7.html), [APP 2023-7](https://cambridgerecord.org/items/app-2023-7.html), [CMA 2017-240](https://cambridgerecord.org/items/cma-2017-240.html), [CMA 2019-320](https://cambridgerecord.org/items/cma-2019-320.html)
+- `Francis Conole` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 1, 'applicant': 1, 'honoree': 1}
+  - items: [APP 2006-107](https://cambridgerecord.org/items/app-2006-107.html), [CMA 2006-227](https://cambridgerecord.org/items/cma-2006-227.html), [RES 2012-366](https://cambridgerecord.org/items/res-2012-366.html)
+- `Fred W. MacDonald` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 1, 'applicant': 2}
+  - items: [APP 2006-55](https://cambridgerecord.org/items/app-2006-55.html), [APP 2009-30](https://cambridgerecord.org/items/app-2009-30.html), [CMA 2006-25](https://cambridgerecord.org/items/cma-2006-25.html)
+- `Slater Anderson` appears both as ['applicant'] and ['appointee', 'reappointee']
+  - roles: {'appointee': 1, 'reappointee': 1, 'applicant': 1}
+  - items: [APP 2006-86](https://cambridgerecord.org/items/app-2006-86.html), [CMA 2008-202](https://cambridgerecord.org/items/cma-2008-202.html), [CMA 2014-321](https://cambridgerecord.org/items/cma-2014-321.html)
+- `Susan Yanow` appears both as ['petitioner'] and ['reappointee']
+  - roles: {'reappointee': 1, 'petitioner': 1, 'other': 1}
+  - items: [APP 2012-57](https://cambridgerecord.org/items/app-2012-57.html), [CMA 2016-309](https://cambridgerecord.org/items/cma-2016-309.html), [POR 2012-312](https://cambridgerecord.org/items/por-2012-312.html)
+- `Lee Gianetti` appears both as ['applicant'] and ['appointee', 'reappointee']
+  - roles: {'appointee': 1, 'reappointee': 1, 'applicant': 1}
+  - items: [APP 2023-25](https://cambridgerecord.org/items/app-2023-25.html), [CMA 2016-55](https://cambridgerecord.org/items/cma-2016-55.html), [CMA 2018-161](https://cambridgerecord.org/items/cma-2018-161.html)
+- `Peter Kroon` appears both as ['petitioner'] and ['appointee']
+  - roles: {'appointee': 1, 'petitioner': 2}
+  - items: [APP 2016-31](https://cambridgerecord.org/items/app-2016-31.html), [APP 2017-68](https://cambridgerecord.org/items/app-2017-68.html), [CMA 2017-64](https://cambridgerecord.org/items/cma-2017-64.html)
+- `Roy Russell` appears both as ['petitioner'] and ['appointee']
+  - roles: {'appointee': 1, 'petitioner': 1, 'honoree': 1}
+  - items: [APP 2018-9](https://cambridgerecord.org/items/app-2018-9.html), [CMA 2019-161](https://cambridgerecord.org/items/cma-2019-161.html), [RES 2011-314](https://cambridgerecord.org/items/res-2011-314.html)
+- `Jean Connor` appears both as ['petitioner'] and ['appointee']
+  - roles: {'appointee': 1, 'petitioner': 2}
+  - items: [APP 2009-53](https://cambridgerecord.org/items/app-2009-53.html), [CMA 2023-100](https://cambridgerecord.org/items/cma-2023-100.html), [ORD 2009-15](https://cambridgerecord.org/items/ord-2009-15.html)
+- `Michael LaRosa` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 1, 'applicant': 1}
+  - items: [APP 2004-88](https://cambridgerecord.org/items/app-2004-88.html), [CMA 2004-117](https://cambridgerecord.org/items/cma-2004-117.html)
+- `Michael K. Rowan` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 1, 'applicant': 1}
+  - items: [APP 2006-96](https://cambridgerecord.org/items/app-2006-96.html), [CMA 2006-217](https://cambridgerecord.org/items/cma-2006-217.html)
+- `Salvador Carrero` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 1, 'applicant': 1}
+  - items: [APP 2006-32](https://cambridgerecord.org/items/app-2006-32.html), [CMA 2006-30](https://cambridgerecord.org/items/cma-2006-30.html)
+- `Mahmood R. Firouzbakht` appears both as ['applicant'] and ['appointee']
+  - roles: {'appointee': 1, 'applicant': 1}
+  - items: [APP 2025-3](https://cambridgerecord.org/items/app-2025-3.html), [CMA 2007-27](https://cambridgerecord.org/items/cma-2007-27.html)
+- `Abra Berkowitz` appears both as ['petitioner'] and ['appointee']
+  - roles: {'appointee': 1, 'petitioner': 1}
+  - items: [APP 2019-27](https://cambridgerecord.org/items/app-2019-27.html), [CMA 2017-64](https://cambridgerecord.org/items/cma-2017-64.html)
+- `Maggie Booz` appears both as ['applicant'] and ['reappointee']
+  - roles: {'reappointee': 1, 'applicant': 1}
+  - items: [APP 2025-37](https://cambridgerecord.org/items/app-2025-37.html), [CMA 2021-55](https://cambridgerecord.org/items/cma-2021-55.html)
+- `Alexandra Offiong` appears both as ['applicant'] and ['reappointee']
+  - roles: {'reappointee': 1, 'applicant': 1}
+  - items: [APP 2020-12](https://cambridgerecord.org/items/app-2020-12.html), [CMA 2024-247](https://cambridgerecord.org/items/cma-2024-247.html)
+
+## Persistent private players (24)
+
+- `NSTAR` appears in 80 items across 10 years (2004-2014)
+  - roles: {'vendor': 2, 'subject': 24, 'grantor': 10, 'target': 36, 'other': 5, 'honoree': 3}
+  - items: [CMA 2004-20](https://cambridgerecord.org/items/cma-2004-20.html), [CMA 2004-88](https://cambridgerecord.org/items/cma-2004-88.html), [CMA 2005-166](https://cambridgerecord.org/items/cma-2005-166.html), [CMA 2005-49](https://cambridgerecord.org/items/cma-2005-49.html), [CMA 2006-208](https://cambridgerecord.org/items/cma-2006-208.html), [CMA 2006-402](https://cambridgerecord.org/items/cma-2006-402.html), [CMA 2006-76](https://cambridgerecord.org/items/cma-2006-76.html), [CMA 2007-183](https://cambridgerecord.org/items/cma-2007-183.html)
+- `Human Services Department` appears in 47 items across 15 years (2004-2019)
+  - roles: {'target': 19, 'other': 1, 'subject': 27}
+  - items: [POR 2004-490](https://cambridgerecord.org/items/por-2004-490.html), [POR 2006-134](https://cambridgerecord.org/items/por-2006-134.html), [POR 2006-386](https://cambridgerecord.org/items/por-2006-386.html), [POR 2010-341](https://cambridgerecord.org/items/por-2010-341.html), [POR 2010-353](https://cambridgerecord.org/items/por-2010-353.html), [POR 2011-164](https://cambridgerecord.org/items/por-2011-164.html), [POR 2011-167](https://cambridgerecord.org/items/por-2011-167.html), [POR 2011-274](https://cambridgerecord.org/items/por-2011-274.html)
+- `Hubway` appears in 28 items across 6 years (2011-2017)
+  - roles: {'vendor': 5, 'subject': 15, 'other': 6, 'target': 2}
+  - items: [CMA 2011-384](https://cambridgerecord.org/items/cma-2011-384.html), [CMA 2013-52](https://cambridgerecord.org/items/cma-2013-52.html), [CMA 2013-53](https://cambridgerecord.org/items/cma-2013-53.html), [CMA 2013-9](https://cambridgerecord.org/items/cma-2013-9.html), [CMA 2014-136](https://cambridgerecord.org/items/cma-2014-136.html), [CMA 2014-156](https://cambridgerecord.org/items/cma-2014-156.html), [CMA 2015-183](https://cambridgerecord.org/items/cma-2015-183.html), [CMA 2015-249](https://cambridgerecord.org/items/cma-2015-249.html)
+- `Eversource` appears in 27 items across 10 years (2016-2026)
+  - roles: {'subject': 12, 'other': 4, 'target': 10, 'recipient': 1}
+  - items: [CMA 2016-76](https://cambridgerecord.org/items/cma-2016-76.html), [CMA 2019-168](https://cambridgerecord.org/items/cma-2019-168.html), [CMA 2019-214](https://cambridgerecord.org/items/cma-2019-214.html), [CMA 2020-56](https://cambridgerecord.org/items/cma-2020-56.html), [CMA 2022-146](https://cambridgerecord.org/items/cma-2022-146.html), [CMA 2025-286](https://cambridgerecord.org/items/cma-2025-286.html), [CMA 2025-61](https://cambridgerecord.org/items/cma-2025-61.html), [POR 2016-20](https://cambridgerecord.org/items/por-2016-20.html)
+- `Comcast` appears in 25 items across 20 years (2004-2024)
+  - roles: {'subject': 7, 'other': 2, 'vendor': 1, 'grantor': 6, 'target': 8, 'honoree': 1}
+  - items: [CMA 2004-180](https://cambridgerecord.org/items/cma-2004-180.html), [CMA 2005-61](https://cambridgerecord.org/items/cma-2005-61.html), [CMA 2011-210](https://cambridgerecord.org/items/cma-2011-210.html), [CMA 2011-239](https://cambridgerecord.org/items/cma-2011-239.html), [CMA 2011-297](https://cambridgerecord.org/items/cma-2011-297.html), [CMA 2011-298](https://cambridgerecord.org/items/cma-2011-298.html), [CMA 2014-188](https://cambridgerecord.org/items/cma-2014-188.html), [CMA 2021-248](https://cambridgerecord.org/items/cma-2021-248.html)
+- `Boston Sand & Gravel Co.` appears in 22 items across 16 years (2004-2020)
+  - roles: {'other': 22}
+  - items: [CMA 2004-14](https://cambridgerecord.org/items/cma-2004-14.html), [CMA 2004-185](https://cambridgerecord.org/items/cma-2004-185.html), [CMA 2005-14](https://cambridgerecord.org/items/cma-2005-14.html), [CMA 2005-29](https://cambridgerecord.org/items/cma-2005-29.html), [CMA 2006-20](https://cambridgerecord.org/items/cma-2006-20.html), [CMA 2007-23](https://cambridgerecord.org/items/cma-2007-23.html), [CMA 2008-24](https://cambridgerecord.org/items/cma-2008-24.html), [CMA 2009-12](https://cambridgerecord.org/items/cma-2009-12.html)
+- `CCTV` appears in 20 items across 16 years (2004-2020)
+  - roles: {'other': 5, 'target': 2, 'subject': 1, 'honoree': 12}
+  - items: [CMA 2013-318](https://cambridgerecord.org/items/cma-2013-318.html), [CMA 2016-128](https://cambridgerecord.org/items/cma-2016-128.html), [POR 2005-352](https://cambridgerecord.org/items/por-2005-352.html), [POR 2009-444](https://cambridgerecord.org/items/por-2009-444.html), [POR 2009-460](https://cambridgerecord.org/items/por-2009-460.html), [POR 2015-329](https://cambridgerecord.org/items/por-2015-329.html), [POR 2018-283](https://cambridgerecord.org/items/por-2018-283.html), [POR 2020-248](https://cambridgerecord.org/items/por-2020-248.html)
+- `Boston Properties` appears in 19 items across 17 years (2004-2021)
+  - roles: {'applicant': 7, 'subject': 3, 'other': 3, 'petitioner': 1, 'target': 3, 'recipient': 1, 'honoree': 1}
+  - items: [APP 2004-56](https://cambridgerecord.org/items/app-2004-56.html), [APP 2010-32](https://cambridgerecord.org/items/app-2010-32.html), [APP 2017-11](https://cambridgerecord.org/items/app-2017-11.html), [APP 2021-10](https://cambridgerecord.org/items/app-2021-10.html), [CMA 2005-329](https://cambridgerecord.org/items/cma-2005-329.html), [CMA 2010-175](https://cambridgerecord.org/items/cma-2010-175.html), [CMA 2013-126](https://cambridgerecord.org/items/cma-2013-126.html), [CMA 2013-314](https://cambridgerecord.org/items/cma-2013-314.html)
+- `MICH-LIN` appears in 18 items across 15 years (2004-2019)
+  - roles: {'other': 18}
+  - items: [CMA 2004-19](https://cambridgerecord.org/items/cma-2004-19.html), [CMA 2004-93](https://cambridgerecord.org/items/cma-2004-93.html), [CMA 2005-13](https://cambridgerecord.org/items/cma-2005-13.html), [CMA 2005-28](https://cambridgerecord.org/items/cma-2005-28.html), [CMA 2006-14](https://cambridgerecord.org/items/cma-2006-14.html), [CMA 2007-175](https://cambridgerecord.org/items/cma-2007-175.html), [CMA 2007-24](https://cambridgerecord.org/items/cma-2007-24.html), [CMA 2007-276](https://cambridgerecord.org/items/cma-2007-276.html)
+- `Bank of America` appears in 16 items across 21 years (2004-2025)
+  - roles: {'applicant': 14, 'target': 1, 'honoree': 1}
+  - items: [APP 2004-112](https://cambridgerecord.org/items/app-2004-112.html), [APP 2004-89](https://cambridgerecord.org/items/app-2004-89.html), [APP 2004-90](https://cambridgerecord.org/items/app-2004-90.html), [APP 2004-91](https://cambridgerecord.org/items/app-2004-91.html), [APP 2004-92](https://cambridgerecord.org/items/app-2004-92.html), [APP 2017-63](https://cambridgerecord.org/items/app-2017-63.html), [APP 2018-342](https://cambridgerecord.org/items/app-2018-342.html), [APP 2019-2](https://cambridgerecord.org/items/app-2019-2.html)
+- `YouthBuild Just-A- Start Program` appears in 16 items across 6 years (2004-2010)
+  - roles: {'subject': 16}
+  - items: [RES 2004-885](https://cambridgerecord.org/items/res-2004-885.html), [RES 2010-63](https://cambridgerecord.org/items/res-2010-63.html), [RES 2010-69](https://cambridgerecord.org/items/res-2010-69.html), [RES 2010-71](https://cambridgerecord.org/items/res-2010-71.html), [RES 2010-72](https://cambridgerecord.org/items/res-2010-72.html), [RES 2010-73](https://cambridgerecord.org/items/res-2010-73.html), [RES 2010-76](https://cambridgerecord.org/items/res-2010-76.html), [RES 2010-79](https://cambridgerecord.org/items/res-2010-79.html)
+- `Citizens Bank` appears in 14 items across 19 years (2005-2024)
+  - roles: {'applicant': 12, 'subject': 1, 'other': 1}
+  - items: [APP 2005-63](https://cambridgerecord.org/items/app-2005-63.html), [APP 2005-93](https://cambridgerecord.org/items/app-2005-93.html), [APP 2005-94](https://cambridgerecord.org/items/app-2005-94.html), [APP 2007-8](https://cambridgerecord.org/items/app-2007-8.html), [APP 2015-22](https://cambridgerecord.org/items/app-2015-22.html), [APP 2016-40](https://cambridgerecord.org/items/app-2016-40.html), [APP 2018-17](https://cambridgerecord.org/items/app-2018-17.html), [APP 2019-3](https://cambridgerecord.org/items/app-2019-3.html)
+- `CitySprouts` appears in 10 items across 11 years (2006-2017)
+  - roles: {'recipient': 1, 'honoree': 9}
+  - items: [CMA 2011-166](https://cambridgerecord.org/items/cma-2011-166.html), [RES 2006-1974](https://cambridgerecord.org/items/res-2006-1974.html), [RES 2007-697](https://cambridgerecord.org/items/res-2007-697.html), [RES 2008-30](https://cambridgerecord.org/items/res-2008-30.html), [RES 2008-906](https://cambridgerecord.org/items/res-2008-906.html), [RES 2010-574](https://cambridgerecord.org/items/res-2010-574.html), [RES 2011-175](https://cambridgerecord.org/items/res-2011-175.html), [RES 2011-84](https://cambridgerecord.org/items/res-2011-84.html)
+- `TransCanada` appears in 10 items across 13 years (2006-2019)
+  - roles: {'vendor': 1, 'subject': 8, 'target': 1}
+  - items: [CMA 2015-151](https://cambridgerecord.org/items/cma-2015-151.html), [POR 2006-303](https://cambridgerecord.org/items/por-2006-303.html), [POR 2006-667](https://cambridgerecord.org/items/por-2006-667.html), [POR 2015-136](https://cambridgerecord.org/items/por-2015-136.html), [POR 2015-171](https://cambridgerecord.org/items/por-2015-171.html), [POR 2015-217](https://cambridgerecord.org/items/por-2015-217.html), [POR 2015-27](https://cambridgerecord.org/items/por-2015-27.html), [POR 2015-70](https://cambridgerecord.org/items/por-2015-70.html)
+- `Bluebikes` appears in 10 items across 5 years (2019-2024)
+  - roles: {'subject': 2, 'other': 7, 'vendor': 1}
+  - items: [CMA 2019-219](https://cambridgerecord.org/items/cma-2019-219.html), [CMA 2019-221](https://cambridgerecord.org/items/cma-2019-221.html), [CMA 2021-17](https://cambridgerecord.org/items/cma-2021-17.html), [CMA 2021-288](https://cambridgerecord.org/items/cma-2021-288.html), [CMA 2023-145](https://cambridgerecord.org/items/cma-2023-145.html), [CMA 2023-146](https://cambridgerecord.org/items/cma-2023-146.html), [CMA 2023-309](https://cambridgerecord.org/items/cma-2023-309.html), [CMA 2023-8](https://cambridgerecord.org/items/cma-2023-8.html)
+- `East Cambridge Savings Bank` appears in 10 items across 20 years (2004-2024)
+  - roles: {'other': 1, 'subject': 3, 'honoree': 6}
+  - items: [CMA 2024-205](https://cambridgerecord.org/items/cma-2024-205.html), [POR 2024-92](https://cambridgerecord.org/items/por-2024-92.html), [RES 2004-1249](https://cambridgerecord.org/items/res-2004-1249.html), [RES 2004-438](https://cambridgerecord.org/items/res-2004-438.html), [RES 2004-641](https://cambridgerecord.org/items/res-2004-641.html), [RES 2004-757](https://cambridgerecord.org/items/res-2004-757.html), [RES 2005-1059](https://cambridgerecord.org/items/res-2005-1059.html), [RES 2013-581](https://cambridgerecord.org/items/res-2013-581.html)
+- `Alexandria Real Estate Equities` appears in 10 items across 15 years (2008-2023)
+  - roles: {'petitioner': 5, 'applicant': 4, 'honoree': 1}
+  - items: [APP 2008-51](https://cambridgerecord.org/items/app-2008-51.html), [APP 2011-61](https://cambridgerecord.org/items/app-2011-61.html), [APP 2011-62](https://cambridgerecord.org/items/app-2011-62.html), [APP 2012-56](https://cambridgerecord.org/items/app-2012-56.html), [APP 2018-351](https://cambridgerecord.org/items/app-2018-351.html), [APP 2019-38](https://cambridgerecord.org/items/app-2019-38.html), [APP 2019-75](https://cambridgerecord.org/items/app-2019-75.html), [APP 2019-82](https://cambridgerecord.org/items/app-2019-82.html)
+- `Charles Hotel` appears in 10 items across 7 years (2004-2011)
+  - roles: {'subject': 9, 'honoree': 1}
+  - items: [POR 2005-263](https://cambridgerecord.org/items/por-2005-263.html), [RES 2004-160](https://cambridgerecord.org/items/res-2004-160.html), [RES 2004-929](https://cambridgerecord.org/items/res-2004-929.html), [RES 2005-932](https://cambridgerecord.org/items/res-2005-932.html), [RES 2008-155](https://cambridgerecord.org/items/res-2008-155.html), [RES 2010-475](https://cambridgerecord.org/items/res-2010-475.html), [RES 2010-766](https://cambridgerecord.org/items/res-2010-766.html), [RES 2011-224](https://cambridgerecord.org/items/res-2011-224.html)
+- `Verizon` appears in 9 items across 15 years (2004-2019)
+  - roles: {'subject': 6, 'applicant': 1, 'target': 2}
+  - items: [APP 2019-48](https://cambridgerecord.org/items/app-2019-48.html), [CMA 2005-61](https://cambridgerecord.org/items/cma-2005-61.html), [POR 2004-504](https://cambridgerecord.org/items/por-2004-504.html), [POR 2006-382](https://cambridgerecord.org/items/por-2006-382.html), [POR 2006-621](https://cambridgerecord.org/items/por-2006-621.html), [POR 2007-552](https://cambridgerecord.org/items/por-2007-552.html), [POR 2008-330](https://cambridgerecord.org/items/por-2008-330.html), [POR 2011-336](https://cambridgerecord.org/items/por-2011-336.html)
+- `Novartis` appears in 9 items across 14 years (2004-2018)
+  - roles: {'other': 3, 'subject': 1, 'target': 1, 'honoree': 4}
+  - items: [CMA 2016-136](https://cambridgerecord.org/items/cma-2016-136.html), [CMA 2018-122](https://cambridgerecord.org/items/cma-2018-122.html), [POR 2012-111](https://cambridgerecord.org/items/por-2012-111.html), [POR 2012-158](https://cambridgerecord.org/items/por-2012-158.html), [POR 2012-277](https://cambridgerecord.org/items/por-2012-277.html), [RES 2004-1600](https://cambridgerecord.org/items/res-2004-1600.html), [RES 2007-569](https://cambridgerecord.org/items/res-2007-569.html), [RES 2012-314](https://cambridgerecord.org/items/res-2012-314.html)
+- `Cambridge Savings Bank` appears in 9 items across 15 years (2005-2020)
+  - roles: {'grantor': 1, 'applicant': 2, 'honoree': 4, 'subject': 2}
+  - items: [APP 2007-74](https://cambridgerecord.org/items/app-2007-74.html), [APP 2012-52](https://cambridgerecord.org/items/app-2012-52.html), [CMA 2020-185](https://cambridgerecord.org/items/cma-2020-185.html), [RES 2005-1267](https://cambridgerecord.org/items/res-2005-1267.html), [RES 2005-1311](https://cambridgerecord.org/items/res-2005-1311.html), [RES 2009-733](https://cambridgerecord.org/items/res-2009-733.html), [RES 2010-811](https://cambridgerecord.org/items/res-2010-811.html), [RES 2011-524](https://cambridgerecord.org/items/res-2011-524.html)
+- `1369 Coffee House` appears in 9 items across 13 years (2004-2017)
+  - roles: {'applicant': 3, 'honoree': 6}
+  - items: [APP 2004-115](https://cambridgerecord.org/items/app-2004-115.html), [APP 2006-133](https://cambridgerecord.org/items/app-2006-133.html), [APP 2006-134](https://cambridgerecord.org/items/app-2006-134.html), [RES 2010-39](https://cambridgerecord.org/items/res-2010-39.html), [RES 2012-884](https://cambridgerecord.org/items/res-2012-884.html), [RES 2013-628](https://cambridgerecord.org/items/res-2013-628.html), [RES 2013-82](https://cambridgerecord.org/items/res-2013-82.html), [RES 2014-585](https://cambridgerecord.org/items/res-2014-585.html)
+- `MICH-LIN Transfer Station` appears in 8 items across 12 years (2006-2018)
+  - roles: {'other': 8}
+  - items: [CMA 2006-143](https://cambridgerecord.org/items/cma-2006-143.html), [CMA 2010-18](https://cambridgerecord.org/items/cma-2010-18.html), [CMA 2011-9](https://cambridgerecord.org/items/cma-2011-9.html), [CMA 2015-59](https://cambridgerecord.org/items/cma-2015-59.html), [CMA 2015-69](https://cambridgerecord.org/items/cma-2015-69.html), [CMA 2015-78](https://cambridgerecord.org/items/cma-2015-78.html), [CMA 2016-321](https://cambridgerecord.org/items/cma-2016-321.html), [CMA 2018-5](https://cambridgerecord.org/items/cma-2018-5.html)
+- `Chestnut Hill Realty` appears in 8 items across 11 years (2011-2022)
+  - roles: {'applicant': 4, 'petitioner': 2, 'subject': 2}
+  - items: [APP 2011-66](https://cambridgerecord.org/items/app-2011-66.html), [APP 2015-14](https://cambridgerecord.org/items/app-2015-14.html), [APP 2022-41](https://cambridgerecord.org/items/app-2022-41.html), [CMA 2011-127](https://cambridgerecord.org/items/cma-2011-127.html), [CMA 2011-283](https://cambridgerecord.org/items/cma-2011-283.html), [CMA 2015-188](https://cambridgerecord.org/items/cma-2015-188.html), [POR 2011-33](https://cambridgerecord.org/items/por-2011-33.html), [POR 2011-455](https://cambridgerecord.org/items/por-2011-455.html)

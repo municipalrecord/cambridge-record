@@ -10,7 +10,8 @@ teardown pipeline a story: many separately-named shells behind one address,
 one party recurring across nominally unrelated matters, and a representative
 who turns up for applicants that should have nothing to do with each other.
 """
-import json, collections, itertools, pathlib, sys, re
+import json, collections, pathlib, sys, re
+from datetime import date
 
 ROOT = pathlib.Path(__file__).resolve().parent
 CORPUS = ROOT / "corpus"
@@ -25,6 +26,25 @@ SKIP_KINDS = {"gov_body"}
 # entities by "Harvard Square" would manufacture a cluster out of every
 # unrelated business in the square.
 RE_PARCEL = re.compile(r"^\d+[A-Za-z]?(?:\s*[-&]\s*\d+[A-Za-z]?)*\s+\S")
+
+
+# "us parcel a" / "us parcel b" -> stem "us parcel"
+RE_SERIAL = re.compile(r"^(.*?)[\s\-]+(?:[a-z]|\d{1,3}|i{1,3}|iv|v)$")
+# an entity named for the property it holds: "9 wyman road", "30 brookford street"
+RE_ADDRNAME = re.compile(
+    r"\b\d+[a-z]?\s+\w+(?:\s+\w+)?\s+"
+    r"(street|st|road|rd|avenue|ave|lane|place|pl|terrace|way|drive|dr|court|ct)\b")
+BURST_DAYS = 120
+# Serial matching on resolution titles otherwise yields "june 4 / june 11 /
+# june 20" as a shell family. Dates are not entities.
+SERIAL_STOPWORDS = {
+    "january", "february", "march", "april", "may", "june", "july", "august",
+    "september", "october", "november", "december", "monday", "tuesday",
+    "wednesday", "thursday", "friday", "saturday", "sunday", "week", "day",
+    "chapter", "section", "article", "phase", "ward", "district", "precinct",
+}
+# Above this many sponsorships the person is a sitting councillor, not a party.
+COUNCILLOR_SPONSOR_FLOOR = 20
 
 
 def is_parcel(ent):
@@ -88,65 +108,128 @@ def build(recs):
 
 
 def leads(ents, per_item, recs):
+    """Rank patterns that look like deliberate structuring.
+
+    The first version of this grouped private entities by shared address and
+    called the result a shell cluster. That detects commercial tenant turnover,
+    not structuring: 730 Massachusetts Avenue surfaced six "entities" that are
+    one restaurant renaming itself across twenty years, and 99 Mount Auburn
+    surfaced a succession of nail salons. Shared address alone is worthless.
+
+    What actually separated the DND Homes pipeline from ordinary churn was the
+    conjunction of three things, and these heuristics require at least two:
+      - a BURST: filings days apart, not decades
+      - SERIAL naming: entities differing by one token (US-Parcel A/B/C/D)
+      - entities NAMED FOR the parcel they hold ("9 Wyman Road LLC")
+    plus a shared human fronting them.
+    """
     out = []
     by_item = {r.get("item_id"): r for r in recs}
 
-    # 1. Shell-cluster: many distinct private orgs tied to one address.
-    addr_orgs = collections.defaultdict(set)
-    for r in recs:
-        addrs = [e for e in (r.get("entities") or []) if is_parcel(e)]
-        orgs = [e for e in (r.get("entities") or []) if e.get("kind") == "org_private"]
-        for a in addrs:
-            for o in orgs:
-                addr_orgs[a.get("normalized") or a.get("name")].add(
-                    o.get("normalized") or o.get("name"))
-    for addr, orgs in sorted(addr_orgs.items(), key=lambda kv: -len(kv[1])):
-        if len(orgs) >= 3:
-            out.append(("shell-cluster", len(orgs),
-                        f"{len(orgs)} distinct private entities tied to `{addr}`",
-                        sorted(orgs)[:12],
-                        ents.get(addr, {}).get("items", [])[:8]))
+    def dt(rec):
+        d = rec.get("date")
+        return date.fromisoformat(d) if d else None
 
-    # 2. Persistent players: private parties recurring over many years.
+    def priv(r):
+        return [e for e in (r.get("entities") or [])
+                if e.get("kind") == "org_private"
+                and e.get("role") in ("applicant", "petitioner", "owner", "buyer")]
+
+    def reps(r):
+        return [e for e in (r.get("entities") or [])
+                if e.get("role") == "representative"]
+
+    # -- serialized names: "us parcel a" / "us parcel b" share a stem -------
+    stems = collections.defaultdict(set)
     for key, a in ents.items():
-        if a["kind"] in SKIP_KINDS or a["count"] < 8:
+        if a["kind"] != "org_private":
+            continue
+        m = RE_SERIAL.match(key)
+        if m and len(m.group(1)) >= 4:
+            stem = m.group(1).strip()
+            if stem.split()[-1] in SERIAL_STOPWORDS or stem in SERIAL_STOPWORDS:
+                continue
+            stems[stem].add(key)
+    for stem, members in stems.items():
+        if len(members) >= 3:
+            items = sorted({i for k in members for i in ents[k]["items"]})
+            out.append(("serial-entities", 100 + len(members),
+                        f"{len(members)} serially-named entities share the stem "
+                        f"`{stem}`",
+                        sorted(members)[:12], items[:8]))
+
+    # -- entities named for a street -------------------------------------
+    named = [a for a in ents.values()
+             if a["kind"] == "org_private" and RE_ADDRNAME.search(a["normalized"])]
+    by_rep = collections.defaultdict(set)
+    for r in recs:
+        for rep in reps(r):
+            for o in priv(r):
+                if RE_ADDRNAME.search(o.get("normalized") or ""):
+                    by_rep[rep.get("normalized")].add(o.get("normalized"))
+    for rep, orgs in by_rep.items():
+        if len(orgs) >= 2:
+            items = sorted({i for o in orgs if o in ents for i in ents[o]["items"]})
+            out.append(("address-named-shells", 90 + len(orgs),
+                        f"`{rep}` fronts {len(orgs)} entities each named for a "
+                        f"property",
+                        sorted(orgs)[:12], items[:8]))
+
+    # -- bursts: one representative, several private applicants, days apart -
+    rep_filings = collections.defaultdict(list)
+    for r in recs:
+        d = dt(r)
+        if not d:
+            continue
+        for rep in reps(r):
+            for o in priv(r):
+                rep_filings[rep.get("normalized")].append(
+                    (d, o.get("normalized"), r.get("item_id")))
+    for rep, fil in rep_filings.items():
+        fil.sort()
+        for i, (d0, _, _) in enumerate(fil):
+            win = [f for f in fil[i:] if (f[0] - d0).days <= BURST_DAYS]
+            orgs = {f[1] for f in win}
+            if len(orgs) >= 3:
+                span = (win[-1][0] - d0).days
+                out.append(("filing-burst", 80 + len(orgs),
+                            f"`{rep}` filed for {len(orgs)} distinct entities "
+                            f"within {span} days ({d0})",
+                            sorted(orgs)[:12],
+                            sorted({f[2] for f in win})[:8]))
+                break
+
+    # -- persistent private players ---------------------------------------
+    for key, a in ents.items():
+        if a["kind"] not in ("org_private", "firm") or a["count"] < 8:
             continue
         if a["first_seen"] and a["last_seen"]:
             span = int(a["last_seen"][:4]) - int(a["first_seen"][:4])
-            if span >= 5 and a["kind"] in ("org_private", "firm", "person"):
-                out.append(("persistent-player", a["count"],
-                            f"`{a['name']}` ({a['kind']}) appears in {a['count']} "
-                            f"items across {span} years "
-                            f"({a['first_seen'][:4]}-{a['last_seen'][:4]})",
+            if span >= 5:
+                out.append(("persistent-player", min(a["count"], 60),
+                            f"`{a['name']}` appears in {a['count']} items across "
+                            f"{span} years ({a['first_seen'][:4]}-"
+                            f"{a['last_seen'][:4]})",
                             [f"roles: {dict(a['roles'])}"], a["items"][:8]))
 
-    # 3. Role conflict: same party both seeking and granting.
+    # -- role conflict, excluding councillors ------------------------------
+    # Every councillor sponsors thousands of orders, so "sponsors AND once
+    # applied for something" fires on all of them and means nothing. Require
+    # the granting side to be small enough that the person is not simply a
+    # sitting member.
     seeking = {"applicant", "petitioner", "vendor", "grantee", "owner", "buyer"}
-    granting = {"appointee", "reappointee", "sponsor"}
+    granting = {"appointee", "reappointee"}
     for key, a in ents.items():
+        if a["kind"] != "person":
+            continue
         r = set(a["roles"])
-        if r & seeking and r & granting and a["kind"] == "person":
-            out.append(("role-conflict", a["count"],
+        if a["roles"].get("sponsor", 0) > COUNCILLOR_SPONSOR_FLOOR:
+            continue
+        if r & seeking and r & granting:
+            out.append(("role-conflict", 50 + a["count"],
                         f"`{a['name']}` appears both as {sorted(r & seeking)} "
                         f"and {sorted(r & granting)}",
                         [f"roles: {dict(a['roles'])}"], a["items"][:8]))
-
-    # 4. Repeat representative across unrelated applicants.
-    rep_clients = collections.defaultdict(set)
-    for r in recs:
-        es = r.get("entities") or []
-        reps = [e for e in es if e.get("role") == "representative"
-                or e.get("kind") == "firm"]
-        cli = [e for e in es if e.get("role") in ("applicant", "petitioner", "owner")]
-        for rep in reps:
-            for c in cli:
-                rep_clients[rep.get("normalized") or rep.get("name")].add(
-                    c.get("normalized") or c.get("name"))
-    for rep, cl in sorted(rep_clients.items(), key=lambda kv: -len(kv[1])):
-        if len(cl) >= 4:
-            out.append(("repeat-representative", len(cl),
-                        f"`{rep}` represents {len(cl)} distinct applicants",
-                        sorted(cl)[:12], ents.get(rep, {}).get("items", [])[:8]))
 
     out.sort(key=lambda t: -t[1])
     return out
@@ -183,10 +266,11 @@ def main():
         for kind, score, desc, detail, items in ld:
             by_kind[kind].append((score, desc, detail, items))
         titles = {
-            "shell-cluster": "Shell clusters — many named entities, one address",
-            "persistent-player": "Persistent players",
-            "role-conflict": "Role conflicts — seeking and granting",
-            "repeat-representative": "Repeat representatives",
+            "serial-entities": "Serially-named entities (US-Parcel A/B/C/D shape)",
+            "address-named-shells": "One representative, several entities each named for a property",
+            "filing-burst": f"Filing bursts — one representative, 3+ entities within {BURST_DAYS} days",
+            "persistent-player": "Persistent private players",
+            "role-conflict": "Role conflicts — seeking and appointed",
         }
         for kind, rows in by_kind.items():
             fh.write(f"\n## {titles.get(kind, kind)} ({len(rows)})\n\n")
