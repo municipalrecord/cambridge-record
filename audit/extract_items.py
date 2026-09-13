@@ -16,8 +16,8 @@ RE_CRUMB = re.compile(r"<span class='crumbdef' title='[^']*'>(.*?)</span>", re.S
 RE_H1 = re.compile(r"<h1>(.*?)</h1>", re.S)
 RE_CITE = re.compile(r'data-cite="(.*?)"', re.S)
 RE_SHA = re.compile(r"data-sha='([^']+)'")
-RE_SLOT = re.compile(
-    r"<span class='slotlab'>(.*?)</span><div class='slotval'>(.*?)</div></div>", re.S)
+RE_SLOTLAB = re.compile(r"<span class='slotlab'>(.*?)</span><div class='slotval'>", re.S)
+RE_DIV = re.compile(r"<(/?)div\b[^>]*>")
 RE_BOLD = re.compile(r"<b>(.*?)</b>", re.S)
 RE_TAG = re.compile(r"<[^>]+>")
 RE_ID = re.compile(r"^([A-Z]+)\s+(\d{2}|\d{4})-(\d+)$")
@@ -29,6 +29,29 @@ RE_CITE_PARTS = re.compile(
     r"(?P<date>[A-Z][a-z]{2}\s+\d{1,2},\s+\d{4})(?P<rest>.*?)\.\s+Via\b", re.S)
 MONTHS = {m: i for i, m in enumerate(
     "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(), 1)}
+
+
+def slots(raw):
+    """Yield (label, inner_html) for each .slot, matching divs by depth.
+
+    The disposition slot is a timeline: an item can carry several dated
+    entries, each its own nested div. A non-greedy regex stops at the first
+    nested </div> and silently truncates everything after the first entry,
+    which drops later votes entirely.
+    """
+    for m in RE_SLOTLAB.finditer(raw):
+        label = m.group(1)
+        start = m.end()
+        depth, pos = 1, start
+        while depth:
+            d = RE_DIV.search(raw, pos)
+            if not d:
+                yield label, raw[start:]
+                break
+            depth += -1 if d.group(1) else 1
+            pos = d.end()
+            if depth == 0:
+                yield label, raw[start:d.start()]
 
 
 def text(s):
@@ -80,7 +103,7 @@ def parse(path):
     # slots: "How it started" / "What happened"
     rec["origin"] = rec["disposition"] = None
     rec["requesters"] = []
-    for lab, val in RE_SLOT.findall(raw):
+    for lab, val in slots(raw):
         lab, body = text(lab).lower(), val
         if "started" in lab:
             rec["origin"] = text(body)
