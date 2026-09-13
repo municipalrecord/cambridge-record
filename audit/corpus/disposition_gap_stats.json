@@ -1,0 +1,1381 @@
+{
+  "total_items": 41455,
+  "unique_keys": 41455,
+  "duplicate_keys": 0,
+  "no_disposition": 29528,
+  "has_votes_true": 11927,
+  "has_citation_false": 13108,
+  "votes_rows": 23415,
+  "votes_rows_unjoinable_label": 10,
+  "votes_distinct_keys": 16118,
+  "votes_keys_matching_corpus": 11867,
+  "items_rows": 11754,
+  "items_rows_unjoinable_label": 1,
+  "items_distinct_keys": 11753,
+  "items_keys_matching_corpus": 11321,
+  "cttee_rows_with_item": 114,
+  "cttee_distinct_keys": 8,
+  "q1_recoverable_total": 3,
+  "q1_by_source": {
+    "none": 29525,
+    "votes-rows": 2,
+    "committee-votes-rows": 1
+  },
+  "q1_by_confidence": {
+    "high": 2,
+    "medium": 1
+  },
+  "q1_recoverable_by_type": {
+    "COF": 3
+  },
+  "q1_recoverable_by_year": {
+    "2022": 1,
+    "2023": 1,
+    "2024": 1
+  },
+  "control_dispositioned_items_matching_rows": 11709,
+  "control_dispositioned_items": 11927,
+  "q2_by_type": {
+    "RES": {
+      "no_disp": 16788,
+      "total": 20549,
+      "pct": 81.7
+    },
+    "POR": {
+      "no_disp": 6093,
+      "total": 8950,
+      "pct": 68.1
+    },
+    "CMA": {
+      "no_disp": 4246,
+      "total": 7520,
+      "pct": 56.5
+    },
+    "APP": {
+      "no_disp": 1242,
+      "total": 1902,
+      "pct": 65.3
+    },
+    "COF": {
+      "no_disp": 916,
+      "total": 1188,
+      "pct": 77.1
+    },
+    "AR": {
+      "no_disp": 0,
+      "total": 1027,
+      "pct": 0.0
+    },
+    "ORD": {
+      "no_disp": 177,
+      "total": 253,
+      "pct": 70.0
+    },
+    "ARS": {
+      "no_disp": 62,
+      "total": 62,
+      "pct": 100.0
+    },
+    "HR": {
+      "no_disp": 2,
+      "total": 2,
+      "pct": 100.0
+    },
+    "HS": {
+      "no_disp": 2,
+      "total": 2,
+      "pct": 100.0
+    }
+  },
+  "q2_by_year": {
+    "2004": {
+      "no_disp": 2696,
+      "total": 2696,
+      "pct": 100.0
+    },
+    "2005": {
+      "no_disp": 3748,
+      "total": 3748,
+      "pct": 100.0
+    },
+    "2006": {
+      "no_disp": 3610,
+      "total": 3610,
+      "pct": 100.0
+    },
+    "2007": {
+      "no_disp": 3296,
+      "total": 3296,
+      "pct": 100.0
+    },
+    "2008": {
+      "no_disp": 1985,
+      "total": 1985,
+      "pct": 100.0
+    },
+    "2009": {
+      "no_disp": 1799,
+      "total": 1799,
+      "pct": 100.0
+    },
+    "2010": {
+      "no_disp": 1998,
+      "total": 1998,
+      "pct": 100.0
+    },
+    "2011": {
+      "no_disp": 2139,
+      "total": 2139,
+      "pct": 100.0
+    },
+    "2012": {
+      "no_disp": 1756,
+      "total": 1756,
+      "pct": 100.0
+    },
+    "2013": {
+      "no_disp": 1882,
+      "total": 1882,
+      "pct": 100.0
+    },
+    "2014": {
+      "no_disp": 1802,
+      "total": 1803,
+      "pct": 99.9
+    },
+    "2015": {
+      "no_disp": 2008,
+      "total": 2015,
+      "pct": 99.7
+    },
+    "2016": {
+      "no_disp": 33,
+      "total": 1350,
+      "pct": 2.4
+    },
+    "2017": {
+      "no_disp": 36,
+      "total": 1410,
+      "pct": 2.6
+    },
+    "2018": {
+      "no_disp": 42,
+      "total": 1319,
+      "pct": 3.2
+    },
+    "2019": {
+      "no_disp": 70,
+      "total": 1521,
+      "pct": 4.6
+    },
+    "2020": {
+      "no_disp": 89,
+      "total": 1113,
+      "pct": 8.0
+    },
+    "2021": {
+      "no_disp": 116,
+      "total": 1175,
+      "pct": 9.9
+    },
+    "2022": {
+      "no_disp": 79,
+      "total": 1092,
+      "pct": 7.2
+    },
+    "2023": {
+      "no_disp": 32,
+      "total": 1107,
+      "pct": 2.9
+    },
+    "2024": {
+      "no_disp": 132,
+      "total": 1040,
+      "pct": 12.7
+    },
+    "2025": {
+      "no_disp": 67,
+      "total": 1007,
+      "pct": 6.7
+    },
+    "2026": {
+      "no_disp": 113,
+      "total": 594,
+      "pct": 19.0
+    }
+  },
+  "q2_grid": {
+    "APP": {
+      "2004": {
+        "no_disp": 117,
+        "total": 117,
+        "pct": 100.0
+      },
+      "2005": {
+        "no_disp": 108,
+        "total": 108,
+        "pct": 100.0
+      },
+      "2006": {
+        "no_disp": 140,
+        "total": 140,
+        "pct": 100.0
+      },
+      "2007": {
+        "no_disp": 117,
+        "total": 117,
+        "pct": 100.0
+      },
+      "2008": {
+        "no_disp": 108,
+        "total": 108,
+        "pct": 100.0
+      },
+      "2009": {
+        "no_disp": 90,
+        "total": 90,
+        "pct": 100.0
+      },
+      "2010": {
+        "no_disp": 112,
+        "total": 112,
+        "pct": 100.0
+      },
+      "2011": {
+        "no_disp": 86,
+        "total": 86,
+        "pct": 100.0
+      },
+      "2012": {
+        "no_disp": 91,
+        "total": 91,
+        "pct": 100.0
+      },
+      "2013": {
+        "no_disp": 93,
+        "total": 93,
+        "pct": 100.0
+      },
+      "2014": {
+        "no_disp": 89,
+        "total": 89,
+        "pct": 100.0
+      },
+      "2015": {
+        "no_disp": 82,
+        "total": 83,
+        "pct": 98.8
+      },
+      "2016": {
+        "no_disp": 0,
+        "total": 106,
+        "pct": 0.0
+      },
+      "2017": {
+        "no_disp": 2,
+        "total": 79,
+        "pct": 2.5
+      },
+      "2018": {
+        "no_disp": 1,
+        "total": 63,
+        "pct": 1.6
+      },
+      "2019": {
+        "no_disp": 0,
+        "total": 95,
+        "pct": 0.0
+      },
+      "2020": {
+        "no_disp": 0,
+        "total": 48,
+        "pct": 0.0
+      },
+      "2021": {
+        "no_disp": 0,
+        "total": 49,
+        "pct": 0.0
+      },
+      "2022": {
+        "no_disp": 0,
+        "total": 62,
+        "pct": 0.0
+      },
+      "2023": {
+        "no_disp": 0,
+        "total": 62,
+        "pct": 0.0
+      },
+      "2024": {
+        "no_disp": 1,
+        "total": 40,
+        "pct": 2.5
+      },
+      "2025": {
+        "no_disp": 1,
+        "total": 45,
+        "pct": 2.2
+      },
+      "2026": {
+        "no_disp": 4,
+        "total": 19,
+        "pct": 21.1
+      }
+    },
+    "AR": {
+      "2016": {
+        "no_disp": 0,
+        "total": 111,
+        "pct": 0.0
+      },
+      "2017": {
+        "no_disp": 0,
+        "total": 123,
+        "pct": 0.0
+      },
+      "2018": {
+        "no_disp": 0,
+        "total": 143,
+        "pct": 0.0
+      },
+      "2019": {
+        "no_disp": 0,
+        "total": 159,
+        "pct": 0.0
+      },
+      "2020": {
+        "no_disp": 0,
+        "total": 72,
+        "pct": 0.0
+      },
+      "2021": {
+        "no_disp": 0,
+        "total": 104,
+        "pct": 0.0
+      },
+      "2022": {
+        "no_disp": 0,
+        "total": 85,
+        "pct": 0.0
+      },
+      "2023": {
+        "no_disp": 0,
+        "total": 92,
+        "pct": 0.0
+      },
+      "2024": {
+        "no_disp": 0,
+        "total": 69,
+        "pct": 0.0
+      },
+      "2025": {
+        "no_disp": 0,
+        "total": 69,
+        "pct": 0.0
+      }
+    },
+    "ARS": {
+      "2024": {
+        "no_disp": 28,
+        "total": 28,
+        "pct": 100.0
+      },
+      "2025": {
+        "no_disp": 33,
+        "total": 33,
+        "pct": 100.0
+      },
+      "2026": {
+        "no_disp": 1,
+        "total": 1,
+        "pct": 100.0
+      }
+    },
+    "CMA": {
+      "2004": {
+        "no_disp": 312,
+        "total": 312,
+        "pct": 100.0
+      },
+      "2005": {
+        "no_disp": 350,
+        "total": 350,
+        "pct": 100.0
+      },
+      "2006": {
+        "no_disp": 398,
+        "total": 398,
+        "pct": 100.0
+      },
+      "2007": {
+        "no_disp": 360,
+        "total": 360,
+        "pct": 100.0
+      },
+      "2008": {
+        "no_disp": 329,
+        "total": 329,
+        "pct": 100.0
+      },
+      "2009": {
+        "no_disp": 357,
+        "total": 357,
+        "pct": 100.0
+      },
+      "2010": {
+        "no_disp": 347,
+        "total": 347,
+        "pct": 100.0
+      },
+      "2011": {
+        "no_disp": 385,
+        "total": 385,
+        "pct": 100.0
+      },
+      "2012": {
+        "no_disp": 305,
+        "total": 305,
+        "pct": 100.0
+      },
+      "2013": {
+        "no_disp": 347,
+        "total": 347,
+        "pct": 100.0
+      },
+      "2014": {
+        "no_disp": 329,
+        "total": 329,
+        "pct": 100.0
+      },
+      "2015": {
+        "no_disp": 386,
+        "total": 387,
+        "pct": 99.7
+      },
+      "2016": {
+        "no_disp": 0,
+        "total": 345,
+        "pct": 0.0
+      },
+      "2017": {
+        "no_disp": 1,
+        "total": 330,
+        "pct": 0.3
+      },
+      "2018": {
+        "no_disp": 0,
+        "total": 334,
+        "pct": 0.0
+      },
+      "2019": {
+        "no_disp": 0,
+        "total": 344,
+        "pct": 0.0
+      },
+      "2020": {
+        "no_disp": 2,
+        "total": 300,
+        "pct": 0.7
+      },
+      "2021": {
+        "no_disp": 0,
+        "total": 290,
+        "pct": 0.0
+      },
+      "2022": {
+        "no_disp": 0,
+        "total": 253,
+        "pct": 0.0
+      },
+      "2023": {
+        "no_disp": 0,
+        "total": 309,
+        "pct": 0.0
+      },
+      "2024": {
+        "no_disp": 0,
+        "total": 268,
+        "pct": 0.0
+      },
+      "2025": {
+        "no_disp": 0,
+        "total": 310,
+        "pct": 0.0
+      },
+      "2026": {
+        "no_disp": 38,
+        "total": 231,
+        "pct": 16.5
+      }
+    },
+    "COF": {
+      "2004": {
+        "no_disp": 24,
+        "total": 24,
+        "pct": 100.0
+      },
+      "2005": {
+        "no_disp": 40,
+        "total": 40,
+        "pct": 100.0
+      },
+      "2006": {
+        "no_disp": 14,
+        "total": 14,
+        "pct": 100.0
+      },
+      "2007": {
+        "no_disp": 11,
+        "total": 11,
+        "pct": 100.0
+      },
+      "2008": {
+        "no_disp": 11,
+        "total": 11,
+        "pct": 100.0
+      },
+      "2009": {
+        "no_disp": 14,
+        "total": 14,
+        "pct": 100.0
+      },
+      "2010": {
+        "no_disp": 18,
+        "total": 18,
+        "pct": 100.0
+      },
+      "2011": {
+        "no_disp": 11,
+        "total": 11,
+        "pct": 100.0
+      },
+      "2012": {
+        "no_disp": 20,
+        "total": 20,
+        "pct": 100.0
+      },
+      "2013": {
+        "no_disp": 42,
+        "total": 42,
+        "pct": 100.0
+      },
+      "2014": {
+        "no_disp": 29,
+        "total": 29,
+        "pct": 100.0
+      },
+      "2015": {
+        "no_disp": 35,
+        "total": 35,
+        "pct": 100.0
+      },
+      "2016": {
+        "no_disp": 31,
+        "total": 41,
+        "pct": 75.6
+      },
+      "2017": {
+        "no_disp": 33,
+        "total": 36,
+        "pct": 91.7
+      },
+      "2018": {
+        "no_disp": 40,
+        "total": 47,
+        "pct": 85.1
+      },
+      "2019": {
+        "no_disp": 63,
+        "total": 74,
+        "pct": 85.1
+      },
+      "2020": {
+        "no_disp": 79,
+        "total": 84,
+        "pct": 94.0
+      },
+      "2021": {
+        "no_disp": 112,
+        "total": 122,
+        "pct": 91.8
+      },
+      "2022": {
+        "no_disp": 78,
+        "total": 109,
+        "pct": 71.6
+      },
+      "2023": {
+        "no_disp": 32,
+        "total": 102,
+        "pct": 31.4
+      },
+      "2024": {
+        "no_disp": 103,
+        "total": 158,
+        "pct": 65.2
+      },
+      "2025": {
+        "no_disp": 33,
+        "total": 57,
+        "pct": 57.9
+      },
+      "2026": {
+        "no_disp": 43,
+        "total": 89,
+        "pct": 48.3
+      }
+    },
+    "HR": {
+      "2026": {
+        "no_disp": 2,
+        "total": 2,
+        "pct": 100.0
+      }
+    },
+    "HS": {
+      "2026": {
+        "no_disp": 2,
+        "total": 2,
+        "pct": 100.0
+      }
+    },
+    "ORD": {
+      "2004": {
+        "no_disp": 23,
+        "total": 23,
+        "pct": 100.0
+      },
+      "2005": {
+        "no_disp": 11,
+        "total": 11,
+        "pct": 100.0
+      },
+      "2006": {
+        "no_disp": 13,
+        "total": 13,
+        "pct": 100.0
+      },
+      "2007": {
+        "no_disp": 18,
+        "total": 18,
+        "pct": 100.0
+      },
+      "2008": {
+        "no_disp": 6,
+        "total": 6,
+        "pct": 100.0
+      },
+      "2009": {
+        "no_disp": 17,
+        "total": 17,
+        "pct": 100.0
+      },
+      "2010": {
+        "no_disp": 11,
+        "total": 11,
+        "pct": 100.0
+      },
+      "2011": {
+        "no_disp": 17,
+        "total": 17,
+        "pct": 100.0
+      },
+      "2012": {
+        "no_disp": 14,
+        "total": 14,
+        "pct": 100.0
+      },
+      "2013": {
+        "no_disp": 12,
+        "total": 12,
+        "pct": 100.0
+      },
+      "2014": {
+        "no_disp": 19,
+        "total": 19,
+        "pct": 100.0
+      },
+      "2015": {
+        "no_disp": 14,
+        "total": 14,
+        "pct": 100.0
+      },
+      "2016": {
+        "no_disp": 2,
+        "total": 8,
+        "pct": 25.0
+      },
+      "2017": {
+        "no_disp": 0,
+        "total": 13,
+        "pct": 0.0
+      },
+      "2021": {
+        "no_disp": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "2022": {
+        "no_disp": 0,
+        "total": 10,
+        "pct": 0.0
+      },
+      "2023": {
+        "no_disp": 0,
+        "total": 12,
+        "pct": 0.0
+      },
+      "2024": {
+        "no_disp": 0,
+        "total": 9,
+        "pct": 0.0
+      },
+      "2025": {
+        "no_disp": 0,
+        "total": 17,
+        "pct": 0.0
+      },
+      "2026": {
+        "no_disp": 0,
+        "total": 8,
+        "pct": 0.0
+      }
+    },
+    "POR": {
+      "2004": {
+        "no_disp": 518,
+        "total": 518,
+        "pct": 100.0
+      },
+      "2005": {
+        "no_disp": 744,
+        "total": 744,
+        "pct": 100.0
+      },
+      "2006": {
+        "no_disp": 719,
+        "total": 719,
+        "pct": 100.0
+      },
+      "2007": {
+        "no_disp": 639,
+        "total": 639,
+        "pct": 100.0
+      },
+      "2008": {
+        "no_disp": 499,
+        "total": 499,
+        "pct": 100.0
+      },
+      "2009": {
+        "no_disp": 453,
+        "total": 453,
+        "pct": 100.0
+      },
+      "2010": {
+        "no_disp": 380,
+        "total": 380,
+        "pct": 100.0
+      },
+      "2011": {
+        "no_disp": 456,
+        "total": 456,
+        "pct": 100.0
+      },
+      "2012": {
+        "no_disp": 361,
+        "total": 361,
+        "pct": 100.0
+      },
+      "2013": {
+        "no_disp": 363,
+        "total": 363,
+        "pct": 100.0
+      },
+      "2014": {
+        "no_disp": 379,
+        "total": 380,
+        "pct": 99.7
+      },
+      "2015": {
+        "no_disp": 554,
+        "total": 559,
+        "pct": 99.1
+      },
+      "2016": {
+        "no_disp": 0,
+        "total": 334,
+        "pct": 0.0
+      },
+      "2017": {
+        "no_disp": 0,
+        "total": 318,
+        "pct": 0.0
+      },
+      "2018": {
+        "no_disp": 1,
+        "total": 322,
+        "pct": 0.3
+      },
+      "2019": {
+        "no_disp": 7,
+        "total": 394,
+        "pct": 1.8
+      },
+      "2020": {
+        "no_disp": 4,
+        "total": 296,
+        "pct": 1.4
+      },
+      "2021": {
+        "no_disp": 2,
+        "total": 287,
+        "pct": 0.7
+      },
+      "2022": {
+        "no_disp": 0,
+        "total": 244,
+        "pct": 0.0
+      },
+      "2023": {
+        "no_disp": 0,
+        "total": 216,
+        "pct": 0.0
+      },
+      "2024": {
+        "no_disp": 0,
+        "total": 162,
+        "pct": 0.0
+      },
+      "2025": {
+        "no_disp": 0,
+        "total": 173,
+        "pct": 0.0
+      },
+      "2026": {
+        "no_disp": 14,
+        "total": 133,
+        "pct": 10.5
+      }
+    },
+    "RES": {
+      "2004": {
+        "no_disp": 1702,
+        "total": 1702,
+        "pct": 100.0
+      },
+      "2005": {
+        "no_disp": 2495,
+        "total": 2495,
+        "pct": 100.0
+      },
+      "2006": {
+        "no_disp": 2326,
+        "total": 2326,
+        "pct": 100.0
+      },
+      "2007": {
+        "no_disp": 2151,
+        "total": 2151,
+        "pct": 100.0
+      },
+      "2008": {
+        "no_disp": 1032,
+        "total": 1032,
+        "pct": 100.0
+      },
+      "2009": {
+        "no_disp": 868,
+        "total": 868,
+        "pct": 100.0
+      },
+      "2010": {
+        "no_disp": 1130,
+        "total": 1130,
+        "pct": 100.0
+      },
+      "2011": {
+        "no_disp": 1184,
+        "total": 1184,
+        "pct": 100.0
+      },
+      "2012": {
+        "no_disp": 965,
+        "total": 965,
+        "pct": 100.0
+      },
+      "2013": {
+        "no_disp": 1025,
+        "total": 1025,
+        "pct": 100.0
+      },
+      "2014": {
+        "no_disp": 957,
+        "total": 957,
+        "pct": 100.0
+      },
+      "2015": {
+        "no_disp": 937,
+        "total": 937,
+        "pct": 100.0
+      },
+      "2016": {
+        "no_disp": 0,
+        "total": 405,
+        "pct": 0.0
+      },
+      "2017": {
+        "no_disp": 0,
+        "total": 511,
+        "pct": 0.0
+      },
+      "2018": {
+        "no_disp": 0,
+        "total": 410,
+        "pct": 0.0
+      },
+      "2019": {
+        "no_disp": 0,
+        "total": 455,
+        "pct": 0.0
+      },
+      "2020": {
+        "no_disp": 4,
+        "total": 313,
+        "pct": 1.3
+      },
+      "2021": {
+        "no_disp": 2,
+        "total": 322,
+        "pct": 0.6
+      },
+      "2022": {
+        "no_disp": 1,
+        "total": 329,
+        "pct": 0.3
+      },
+      "2023": {
+        "no_disp": 0,
+        "total": 314,
+        "pct": 0.0
+      },
+      "2024": {
+        "no_disp": 0,
+        "total": 306,
+        "pct": 0.0
+      },
+      "2025": {
+        "no_disp": 0,
+        "total": 303,
+        "pct": 0.0
+      },
+      "2026": {
+        "no_disp": 9,
+        "total": 109,
+        "pct": 8.3
+      }
+    }
+  },
+  "q2_era_split": {
+    "legacy_2004_2015": {
+      "total": 28727,
+      "no_disp": 28719,
+      "pct": 100.0,
+      "share_of_all_no_disp": 97.3
+    },
+    "modern_2016_2026": {
+      "total": 12728,
+      "no_disp": 809,
+      "pct": 6.4,
+      "share_of_all_no_disp": 2.7
+    }
+  },
+  "q2_modern_anomalies": [
+    {
+      "type": "COF",
+      "year": 2020,
+      "pct": 94.0,
+      "type_modern_median_pct": 75.6,
+      "total": 84,
+      "no_disp": 79,
+      "delta": 18.4
+    },
+    {
+      "type": "CMA",
+      "year": 2026,
+      "pct": 16.5,
+      "type_modern_median_pct": 0.0,
+      "total": 231,
+      "no_disp": 38,
+      "delta": 16.5
+    },
+    {
+      "type": "COF",
+      "year": 2021,
+      "pct": 91.8,
+      "type_modern_median_pct": 75.6,
+      "total": 122,
+      "no_disp": 112,
+      "delta": 16.2
+    },
+    {
+      "type": "COF",
+      "year": 2017,
+      "pct": 91.7,
+      "type_modern_median_pct": 75.6,
+      "total": 36,
+      "no_disp": 33,
+      "delta": 16.1
+    },
+    {
+      "type": "POR",
+      "year": 2026,
+      "pct": 10.5,
+      "type_modern_median_pct": 0.0,
+      "total": 133,
+      "no_disp": 14,
+      "delta": 10.5
+    },
+    {
+      "type": "COF",
+      "year": 2024,
+      "pct": 65.2,
+      "type_modern_median_pct": 75.6,
+      "total": 158,
+      "no_disp": 103,
+      "delta": -10.4
+    },
+    {
+      "type": "COF",
+      "year": 2025,
+      "pct": 57.9,
+      "type_modern_median_pct": 75.6,
+      "total": 57,
+      "no_disp": 33,
+      "delta": -17.7
+    },
+    {
+      "type": "COF",
+      "year": 2026,
+      "pct": 48.3,
+      "type_modern_median_pct": 75.6,
+      "total": 89,
+      "no_disp": 43,
+      "delta": -27.3
+    },
+    {
+      "type": "COF",
+      "year": 2023,
+      "pct": 31.4,
+      "type_modern_median_pct": 75.6,
+      "total": 102,
+      "no_disp": 32,
+      "delta": -44.2
+    }
+  ],
+  "q2_modern_no_disp_total": 809,
+  "q2_modern_no_disp_by_type": {
+    "COF": 647,
+    "ARS": 62,
+    "CMA": 41,
+    "POR": 28,
+    "RES": 16,
+    "APP": 9,
+    "HR": 2,
+    "HS": 2,
+    "ORD": 2
+  },
+  "q2_modern_no_disp_by_year": {
+    "2016": 33,
+    "2017": 36,
+    "2018": 42,
+    "2019": 70,
+    "2020": 89,
+    "2021": 116,
+    "2022": 79,
+    "2023": 32,
+    "2024": 132,
+    "2025": 67,
+    "2026": 113
+  },
+  "q2_modern_no_disp_by_type_year": {
+    "RES": {
+      "2020": 4,
+      "2021": 2,
+      "2022": 1,
+      "2026": 9
+    },
+    "HS": {
+      "2026": 2
+    },
+    "COF": {
+      "2016": 31,
+      "2017": 33,
+      "2018": 40,
+      "2019": 63,
+      "2020": 79,
+      "2021": 112,
+      "2022": 78,
+      "2023": 32,
+      "2024": 103,
+      "2025": 33,
+      "2026": 43
+    },
+    "HR": {
+      "2026": 2
+    },
+    "ARS": {
+      "2024": 28,
+      "2025": 33,
+      "2026": 1
+    },
+    "ORD": {
+      "2016": 2
+    },
+    "CMA": {
+      "2017": 1,
+      "2020": 2,
+      "2026": 38
+    },
+    "POR": {
+      "2018": 1,
+      "2019": 7,
+      "2020": 4,
+      "2021": 2,
+      "2026": 14
+    },
+    "APP": {
+      "2017": 2,
+      "2018": 1,
+      "2024": 1,
+      "2025": 1,
+      "2026": 4
+    }
+  },
+  "meetings_rows": 2862,
+  "meetings_minutes_counts": {
+    "not on file": 1097,
+    "on file": 1765
+  },
+  "q3": {
+    "minutes_on_file": 23840,
+    "no_matching_meeting_row": 5380,
+    "minutes_not_on_file": 288,
+    "no_date_on_item": 20
+  },
+  "q3_whynot_top": [
+    [
+      "(blank)",
+      234
+    ],
+    [
+      "the clerk has published no minutes for any meeting after May 4, 2026; checked against the city's portal on Sep 8, 2026",
+      54
+    ]
+  ],
+  "q3_all_items": {
+    "on file": 35376,
+    "unmatched": 5403,
+    "not on file": 676
+  },
+  "q3_recoverable_vs_minutes": {
+    "on file": 2,
+    "unmatched": 1
+  },
+  "q3_council_meeting_rows_by_year": {
+    "2003": 107,
+    "2004": 103,
+    "2005": 100,
+    "2006": 89,
+    "2007": 87,
+    "2008": 88,
+    "2009": 108,
+    "2010": 59,
+    "2011": 122,
+    "2012": 15,
+    "2014": 1,
+    "2015": 118,
+    "2016": 34,
+    "2017": 30,
+    "2018": 30,
+    "2019": 36,
+    "2020": 44,
+    "2021": 40,
+    "2022": 37,
+    "2023": 40,
+    "2024": 38,
+    "2025": 39,
+    "2026": 25
+  },
+  "q3_unmatched_by_year": {
+    "2010": 440,
+    "2012": 1097,
+    "2013": 1882,
+    "2014": 1802,
+    "2019": 2,
+    "2020": 10,
+    "2021": 27,
+    "2024": 90,
+    "2026": 30
+  },
+  "q3_unmatched_date_absent_from_table_entirely": 5233,
+  "q4_no_disp_but_cite_disposition": 0,
+  "q4_examples": [],
+  "q4_cite_disposition_values": [],
+  "cite_disposition_present_overall": 2842,
+  "q5_no_citation_total": 13108,
+  "q5_by_type": {
+    "RES": {
+      "no_cite": 5600,
+      "total": 20549,
+      "pct": 27.3
+    },
+    "POR": {
+      "no_cite": 3247,
+      "total": 8950,
+      "pct": 36.3
+    },
+    "CMA": {
+      "no_cite": 2602,
+      "total": 7520,
+      "pct": 34.6
+    },
+    "AR": {
+      "no_cite": 1027,
+      "total": 1027,
+      "pct": 100.0
+    },
+    "COF": {
+      "no_cite": 411,
+      "total": 1188,
+      "pct": 34.6
+    },
+    "APP": {
+      "no_cite": 182,
+      "total": 1902,
+      "pct": 9.6
+    },
+    "ORD": {
+      "no_cite": 39,
+      "total": 253,
+      "pct": 15.4
+    }
+  },
+  "q5_by_year": {
+    "2014": {
+      "no_cite": 1803,
+      "total": 1803,
+      "pct": 100.0
+    },
+    "2015": {
+      "no_cite": 2013,
+      "total": 2015,
+      "pct": 99.9
+    },
+    "2016": {
+      "no_cite": 1030,
+      "total": 1350,
+      "pct": 76.3
+    },
+    "2017": {
+      "no_cite": 1112,
+      "total": 1410,
+      "pct": 78.9
+    },
+    "2018": {
+      "no_cite": 1009,
+      "total": 1319,
+      "pct": 76.5
+    },
+    "2019": {
+      "no_cite": 1135,
+      "total": 1521,
+      "pct": 74.6
+    },
+    "2020": {
+      "no_cite": 874,
+      "total": 1113,
+      "pct": 78.5
+    },
+    "2021": {
+      "no_cite": 951,
+      "total": 1175,
+      "pct": 80.9
+    },
+    "2022": {
+      "no_cite": 810,
+      "total": 1092,
+      "pct": 74.2
+    },
+    "2023": {
+      "no_cite": 773,
+      "total": 1107,
+      "pct": 69.8
+    },
+    "2024": {
+      "no_cite": 754,
+      "total": 1040,
+      "pct": 72.5
+    },
+    "2025": {
+      "no_cite": 661,
+      "total": 1007,
+      "pct": 65.6
+    },
+    "2026": {
+      "no_cite": 183,
+      "total": 594,
+      "pct": 30.8
+    }
+  },
+  "q5_contingency": {
+    "no_cite_and_no_disp": 4125,
+    "no_cite_and_disp": 8983,
+    "cite_and_no_disp": 25403,
+    "cite_and_disp": 2944
+  },
+  "q5_phi": -0.5972,
+  "q5_no_cite_date_from": {
+    "meeting_link": 13103,
+    "null": 5
+  },
+  "q5_no_cite_recoverable": 2,
+  "recoverability_tiers": {
+    "B_minutes_on_file": 23838,
+    "D_untestable": 5399,
+    "C_minutes_not_on_file": 288,
+    "A_shipped_outcome": 3
+  },
+  "recoverability_tiers_by_era": {
+    "B_minutes_on_file": {
+      "legacy_2004_2015": 23271,
+      "modern_2016_2026": 567
+    },
+    "D_untestable": {
+      "legacy_2004_2015": 5221,
+      "modern_2016_2026": 178
+    },
+    "C_minutes_not_on_file": {
+      "legacy_2004_2015": 227,
+      "modern_2016_2026": 61
+    },
+    "A_shipped_outcome": {
+      "modern_2016_2026": 3
+    }
+  },
+  "no_disp_source_link_counts": {
+    "0": 24909,
+    "1": 3968,
+    "3": 328,
+    "2": 210,
+    "4": 102,
+    "7": 8,
+    "8": 2,
+    "5": 1
+  },
+  "no_disp_with_any_source_link": 4619,
+  "no_disp_with_source_link_by_era": {
+    "legacy_2004_2015": 3810,
+    "modern_2016_2026": 809
+  }
+}
