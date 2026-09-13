@@ -1,0 +1,3 @@
+# Derived intermediates — regenerate with audit/extract_items.py
+items.jsonl
+shards/
