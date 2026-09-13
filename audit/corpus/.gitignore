@@ -1,3 +1,8 @@
 # Derived intermediates — regenerate with audit/extract_items.py
 items.jsonl
 shards/
+
+# Raw per-shard extraction output. Gated by audit/validate_entities.py:
+# a pass can emit valid JSONL that is entirely boilerplate, so these are not
+# committed until they pass validation and are merged into the entity index.
+entities_*.jsonl
