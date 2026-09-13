@@ -5,6 +5,13 @@ appointment lists -- so regex beats a language model here on both precision
 and reproducibility. It also cannot get bored 6,000 rows in and start
 emitting boilerplate, which is how the model pass failed.
 
+SUPERSEDED for dollar amounts. `dollar_amount` here is the LARGEST sum in the
+title, which is often not the operative one: "strike out $92,715,930 ... adopt
+the substituted appropriation ... $34,407,930" yields the struck figure, and
+"$4 million" yields 4. Deciding which sum an item actually moves takes reading,
+so the model pass owns that field. Kept for appointment rosters and as an
+independent cross-check on extraction counts.
+
 What this does NOT attempt: free-text vendor and organisation names, which
 are genuinely irregular. Those stay a model job, layered on top.
 """
@@ -116,7 +123,8 @@ def parse(row):
 
     return {
         "item_id": row["item_id"], "date": row.get("date") or None, "type": "CMA",
-        "dollar_amount": max(amounts) if amounts else None,
+        # Largest, NOT operative -- see module docstring.
+        "dollar_amount_max": max(amounts) if amounts else None,
         "dollar_amounts": amounts or None,
         "is_appointment": is_appt,
         "entities": ents,

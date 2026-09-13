@@ -19,6 +19,18 @@ URL = "https://cambridgerecord.org/items/{}.html"
 # Entities that are structurally uninteresting as "players".
 SKIP_KINDS = {"gov_body"}
 
+# A parcel address, not a place name. The extraction passes label both
+# "address": "139 First Street" and "Harvard Square" / "Alewife" / "Danehy
+# Park". Only the first kind can anchor a shell cluster -- grouping private
+# entities by "Harvard Square" would manufacture a cluster out of every
+# unrelated business in the square.
+RE_PARCEL = re.compile(r"^\d+[A-Za-z]?(?:\s*[-&]\s*\d+[A-Za-z]?)*\s+\S")
+
+
+def is_parcel(ent):
+    return (ent.get("kind") == "address"
+            and bool(RE_PARCEL.match((ent.get("name") or "").strip())))
+
 
 def slug(item_id):
     return item_id.lower().replace(" ", "-").replace("#", "")
@@ -82,7 +94,7 @@ def leads(ents, per_item, recs):
     # 1. Shell-cluster: many distinct private orgs tied to one address.
     addr_orgs = collections.defaultdict(set)
     for r in recs:
-        addrs = [e for e in (r.get("entities") or []) if e.get("kind") == "address"]
+        addrs = [e for e in (r.get("entities") or []) if is_parcel(e)]
         orgs = [e for e in (r.get("entities") or []) if e.get("kind") == "org_private"]
         for a in addrs:
             for o in orgs:
