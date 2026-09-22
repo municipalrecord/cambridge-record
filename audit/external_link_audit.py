@@ -39,14 +39,14 @@ Polite: single-threaded, ~1.2s floor between requests, backs off on
 retry errors and no-baselines; --recheck to redo everything;
 --reclassify to re-verdict just the non-PDF mismatches).
 
---triage reads a finished run and groups it by who has to act — ours to
-fix, city-side, unresolved — because a flat tally answers "how many?"
+--findings reads a finished run and groups it by who has to act — ours
+to fix, city-side, unresolved — because a flat tally answers "how many?"
 when the question left over is "which of these are mine?". It crawls
-nothing, and a verdict belonging to no group is reported as UNTRIAGED
+nothing, and a verdict belonging to no group is reported as UNGROUPED
 rather than quietly dropped.
 
     python3 site/external_link_audit.py [--city C] [--limit N] [--kind K] [--recheck]
-    python3 site/external_link_audit.py [--city C] --triage [--out triage.md]
+    python3 site/external_link_audit.py [--city C] --findings [--out findings.md]
 """
 import argparse
 import hashlib
@@ -265,7 +265,7 @@ def check_legistar_meeting(url, row):
     return "ok", f"page shows {body!r} and {date}"
 
 
-# ---- triage ---------------------------------------------------------
+# ---- findings report ------------------------------------------------
 # Verdicts sorted by who has to act. A flat tally answers "how many?"; the
 # question a run actually leaves behind is "which of these are ours?", and
 # a city-side condition and a wrong document need completely different
@@ -274,7 +274,7 @@ OURS = ["mismatch"]
 CITY_SIDE = ["city-serves-non-pdf", "city-file-corrupt"]
 UNRESOLVED = ["error", "unreachable", "no-baseline", "unverifiable"]
 
-TRIAGE_GROUPS = [
+FINDING_GROUPS = [
     ("OURS TO FIX", OURS,
      "The link claims an identity the target does not carry. Each of these "
      "is a wrong document or a wrong page on our side until proven "
@@ -291,17 +291,17 @@ TRIAGE_GROUPS = [
 ]
 
 
-def triage(results, out_path=None):
+def findings_report(results, out_path=None):
     """Group a finished run by who owns each finding, for adjudication."""
     from collections import Counter
     by_verdict = Counter(r["verdict"] for r in results.values())
     total = len(results)
     ok = by_verdict.get("ok", 0)
 
-    lines = [f"# Link audit triage — {total:,} links checked", "",
+    lines = [f"# Link audit findings — {total:,} links checked", "",
              f"{ok:,}/{total:,} carried the identity we claimed for them.",
              ""]
-    for heading, verdicts, blurb in TRIAGE_GROUPS:
+    for heading, verdicts, blurb in FINDING_GROUPS:
         rows = sorted(
             ((u, r) for u, r in results.items() if r["verdict"] in verdicts),
             key=lambda x: (verdicts.index(x[1]["verdict"]), x[1]["kind"], x[0]))
@@ -320,15 +320,15 @@ def triage(results, out_path=None):
 
     unaccounted = (total - ok - sum(
         len([1 for r in results.values() if r["verdict"] in v])
-        for _, v, _ in TRIAGE_GROUPS))
+        for _, v, _ in FINDING_GROUPS))
     if unaccounted:
-        # A verdict nobody triaged is the one that gets ignored, so say so
+        # A verdict in no group is the one that gets ignored, so say so
         # loudly rather than letting it vanish between the groups.
         seen = set(OURS) | set(CITY_SIDE) | set(UNRESOLVED) | {"ok"}
         strays = {v: c for v, c in by_verdict.items() if v not in seen}
-        lines += [f"## UNTRIAGED — {unaccounted}", "",
+        lines += [f"## UNGROUPED — {unaccounted}", "",
                   f"Verdicts with no group: {strays}. Add them to a "
-                  f"TRIAGE_GROUPS bucket before trusting this report.", ""]
+                  f"FINDING_GROUPS bucket before trusting this report.", ""]
 
     report = "\n".join(lines)
     print(report)
@@ -345,11 +345,11 @@ def main():
     ap.add_argument("--kind", choices=["legifile", "fileopen", "primegov",
                                        "legistar_pdf", "legistar_meeting"])
     ap.add_argument("--recheck", action="store_true")
-    ap.add_argument("--triage", action="store_true",
+    ap.add_argument("--findings", action="store_true",
                     help="group the finished run by who has to act on each "
                          "finding (ours / city-side / unresolved) and exit; "
                          "reads the results file, crawls nothing")
-    ap.add_argument("--out", help="with --triage, also write the report here")
+    ap.add_argument("--out", help="with --findings, also write the report here")
     ap.add_argument("--reclassify", action="store_true",
                     help="re-check only the mismatches whose bytes weren't a "
                          "PDF, to split the city-side classes out of "
@@ -361,10 +361,10 @@ def main():
     results = json.loads(results_path.read_text()) \
         if results_path.exists() else {}
 
-    if args.triage:
+    if args.findings:
         if not results:
             sys.exit(f"no results at {results_path} — run the audit first")
-        triage(results, args.out)
+        findings_report(results, args.out)
         return
 
     manifest = json.loads(manifest_path.read_text())
