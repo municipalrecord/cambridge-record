@@ -30,12 +30,23 @@ city-serves-non-pdf (legacy Word served at a .pdf URL — vendor behavior)
 and city-file-corrupt (header zeroed, trailer intact — unopenable as
 served). Anything else non-PDF stays "mismatch" on purpose.
 
+All page text goes through page_text(), which unescapes entities: the db
+holds "Finance & Administration" and the page serves it escaped, so a
+comparison that skips this reports mismatch on every such body forever.
+
 Polite: single-threaded, ~1.2s floor between requests, backs off on
 429/5xx, resumable (state in external_link_results*.json — rerun to
 retry errors and no-baselines; --recheck to redo everything;
 --reclassify to re-verdict just the non-PDF mismatches).
 
+--triage reads a finished run and groups it by who has to act — ours to
+fix, city-side, unresolved — because a flat tally answers "how many?"
+when the question left over is "which of these are mine?". It crawls
+nothing, and a verdict belonging to no group is reported as UNTRIAGED
+rather than quietly dropped.
+
     python3 site/external_link_audit.py [--city C] [--limit N] [--kind K] [--recheck]
+    python3 site/external_link_audit.py [--city C] --triage [--out triage.md]
 """
 import argparse
 import hashlib
@@ -47,6 +58,7 @@ import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
+from html import unescape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -74,6 +86,19 @@ def now():
 
 def norm_ws(s):
     return re.sub(r"\s+", " ", s)
+
+
+def page_text(body):
+    """Bytes off the wire -> the text a reader actually sees.
+
+    Entities must be unescaped or every identity check silently fails on any
+    body name or title containing one: the db holds "Finance & Administration"
+    while the page serves "Finance &amp; Administration", and a substring test
+    between them never matches. Tags come off first and entities second, the
+    same order semantic_link_audit.py uses, so an escaped "&lt;b&gt;" in the
+    visible text cannot turn into a tag that stripping already ran past.
+    """
+    return norm_ws(unescape(TAGS.sub(" ", body.decode("utf-8", "replace"))))
 
 
 def tracking_variants(tr):
@@ -140,7 +165,7 @@ def load_db_context():
 
 def check_legifile(url, row, lf_title):
     st, body, _ = fetch(url)
-    text = norm_ws(TAGS.sub(" ", body.decode("utf-8", "replace")))
+    text = page_text(body)
     tr = row.get("expect") or ""
     lid = re.search(r"ID=(\d+)", url).group(1)
     title = norm_ws(lf_title.get(lid, ""))[:80]
@@ -181,7 +206,7 @@ def check_fileopen(url, row):
         verdict, detail = classify_non_pdf(body, ctype)
         if verdict:
             return verdict, detail
-        text = norm_ws(TAGS.sub(" ", body[:4000].decode("utf-8", "replace")))
+        text = page_text(body[:4000])
         return "mismatch", f"not a PDF ({ctype}, {len(body)} bytes): " \
                            f"{text[:140]!r}"
     want = row.get("sha256")
@@ -203,7 +228,7 @@ def check_primegov(url, row, pg_title):
     pid = re.search(r"/portal/item/(\d+)", url).group(1)
     tr, title = pg_title.get(pid, ("", ""))
     st, body, _ = fetch(url)
-    text = norm_ws(TAGS.sub(" ", body.decode("utf-8", "replace")))
+    text = page_text(body)
     shell = "shell errors on bare GET" if "run into an error" in text.lower() \
         else "shell live"
     if not title:
@@ -227,7 +252,7 @@ def check_legistar_meeting(url, row):
     # identity check is that the page displays the event we linked it
     # for: its body name and its meeting date.
     st, body_bytes, _ = fetch(url)
-    text = norm_ws(TAGS.sub(" ", body_bytes.decode("utf-8", "replace")))
+    text = page_text(body_bytes)
     body, date = row.get("body") or "", row.get("date") or ""
     y, m, d = date.split("-") if date.count("-") == 2 else ("", "", "")
     variants = {date, f"{int(m or 0)}/{int(d or 0)}/{y}",
@@ -240,6 +265,79 @@ def check_legistar_meeting(url, row):
     return "ok", f"page shows {body!r} and {date}"
 
 
+# ---- triage ---------------------------------------------------------
+# Verdicts sorted by who has to act. A flat tally answers "how many?"; the
+# question a run actually leaves behind is "which of these are ours?", and
+# a city-side condition and a wrong document need completely different
+# people. Order is worst-first so the top of the report is the work.
+OURS = ["mismatch"]
+CITY_SIDE = ["city-serves-non-pdf", "city-file-corrupt"]
+UNRESOLVED = ["error", "unreachable", "no-baseline", "unverifiable"]
+
+TRIAGE_GROUPS = [
+    ("OURS TO FIX", OURS,
+     "The link claims an identity the target does not carry. Each of these "
+     "is a wrong document or a wrong page on our side until proven "
+     "otherwise."),
+    ("CITY-SIDE", CITY_SIDE,
+     "The city serves something that is not the document it promises. Not "
+     "our drift — worth reporting to the clerk, and worth a note on the "
+     "page so a reader is not left guessing."),
+    ("UNRESOLVED", UNRESOLVED,
+     "We did not find out. None of these are passes: no-baseline has no "
+     "archived hash to compare, unverifiable has nothing to confirm "
+     "identity with, and error/unreachable never completed. Rerun retries "
+     "exactly these."),
+]
+
+
+def triage(results, out_path=None):
+    """Group a finished run by who owns each finding, for adjudication."""
+    from collections import Counter
+    by_verdict = Counter(r["verdict"] for r in results.values())
+    total = len(results)
+    ok = by_verdict.get("ok", 0)
+
+    lines = [f"# Link audit triage — {total:,} links checked", "",
+             f"{ok:,}/{total:,} carried the identity we claimed for them.",
+             ""]
+    for heading, verdicts, blurb in TRIAGE_GROUPS:
+        rows = sorted(
+            ((u, r) for u, r in results.items() if r["verdict"] in verdicts),
+            key=lambda x: (verdicts.index(x[1]["verdict"]), x[1]["kind"], x[0]))
+        lines += [f"## {heading} — {len(rows)}", "", blurb, ""]
+        if not rows:
+            lines += ["_nothing_", ""]
+            continue
+        for url, r in rows:
+            lines.append(f"- **[{r['verdict']}]** `{r['kind']}` {url}")
+            lines.append(f"  - {r['detail']}")
+            if r.get("expect"):
+                lines.append(f"  - claimed: {r['expect']}")
+            for src in r.get("sources", []):
+                lines.append(f"  - linked from: {src}")
+        lines.append("")
+
+    unaccounted = (total - ok - sum(
+        len([1 for r in results.values() if r["verdict"] in v])
+        for _, v, _ in TRIAGE_GROUPS))
+    if unaccounted:
+        # A verdict nobody triaged is the one that gets ignored, so say so
+        # loudly rather than letting it vanish between the groups.
+        seen = set(OURS) | set(CITY_SIDE) | set(UNRESOLVED) | {"ok"}
+        strays = {v: c for v, c in by_verdict.items() if v not in seen}
+        lines += [f"## UNTRIAGED — {unaccounted}", "",
+                  f"Verdicts with no group: {strays}. Add them to a "
+                  f"TRIAGE_GROUPS bucket before trusting this report.", ""]
+
+    report = "\n".join(lines)
+    print(report)
+    if out_path:
+        Path(out_path).write_text(report, encoding="utf-8")
+        print(f"\nwritten to {out_path}", file=sys.stderr)
+    return by_verdict
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--city", choices=sorted(CITY_FILES), default="cambridge")
@@ -247,6 +345,11 @@ def main():
     ap.add_argument("--kind", choices=["legifile", "fileopen", "primegov",
                                        "legistar_pdf", "legistar_meeting"])
     ap.add_argument("--recheck", action="store_true")
+    ap.add_argument("--triage", action="store_true",
+                    help="group the finished run by who has to act on each "
+                         "finding (ours / city-side / unresolved) and exit; "
+                         "reads the results file, crawls nothing")
+    ap.add_argument("--out", help="with --triage, also write the report here")
     ap.add_argument("--reclassify", action="store_true",
                     help="re-check only the mismatches whose bytes weren't a "
                          "PDF, to split the city-side classes out of "
@@ -255,9 +358,16 @@ def main():
     args = ap.parse_args()
     manifest_path, results_path = CITY_FILES[args.city]
 
-    manifest = json.loads(manifest_path.read_text())
     results = json.loads(results_path.read_text()) \
         if results_path.exists() else {}
+
+    if args.triage:
+        if not results:
+            sys.exit(f"no results at {results_path} — run the audit first")
+        triage(results, args.out)
+        return
+
+    manifest = json.loads(manifest_path.read_text())
     lf_title, pg_title = load_db_context() \
         if args.city == "cambridge" else ({}, {})
     backoff = Backoff()
