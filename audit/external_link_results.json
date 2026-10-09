@@ -18576,17 +18576,6 @@
    "items/cma-2025-153.html"
   ]
  },
- "https://cambridgema.iqm2.com/Citizens/FileOpen.aspx?Type=4&ID=25670": {
-  "kind": "fileopen",
-  "expect": "doc 25670",
-  "verdict": "ok",
-  "detail": "sha256 match (467,621 bytes)",
-  "checked_at": "2026-07-17T12:52:41+00:00",
-  "sources": [
-   "docs/25670.html",
-   "items/app-2025-23.html"
-  ]
- },
  "https://cambridgema.iqm2.com/Citizens/FileOpen.aspx?Type=4&ID=25676": {
   "kind": "fileopen",
   "expect": "doc 25676",
@@ -19624,18 +19613,6 @@
    "docs/26725.html",
    "docs/26725.html",
    "items/app-2025-30.html"
-  ]
- },
- "https://cambridgema.iqm2.com/Citizens/FileOpen.aspx?Type=4&ID=26728": {
-  "kind": "fileopen",
-  "expect": "doc 26728",
-  "verdict": "ok",
-  "detail": "sha256 match (952,697 bytes)",
-  "checked_at": "2026-07-17T12:58:18+00:00",
-  "sources": [
-   "docs/26728.html",
-   "items/app-2025-31.html",
-   "items/app-2025-31.html"
   ]
  },
  "https://cambridgema.iqm2.com/Citizens/FileOpen.aspx?Type=4&ID=26730": {

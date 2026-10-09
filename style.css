@@ -651,6 +651,28 @@ font-family:inherit}
 .itile .by{color:var(--muted);font-size:.8em}
 .itile .proc{font-size:.7em;color:var(--muted);border:1px dashed var(--line);
 border-radius:6px;padding:1px 7px;letter-spacing:.02em}
+/* the 2025 Calendar section: three groups under one heading, the clerk's
+   order (preview 1 of 6 October 2026) */
+.calnote{color:var(--muted);font-size:.92em;max-width:62ch;margin:0 0 14px}
+h3.calgrp{font-family:var(--serif);font-size:1.05em;margin:18px 0 8px;display:flex;align-items:baseline;gap:8px}
+h3.calgrp .year{font-weight:400;color:var(--muted);font-size:.85em}
+h3.calgrp:first-of-type{margin-top:4px}
+.itile .calno{font-family:ui-monospace,Menlo,monospace;font-size:.68em;color:var(--muted);
+border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+/* a tile the record shows no vote on that night */
+.obadge.o-none{color:var(--muted);font-weight:500;font-style:italic}
+/* a 2025 special-meeting page: the call, the roll, the votes */
+.callnote{color:var(--muted);font-size:.92em;max-width:62ch;margin:0 0 12px}
+.rollbox{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;max-width:62ch;margin:0 0 6px}
+.rollbox h2{margin:0 0 .35em;font-size:1.15em}
+.rollbox p{margin:.25em 0;font-size:.95em}
+.rollbox .pres b{color:var(--accent2)}
+.spoken .aside{margin:4px 0 4px 17px;color:var(--muted);font-size:.9em;font-style:italic;border-left:3px dotted var(--line);padding-left:14px}
+.spoken .sq .lab{display:inline-block;font:600 .72em/1 -apple-system,system-ui,sans-serif;letter-spacing:.04em;
+text-transform:uppercase;color:var(--accent2);border:1px solid currentColor;border-radius:999px;padding:3px 8px;margin-right:8px;vertical-align:middle}
+.spoken .sq .lab.fail{color:var(--accent)}
+.spoken .cn{margin:.1em 0 .3em;color:var(--muted);font-size:.88em}
+.mrow .mc.sp{color:var(--fg)}
 .itile .ocode{font-family:ui-monospace,Menlo,monospace;font-size:.68em;
 color:var(--muted);margin-left:auto}
 .itile .tt{font-size:.9em;line-height:1.45;display:-webkit-box;-webkit-line-clamp:4;
