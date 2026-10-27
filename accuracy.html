@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>How accurate is this site? · The Cambridge Record</title><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; frame-src 'self' https://cambridgema.iqm2.com https://cambridgema.primegov.com; connect-src 'self' https://cloudflareinsights.com https://plausible.io https://audit-intake.municipalrecord.workers.dev; base-uri 'self'"><meta name="referrer" content="strict-origin-when-cross-origin"><script defer data-domain="cambridgerecord.org" src="https://plausible.io/js/script.js"></script>
 <meta property="og:title" content="How accurate is this site?">
-<meta property="og:description" content="This page is being revised.">
+<meta property="og:description" content="The public record of Cambridge, Massachusetts. Readable, searchable, free forever.">
 <meta property="og:site_name" content="The Cambridge Record">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://cambridgerecord.org/accuracy.html">
@@ -12,9 +12,9 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The Cambridge Record: the City Council and every board, readable. Built from the public record.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="This page is being revised.">
+<meta name="description" content="The public record of Cambridge, Massachusetts. Readable, searchable, free forever.">
 <link rel="alternate" type="application/rss+xml" title="The Cambridge Record: the whole record" href="feed.xml">
-<link rel="stylesheet" href="style.css?v=55459beb"></head><body>
+<link rel="stylesheet" href="style.css?v=7edd5858"></head><body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="h2"><a class="site2" href="index.html"><span class="t">The</span>Cambridge Record</a>
 <nav aria-label="Site"><a href="council/index.html">City&nbsp;Council</a><a href="items/index.html">Agenda&nbsp;Items</a>
@@ -22,9 +22,591 @@
 <a href="boards/index.html">Boards</a>
 <a href="search.html">Search</a><a href="about.html">About</a></nav></header>
 <main id="main" data-pagefind-body><h1>How accurate is this site?</h1>
-<p>This page is being revised and will return soon.</p>
-<p>Every vote and document on this site links to the city's own record, so you can check any entry against its source. To tell us about a mistake, use the report link at the foot of any page.</p>
-</main>
+<h2 id="year-2026">2026, read against the Clerk&rsquo;s record</h2>
+<p>On 4 October 2026 we read <b>every</b> 2026
+record, not a sample: 1,206 in all (663 items on a council
+night, 44 committee meetings and 499 document
+pages). Each was read from the city&rsquo;s own documents and checked against
+our pages; 121 were read twice by different readers. The first
+reading found 29 mistakes, and a second reading found
+1 more. We fixed each one in how the site is built,
+never by hand in a name, date, tally or outcome, and read every changed record
+again until a reading found none. <b>On the pages published now,
+every 2026 record has been read, and none is wrong or missing.</b></p>
+<p>773 records match exactly. 433 differ in ways we
+judged would mislead no one. We list them so you can judge for yourself:</p>
+<ul><li>The clerk names who made a motion; our page names no one. (333)</li><li>A contact detail of a city office or an organisation is blanked, by mistake on our side. (27)</li><li>A committee vote kept off the committee page, by design. (20)</li><li>A voice vote on the council&#x27;s own business, such as suspending its rules, is not listed. (11)</li><li>Steps of an item listed out of order on the night. (6)</li><li>Scanned pages shown blank, with no note saying why. (6)</li><li>A cut-off clerk&#x27;s stamp or title fragment on a meeting card. (5)</li><li>A typing slip in a heading, usually the city&#x27;s own. (3)</li><li>Other kinds, one to three records each, each listed in the audit file. (22)</li></ul>
+<h3 id="validate-2026">Checking the check (4 and 5 October 2026)</h3>
+<p>A full reading can still be wrong in ways it cannot see: the readers and
+the checks share one method. So we tested that method four ways, and we
+publish what each found, misses included.</p>
+<ul class="validate">
+<li><p><b>Planted errors.</b> We put 31 deliberate errors into a
+copy of the data and the pages, drawn by rule with seed 2610050: swapped
+ayes and nays, flipped results, wrong dates, votes moved to the wrong item,
+wrong files behind pages, changed movers and sponsors, a withheld document
+released. Then we ran every check again, blind. <b>They caught 26
+of 31.</b> The 5 they missed:</p>
+<ul><li>A stored vote&#x27;s tally changed by one. The page kept the right count and added a line that the city&#x27;s portal differs; the grader called that harmless. A new check now reads every tally against its names.</li><li>A co-sponsor vote deleted. The same vote is stored twice, so the page still showed it, two steps in a different order.</li><li>A hand-written note removed from a meeting card, which then showed one of the night&#x27;s four results. Graded harmless; the first reading had counted the same fault a miss.</li><li>A committee vote&#x27;s tally changed by one. It shows only in the data explorer&#x27;s table, which no reading covers. The new tally check reads it.</li><li>A withheld document released to the public. Nothing caught it: no reading covers a page that did not exist before, and the privacy gate passed. A new check now stops any build that releases a withheld document.</li></ul>
+<p>3 of the 5 are now caught by two
+checks added that day and run on every build. The other two are plain-sight
+gaps only a page-by-page reading catches.
+<a href="audit/validate/planted-RESULTS.md">The full table</a>.</p></li>
+<li><p><b>A second sample, new readers.</b> On 4 October 2026 we drew
+100 more records (seed 2610052) and had two new readers read each
+one from the city's documents, without seeing the first reading; the graders
+had not seen its grades. <b>0 of 100 were wrong</b> (95%
+interval 0% to 3.6%). Counted strictly,
+2 of 100 (0.2% to
+7.0%): two scanned pages shown blank with no notice, a kind the
+full reading had called harmless and which every such page now says in a
+sentence. The two readers agreed on 97 of 100.
+<a href="audit/validate/sample-RESULTS.md">The result</a>.</p></li>
+<li><p><b>Against the local paper.</b> Of the 2026 council votes
+Cambridge Day reported, we checked 12 against our
+pages, chosen by rule: every split roll call first, then ordinances, then
+failures. <b>9 agree on every fact the story states, 2
+agree in part, 1 story reports a briefing and no vote, and
+none contradicts
+the record.</b> One count differs: the vote to end debate on POR 2026-115 on 1 June: the paper says it passed 6 to 3; the minutes, page 21, print 6 yes, 2 no and 1 present, and our page shows the minutes&#x27; count.
+<a href="audit/validate/outside-PRESS.md">The twelve</a>.</p></li>
+<li><p><b>Every page says what it leaves out.</b> On 5 October 2026 we
+read every 2026 page for what it does not show, and gave each such page one
+sentence saying so: 386 sentences in all. Among them:</p>
+<ul><li>4 council meetings read from the verbatim transcript, because the minutes are not out</li><li>29 committee meetings whose 102 votes are in the minutes and not on the page</li><li>75 scanned pages shown blank on 11 document pages</li><li>3 items with a document withheld for residents&#x27; personal details</li><li>247 items where the clerk&#x27;s minutes may name a mover the page does not show</li><li>17 bodies with meetings on the city&#x27;s portal that are not on this site yet, and the council&#x27;s own meeting of 28 September</li></ul>
+<p>A check that every such page carries its sentence runs on every build.
+<a href="audit/validate/holes-RESULTS.md">The inventory</a>.</p></li>
+<li><p><b>No person has read the record yet.</b> Every reading and every grading in the four tests above was done by AI models, not by a person. A later check, kept apart from these, puts a person in front of the city's own pages: twenty 2026 votes, ten drawn at random and ten chosen by rule as the hardest kinds (the closest splits, failures, votes with a member away, votes the site keeps off its pages), read by someone who has not seen our pages. That read has not been done. When it is, its result goes here, misses included.</p></li>
+</ul>
+<p>Before the full reading, we checked 2026 by random samples:</p>
+<p>On 3 October 2026 we drew a random sample of 130 records from
+2026 pages with a published seed. Each was read from the city&rsquo;s own
+documents, then checked against our pages. <b>6 of 130 had a
+mistake</b> (4.6%, 95% interval 1.7% to
+9.8%).</p>
+<ul><li>A page said the council&#x27;s minutes did not record an item that they did record, naming it by its place on the agenda. Six pages carried the line.</li><li>A meeting card showed the Final Actions sheet&#x27;s two-step version of a vote where the minutes record one roll call.</li><li>A committee page left out the two presentations its agenda lists.</li><li>Two document pages and their downloads showed residents&#x27; personal contact details. Both are now withheld.</li><li>An older item&#x27;s page offered another item&#x27;s 2026 documents for download.</li></ul>
+<p>After fixes, a second sample on 4 October 2026 found <b>3 of 130</b> (2.3%, 95% interval 0.5% to 6.6%). It is the sixth sample drawn after fixes, and the latest; every one is in the audit file. Every miss is listed, with the city&rsquo;s page and ours.</p>
+<table><tr><th>Miss</th><th>What was wrong</th><th>Ours</th><th>The city&rsquo;s</th></tr><tr><td class='mono'>A34</td><td>RES 2026-82, 18 May 2026: the page said the minutes do not record the item. The minutes (page 21) adopt it by its agenda position.</td><td><a href="items/res-2026-82.html">our page</a></td><td><a href="https://cambridgema.primegov.com/Portal/Meeting?meetingTemplateId=10428" rel="noopener">the city's page</a></td></tr><tr><td class='mono'>A60</td><td>CMA 2026-152, 18 May 2026: the meeting card showed the sheet&#x27;s two steps. The minutes (page 8) record one 9 to 0 roll call to approve and place on file.</td><td><a href="council/2026-05-18-regular-meeting.html">our page</a></td><td><a href="https://cambridgema.primegov.com/portal/item/87828" rel="noopener">the city's page</a></td></tr><tr><td class='mono'>C16</td><td>Roundtable, 2 February 2026: the page showed only the meeting&#x27;s purpose. The agenda numbers two survey presentations.</td><td><a href="boards/roundtable-working/2026-02-02-roundtable-working-meeting.html">our page</a></td><td><a href="https://cambridgema.primegov.com/public/CompiledDocument/5311" rel="noopener">the city's page</a></td></tr><tr><td class='mono'>D20</td><td>ORD 2026-8, 3 August 2026: a residents&#x27; zoning petition showed a petitioner&#x27;s home address and email, and the signers&#x27; addresses. Now withheld.</td><td><a href="items/ord-2026-8.html">our page</a></td><td><a href="https://cambridgema.primegov.com/Portal/Meeting?meetingTemplateId=11427" rel="noopener">the city's page</a></td></tr><tr><td class='mono'>D21</td><td>CMA 2026-11, 26 January 2026: the 2022 item CMA 2022-205, which shares a number on the old portal, offered this order and 23 more for download. Fixed.</td><td><a href="items/cma-2022-205.html">our page</a></td><td><a href="https://cambridgema.primegov.com/Portal/Meeting?meetingTemplateId=2177" rel="noopener">the city's page</a></td></tr><tr><td class='mono'>D25</td><td>APP 2026-61, 14 September 2026: the download carried an applicant&#x27;s personal phone and email. Now withheld.</td><td><a href="items/app-2026-61.html">our page</a></td><td><a href="https://cambridgema.primegov.com/Portal/Meeting?meetingTemplateId=11775" rel="noopener">the city's page</a></td></tr><tr><td class='mono'>A48</td><td>COF 2026-22, 9 March 2026: a voice vote of eight members; the page did not say that the Final Actions sheet records one member absent.</td><td><a href="items/cof-2026-22.html">our page</a></td><td><a href="https://cambridgema.primegov.com/portal/item/87112" rel="noopener">the city's page</a></td></tr><tr><td class='mono'>D24</td><td>CC 2026-69, Health and Environment Committee minutes of 26 May 2026: five public commenters&#x27; home streets were still shown. Now blacked out.</td><td><a href="boards/health-environment-committee/2026-05-26-health-environment-committee-meeting.html">our page</a></td><td><a href="https://cambridgema.primegov.com/public/CompiledDocument/15969" rel="noopener">the city's page</a></td></tr><tr><td class='mono'>D28</td><td>RES 2026-90, 1 June 2026: the document page left out the item&#x27;s own vote certification and cover sheet.</td><td><a href="items/res-2026-90.html">our page</a></td><td><a href="https://cambridgema.primegov.com/Portal/Meeting?meetingTemplateId=10436" rel="noopener">the city's page</a></td></tr></table>
+<p class="meta">Published seed 2610033 and seed 2610047 · <a href="audit/AUDIT_2026.md">the full audit (AUDIT_2026.md)</a> ·
+<a href="rulebook.html#checking-votes">how we check a vote</a></p>
+
+<h2 id="year-2020-2022">How accurate are the 2020, 2021 and 2022 pages?</h2>
+<p><em>Checked 12 to 27 October 2026. Final build f41. The full working files are <a href="audit/AUDIT_2020_2022.md"><code>AUDIT_2020_2022.md</code></a>, <a href="audit/VALIDATE_2020_2022.md"><code>VALIDATE_2020_2022.md</code></a> and the <code>validate/</code> folder beside them.</em></p>
+<p>Every page on this site for the council's work in 2020, 2021 and 2022 was read against the city's own records, twice, by readers who had not seen the pages before. Every fault found was fixed, and every page that changed was read again, until one build had no fault left. Then the finished pages were tested four more ways. This section says what was checked, what was found, what was fixed, and what has not been checked.</p>
+<h3>What was checked</h3>
+<p>A census is a list of everything on the pages that a reader could check against the city's record: each meeting night, each item, each committee meeting, each document. Each entry is a row. A row is "exact" when the page matches the record, "benign" when it differs in a way that misleads no one (a vote filed under the night's council business rather than the item, for instance), "wrong" when the page says something the record does not, and "missing" when the record holds something the page leaves out.</p>
+<table>
+<thead>
+<tr>
+<th>What a row is</th>
+<th>2020</th>
+<th>2021</th>
+<th>2022</th>
+<th>Rows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A council meeting night: its minutes file, or a night with no file</td>
+<td>56</td>
+<td>45</td>
+<td>46</td>
+<td>147</td>
+</tr>
+<tr>
+<td>An item on a council night</td>
+<td>1,087</td>
+<td>1,127</td>
+<td>1,081</td>
+<td>3,295</td>
+</tr>
+<tr>
+<td>A council committee meeting</td>
+<td>47</td>
+<td>74</td>
+<td>71</td>
+<td>192</td>
+</tr>
+<tr>
+<td>A document page that prints a 2020-2022 meeting, withheld pages included</td>
+<td>249</td>
+<td>223</td>
+<td>274</td>
+<td>746</td>
+</tr>
+<tr>
+<td>A page made on 26 October for an attachment that had none</td>
+<td></td>
+<td></td>
+<td></td>
+<td>410</td>
+</tr>
+<tr>
+<td><strong>All</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>4,790</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Not checked, as in the other years: the School Committee; boards that are not council committees; committee votes, which are kept off the committee pages by design; and the communications pages, since letters are counted on the item and meeting pages and never republished.</p>
+<h3>The two full reads</h3>
+<table>
+<thead>
+<tr>
+<th>Read</th>
+<th>When</th>
+<th>Rows read</th>
+<th>Faults found at the full grade</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First</td>
+<td>12 to 24 October</td>
+<td>4,380</td>
+<td>203 (round 12)</td>
+<td>Passed on build f17 on 24 October, then set aside</td>
+</tr>
+<tr>
+<td>Blind sample of the first read</td>
+<td>24 October</td>
+<td>100</td>
+<td>8 wrong or missing (95% range 3.5% to 15.2%)</td>
+<td>The pass had not held</td>
+</tr>
+<tr>
+<td>Second, from scratch</td>
+<td>25 and 26 October</td>
+<td>4,380, then 4,790</td>
+<td>281 (round 22, 6.4%)</td>
+<td>Passed on build f37 on 26 October; held on f38 and f39</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The first read</strong> went in rounds: read every row, fix what was wrong, build the pages again, read again every row whose pages changed. After 18 rounds it reported no faults. A blind sample of 100 rows then found 8 wrong or missing among rows the pass had carried forward as clean. Dan ruled on 24 and 25 October that every row be read again with no earlier grade kept.</p>
+<p><strong>The second read</strong> started over on build f22 and found 281 faults in 4,380 rows. Fix rounds followed, each one re-reading every row whose pages changed, until round 37 on build f37 read none. The path of faults by round:</p>
+<table>
+<thead>
+<tr>
+<th>Round</th>
+<th>22</th>
+<th>23</th>
+<th>24</th>
+<th>25</th>
+<th>26</th>
+<th>27</th>
+<th>28</th>
+<th>29</th>
+<th>30</th>
+<th>31</th>
+<th>32</th>
+<th>33</th>
+<th>34</th>
+<th>35</th>
+<th>36</th>
+<th>37</th>
+<th>38</th>
+<th>39</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Faults</td>
+<td>281</td>
+<td>106</td>
+<td>107</td>
+<td>8</td>
+<td>5</td>
+<td>3</td>
+<td>172</td>
+<td>48</td>
+<td>30</td>
+<td>16</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Round 28 jumped because the attachment check that day added 410 new document pages to the census. A row counts as checked on the final build only if it was read on that build, or its pages had not changed by a byte since the read that cleared it.</p>
+<p><strong>Final grades on build f39</strong></p>
+<table>
+<thead>
+<tr>
+<th>What a row is</th>
+<th>Exact</th>
+<th>Benign</th>
+<th>Wrong</th>
+<th>Missing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meeting nights</td>
+<td>122</td>
+<td>25</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Items</td>
+<td>2,753</td>
+<td>542</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Committee meetings</td>
+<td>142</td>
+<td>50</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Documents</td>
+<td>960</td>
+<td>196</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>All</strong></td>
+<td><strong>3,977</strong></td>
+<td><strong>813</strong></td>
+<td><strong>0</strong></td>
+<td><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>What was wrong, and what was fixed</h3>
+<p>The faults, by kind, in the order the reads found them.</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>What the pages did</th>
+<th>What was done</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Letters</td>
+<td>353 letters the city's agendas list were not in our store, so items and nights undercounted them</td>
+<td>283 fetched and added, each counted on every item it names. 69 bundled "Sundry" letters with no sender were fetched and not imported; one more waits on a date fix</td>
+</tr>
+<tr>
+<td>Votes</td>
+<td>Voice votes shown as roll calls; roll calls filed under the wrong item; the council's own votes (to suspend its rules, to reconsider) shown nowhere; failed motions and substitutions lost</td>
+<td>Each refiled, restored or shown, from the minutes</td>
+</tr>
+<tr>
+<td>Two records that differ</td>
+<td>The portal's result shown without saying the minutes differ</td>
+<td>Wherever two city records differ, the page states each and that they differ (Dan's rule of 14 October)</td>
+</tr>
+<tr>
+<td>False lines</td>
+<td>74 votes carried "the roll call that night names no act" where the motion or the clerk named it; 10 grant requests of late 2022 said "there were no decisions to make" where the minutes record a roll call</td>
+<td>The lines removed; the test widened to the clerk's result line and the chair's words</td>
+</tr>
+<tr>
+<td>Counts</td>
+<td>Four meeting pages counted an item twice or one short in the headings</td>
+<td>Each heading now counts what its list shows, and the top band takes the heading's number</td>
+</tr>
+<tr>
+<td>Citations</td>
+<td>One hand-written line cited the wrong page of the minutes</td>
+<td>Fixed; all 76 hand-written page citations checked, one more fixed</td>
+</tr>
+<tr>
+<td>Names</td>
+<td>One 2 May 2022 vote showed two members "not called on the record" because the transcript dropped their names</td>
+<td>The city's video supplies the names; the page says what each record shows and the time (Dan's C78 A)</td>
+</tr>
+<tr>
+<td>Privacy, found here</td>
+<td>12 documents released for work contacts only turned out to print a private person's address on a later page; 2 more named a contractor at a home address</td>
+<td>All 14 held again. None had ever shown its text on the live site</td>
+</tr>
+<tr>
+<td>Privacy, on the live site</td>
+<td>3 newspaper legal-notice pages carrying a probate notice about private people; 2 residents' phone numbers; 3 petitions and 3 committee letter titles with residents' home streets</td>
+<td>Taken down, masked, held or summarised in these builds; live until the ship</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The attachment check.</strong> On 26 October every attachment the city's portal lists on a 2020-2022 item was checked for a page here.</p>
+<table>
+<thead>
+<tr>
+<th>Attachments on 2020-2022 items</th>
+<th>Without a page</th>
+<th>Pages made</th>
+<th>Of those, text held</th>
+<th>Still without a page, by the hold rules</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,250</td>
+<td>509</td>
+<td>410</td>
+<td>98</td>
+<td>99</td>
+</tr>
+</tbody>
+</table>
+<h3>Four tests of the finished pages</h3>
+<p><strong>1. Planted errors.</strong> 35 errors were planted in a copy of the data, each reaching a page (seed 2020240), and the pages were read again blind. The point is to learn what kind of fault the reads miss.</p>
+<table>
+<thead>
+<tr>
+<th>Planted</th>
+<th>Caught by the scripted checks</th>
+<th>Caught by the blind re-read</th>
+<th>Caught by either</th>
+<th>Missed by both</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>35</td>
+<td>26</td>
+<td>26</td>
+<td>33</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>The two missed: a reconsideration printed before its vote, which the census's own rule on step order calls harmless; and a night's letter count raised by one in the band, the heading and the list together, which only the city's own list would show. Neither is a gross fault. No flipped result, wrong file, released hold or reverted ruling was missed by every check.</p>
+<p><strong>2. A fresh sample.</strong> 100 rows were drawn from the 4,696 the planted test had not touched (seed 2020243) and read by two readers who had not seen the census, then graded by seven graders who reported seeing no census reading.</p>
+<table>
+<thead>
+<tr>
+<th>Rows</th>
+<th>Wrong</th>
+<th>Missing</th>
+<th>95% range for the fault rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>1</td>
+<td>0</td>
+<td>0.03% to 5.4%</td>
+</tr>
+</tbody>
+</table>
+<p>The one: RES 2021 #237 of 4 October 2021, where a hand-written line cited page 11 of the minutes for the Mayor's words on page 10. Fixed in build f38, and every hand-written citation was then checked.</p>
+<p><strong>3. An outside source: the city's own video.</strong> 12 split votes were drawn, two per year from minutes nights and two from transcript nights (seed 2020241), and the city's meeting video for each was cut and transcribed on this machine.</p>
+<table>
+<thead>
+<tr>
+<th>Votes heard</th>
+<th>Agree on result, tally and every name</th>
+<th>Differ</th>
+<th>Agree on the result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td>11</td>
+<td>1</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>The one that differs is the 2 May 2022 vote above (POR 2022 #64): the transcript dropped two names, the page followed the transcript, and the video settled the names. Dan ruled that the video settles them (C78 A, 26 October), as it did for the 6 June 2022 votes. The 95% range for a disagreement on any detail is 0.2% to 38.5%; on the result alone, 0% to 26.5%. Video reaches only nights from May 2021 on the city's current player; earlier nights were cut from the old portal's media files.</p>
+<p><strong>4. Gaps said at the point of use.</strong> Where a page rests on less than the full record, the page says so in a sentence a reader meets where the gap is, never only here. Builds f40 and f41 marked the sentences already on the pages and added the ones that were missing.</p>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Council meetings the city has published no minutes of; the page reads the city's video, marked unofficial</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Nights of 2021 where the clerk printed no results sheet</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Document pages whose text is held, each saying why</td>
+<td>61</td>
+</tr>
+<tr>
+<td>Pages whose vote lines name the city's video and the time</td>
+<td>24</td>
+</tr>
+<tr>
+<td>Committee meetings whose minutes the city never posted</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Committee meetings whose votes are in the minutes and not on the page</td>
+<td>36</td>
+</tr>
+<tr>
+<td>Items where the clerk's minutes name a mover the page does not show</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Items with a document withheld for residents' personal details and no document page</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Document pages with scanned pages shown blank, each with a note</td>
+<td>85</td>
+</tr>
+<tr>
+<td>The 21 March 2022 meeting, whose portal minutes file is another night's transcript</td>
+<td>1</td>
+</tr>
+<tr>
+<td>The council page's coverage line for 2020 to 2022</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Held with no page to say so.</strong> Three things no page names, because no page exists for them: a resident's letter of 2020 (COM 102) held for a name and home address, since letters have no page of their own; the 69 "Sundry" letters with no sender; and one 2021 letter (COM 23) left out until its date is fixed by hand.</p>
+<h3>Rulings that changed a page</h3>
+<p>Each is Dan's, on a card the census raised. The full text of each is in the rulings file.</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Rule</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>29 September 2026</td>
+<td>Two documents taken down by hand: a petition's signature sheet with signers' home addresses, and a resident's letter whose agenda title gives a street address</td>
+<td>2 document pages</td>
+</tr>
+<tr>
+<td>5 October 2026</td>
+<td>Where the clerk's minutes name who moved a step and the page does not show it, the page says so (card 2, option B)</td>
+<td>19 item pages</td>
+</tr>
+<tr>
+<td>7 October 2026</td>
+<td>Where the city's video settles a vote the transcript left unclear, the page gives what the transcript prints, what the video shows, and the time</td>
+<td>Votes of 7 March, 16 May and 3 October 2022</td>
+</tr>
+<tr>
+<td>13 October 2026</td>
+<td>Residents' petitions are redacted, not withheld, under one rule for every year; until it lands, the three 2020-2022 petitions stay held whole; a committee page whose letter title prints a resident's name and street summarises it by topic</td>
+<td>3 document pages, 3 committee pages</td>
+</tr>
+<tr>
+<td>14 October 2026</td>
+<td>Tell the full story wherever two city records differ. The clerk's last word stands and the line notes the change (R1-5 A). The page follows the transcript's count where it drops names (R1-6 A). The video settles whether a member answered on 6 June 2022 (R1-7 C). Documents cleared by two separate reads are released (R1-9 A)</td>
+<td>Vote lines across the three years; the 6 June 2022 pages; released documents</td>
+</tr>
+<tr>
+<td>15 October 2026</td>
+<td>The four nights with no minutes say so and add our reading of the video, marked unofficial (R0-D1 B). The 29 June 2022 ad hoc committee gets its own page (R0-D2). The captioner's live feed the city filed as the minutes is called the minutes (R0-B1 A). The 18 nights of 2021 with a Calendar and no results sheet list the Calendar and say so (R0-D3)</td>
+<td>4 night pages, 1 committee page, 18 night pages</td>
+</tr>
+<tr>
+<td>23 October 2026</td>
+<td>Eleven documents held only for staff work contacts are released, phones masked (C58 A)</td>
+<td>11 document pages</td>
+</tr>
+<tr>
+<td>24 October 2026</td>
+<td>25 documents held only for business, institutional or city contacts are released; three probate-notice pages and four documents Dan wants to look at first stay held (C63 A). The 15 October rulings had not been built; build them (C67 A)</td>
+<td>25 document pages, and the pages of 15 October</td>
+</tr>
+<tr>
+<td>25 October 2026</td>
+<td>Holds protect residents' speech, not property: permit filings, abutter lists and city documents show, phones masked; 82 released, 28 kept held as speech, two complaint forms held (C71)</td>
+<td>82 document pages</td>
+</tr>
+<tr>
+<td>26 October 2026</td>
+<td>Nine official letters the privacy gate misread show, through a hand-checked list of their senders (C74 A). The four City Manager finalists' packets show, contacts masked (C75 A). New lines print only words the record or the audio holds, cited (C77 A). The 2 May 2022 vote takes its two names from the video (C78 A)</td>
+<td>9, 4 and 1 pages</td>
+</tr>
+</tbody>
+</table>
+<h3>What no person has read</h3>
+<p>No person has read a 2020-2022 row for this check. Every read above was by a machine reader against the city's record, graded by another. The person's read is its own stage after this one, by Dan's ruling of 9 October 2026, and this section will say when it has happened.</p>
+<p>Also unread, by design: every document whose text is held. Also not checked: the School Committee and the boards that are not council committees; the "request" reading of orders that ask the administration to act, which rests on one read of the portal's order texts; and the four 2022 board appointments whose wording waits on a legal check of the charter in force that year.</p>
+<h2>Earlier checks: links and titles</h2>
+<p class="meta">Results written 2026-09-11 · sample seed 20260712 ·
+<a href="audit/audit_agenda_items.csv">raw results (CSV)</a> ·
+<a href="audit/audit_agenda_items.py">audit code</a></p>
+
+<p>This site is assembled by software (much of it AI-written) from the city's
+own portals. Software makes mistakes, so we measure ours in public: we drew
+<b>1,927 agenda items at random</b>, with a fixed, published random seed, so
+anyone can re-draw the identical sample. We fetched the city's live page for
+each, and compared field by field.</p>
+
+<div class="statband">
+  <span class="stat"><span class="n" style="font-size:1.3em">1,927/1,927</span><span class="k">city pages resolved</span></span>
+  <span class="stat"><span class="n" style="font-size:1.3em">100.0%</span><span class="k">tracking codes correct</span></span>
+  <span class="stat"><span class="n" style="font-size:1.3em">96.8%</span><span class="k">titles content-identical</span></span>
+  <span class="stat"><span class="n" style="font-size:1.3em">95/95</span><span class="k">sampled attachments resolve</span></span>
+</div>
+
+<h2>What we compared</h2>
+<ul>
+<li><b>Tracking code</b> (e.g. POR 2020 #173): 1908 byte-exact of 1,927;
+19 differ only in the city's own spacing (&ldquo;ORD 2023&nbsp;#&nbsp;9&rdquo;).
+<b>0 mismatches.</b></li>
+<li><b>Title</b>: 307 byte-exact; 1558 differ <i>only</i> by the
+city's trailing punctuation (their display appends a period; verified by
+inspection). <b>0 content mismatches.</b></li>
+<li><b>Meeting date</b>: confirmed visible on 1922 of 1,927 city pages.
+The 5 exceptions are itemized below. In both, this site dates
+the item to the meeting whose agenda carried it, while the portal shows the
+clerk's next-day action date after a past-midnight adjournment.</li>
+<li><b>Attachments</b> (random subsample): 95/95 of the
+document links we mirror still resolve as valid PDFs at the city.</li>
+</ul>
+
+<h2>Every deviation found (86)</h2>
+<table><tr><th>Item</th><th>Type</th><th>Explanation</th></tr><tr><td class='mono'>COF 2022 #16</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;information regarding the Fare Free Bus &#x27; theirs…&#x27;A communication was received from Mayor &#x27;</td></tr><tr><td class='mono'>COF 2019 #33</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a communication from Councillor Mallon, &#x27; theirs…&#x27;A communication was received from City C&#x27;</td></tr><tr><td class='mono'>CRT 2016 #42</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor Nadeem Mazen, C&#x27; theirs…&#x27;A communication was received from Paula &#x27;</td></tr><tr><td class='mono'>CMA 2016 #253</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;CMA 2016 #253 : A communication transmit&#x27; theirs…&#x27;A communication transmitted from Richard&#x27;</td></tr><tr><td class='mono'>COF 2024 #3</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;Police Review and Advisory Board Quarter&#x27; theirs…&#x27;A communication was received from Brian &#x27;</td></tr><tr><td class='mono'>CRT 2019 #11</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor Dennis J. Carlo&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COF 2018 #26</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a communication from Councillor Kelley, &#x27; theirs…&#x27;A communication was received from City C&#x27;</td></tr><tr><td class='mono'>COF 2018 #36</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a communication from Mayor Marc McGoven,&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COF 2016 #26</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a communication from Kevin Manganaro, As&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>CRT 2018 #32</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor Craig Kelley, C&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COF 2019 #45</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a memorandum from Councillor Mallon and &#x27; theirs…&#x27;A communication was received from Paula &#x27;</td></tr><tr><td class='mono'>COF 2020 #43</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;information from the School Committee’s &#x27; theirs…&#x27;A communication was received from Mayor &#x27;</td></tr><tr><td class='mono'>COF 2020 #44</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a memorandum regarding some semblance of&#x27; theirs…&#x27;A communication was received from Police&#x27;</td></tr><tr><td class='mono'>CRT 2019 #36</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor E. Denise Simmo&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COF 2016 #34</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an announcement from the Office of Consu&#x27; theirs…&#x27;A communication was received from Mayor &#x27;</td></tr><tr><td class='mono'>COF 2021 #90</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;Information on Broadband&#x27; theirs…&#x27;A communication was received from Mayor &#x27;</td></tr><tr><td class='mono'>CMA 2016 #204</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;CMA 2016 #204 : A communication transmit&#x27; theirs…&#x27;A communication transmitted from Richard&#x27;</td></tr><tr><td class='mono'>COF 2025 #126</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an update regarding legislative activity&#x27; theirs…&#x27;A communication was received from Paula &#x27;</td></tr><tr><td class='mono'>CRT 2017 #53</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor Dennis J. Carlo&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COF 2017 #19</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a communication from Councillor Craig A.&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COF 2016 #33</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;Notice of Project change for the KSURP A&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COF 2020 #81</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;Cambridge Proposed and Future Changes fo&#x27; theirs…&#x27;A communication was received from City M&#x27;</td></tr><tr><td class='mono'>COF 2018 #29</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a communication from Vice Mayor Devereux&#x27; theirs…&#x27;A communication was received from City C&#x27;</td></tr><tr><td class='mono'>COF 2018 #19</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a communication from Councillor Craig Ke&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>CRT 2016 #36</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor Dennis J. Carlo&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COF 2024 #28</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;the announcement of participation in the&#x27; theirs…&#x27;A communication was received from Mayor &#x27;</td></tr><tr><td class='mono'>CRT 2018 #13</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor E. Denise Simmo&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>CRT 2021 #1</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor E. Denise Simmo&#x27; theirs…&#x27;A communication was received from Anthon&#x27;</td></tr><tr><td class='mono'>COF 2016 # 7</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a series of articles regarding the affor&#x27; theirs…&#x27;A communication was received from Counci&#x27;</td></tr><tr><td class='mono'>CRT 2016 #21</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Vice Mayor Marc C. McGover&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>CRT 2017 #19</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor Dennis J. Carlo&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>CRT 2019 #62</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;Part 2 of the report from Councillor Den&#x27; theirs…&#x27;A communication was received from Anthon&#x27;</td></tr><tr><td class='mono'>CMA 2023 #256</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;CMA 2023 #256 : A communication transmit&#x27; theirs…&#x27;A communication transmitted from Yi-An H&#x27;</td></tr><tr><td class='mono'>COF 2024 #153</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an update regarding legislative activity&#x27; theirs…&#x27;A communication was received from Diane &#x27;</td></tr><tr><td class='mono'>COF 2020 #22</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;Communicating regarding information from&#x27; theirs…&#x27;A communication was received from Mayor &#x27;</td></tr><tr><td class='mono'>CRT 2017 #37</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor Nadeem Mazen, C&#x27; theirs…&#x27;A communication was received from Paula &#x27;</td></tr><tr><td class='mono'>COF 2021 #113</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;proposed amendments to Calendar #1&#x27; theirs…&#x27;A communication was received from Counci&#x27;</td></tr><tr><td class='mono'>COF 2022 #65</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an update regarding legislative activity&#x27; theirs…&#x27;A communication was received from Anthon&#x27;</td></tr><tr><td class='mono'>COF 2019 #8</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&quot;the submission of the Mayor&#x27;s Blue-Ribbo&quot; theirs…&#x27;A communication was received from City C&#x27;</td></tr><tr><td class='mono'>COF 2021 #97</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;the Hearing Schedule&#x27; theirs…&#x27;A communication was received from Anthon&#x27;</td></tr><tr><td class='mono'>COF 2022 #20</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an update regarding legislative activity&#x27; theirs…&#x27;A communication was received from Anthon&#x27;</td></tr><tr><td class='mono'>POR 2024 #150</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;POR 2024 #150 : That the Neighborhood an&#x27; theirs…&#x27;That the Neighborhood and Long-Term Plan&#x27;</td></tr><tr><td class='mono'>COF 2020 #20</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;COVID-19 Ideas and Suggestions&#x27; theirs…&#x27;A communication was received from Counci&#x27;</td></tr><tr><td class='mono'>COF 2017 #8</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;three follow-up questions to the City So&#x27; theirs…&#x27;A communication was received from Counci&#x27;</td></tr><tr><td class='mono'>COF 2017 #31</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;the Final Official Results from the Muni&#x27; theirs…&#x27;A communication was received from Tanya &#x27;</td></tr><tr><td class='mono'>CRT 2019 #40</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councilor E. Denise Simmon&#x27; theirs…&#x27;A communication was received from Paula &#x27;</td></tr><tr><td class='mono'>COF 2021 #79</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an explanation of the proposed amendment&#x27; theirs…&#x27;A communication was received from Counci&#x27;</td></tr><tr><td class='mono'>COF 2022 #54</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an update regarding legislative activity&#x27; theirs…&#x27;A communication was received from Anthon&#x27;</td></tr><tr><td class='mono'>CRT 2016 #60</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor Nadeem Mazen, C&#x27; theirs…&#x27;A communication was received from Paula &#x27;</td></tr><tr><td class='mono'>COF 2022 #35</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an update regarding legislative activity&#x27; theirs…&#x27;A communication was received from Anthon&#x27;</td></tr><tr><td class='mono'>COF 2022 #121</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;UPK Ad-Hoc Communication&#x27; theirs…&#x27;A communication was received from Mayor &#x27;</td></tr><tr><td class='mono'>CRT 2017 #55</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Councillor Dennis J. Carlo&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COF 2023 #200</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;the City Manager Review template&#x27; theirs…&#x27;A communication was received from City M&#x27;</td></tr><tr><td class='mono'>COF 2024 #119</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;Police Review and Advisory Board Quarter&#x27; theirs…&#x27;A communication was received from Brian &#x27;</td></tr><tr><td class='mono'>COF 2024 #52</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an update regarding legislative activity&#x27; theirs…&#x27;A communication was received from Diane &#x27;</td></tr><tr><td class='mono'>COF 2023 #157</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an update regarding legislative activity&#x27; theirs…&#x27;A communication was received from Diane &#x27;</td></tr><tr><td class='mono'>COF 2023 #44</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a presentation regarding the Municipal B&#x27; theirs…&#x27;A communication was received from the Ci&#x27;</td></tr><tr><td class='mono'>CRT 2018 #7</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;a report from Vice Mayor Jan Devereux, C&#x27; theirs…&#x27;A communication was received from Donna &#x27;</td></tr><tr><td class='mono'>COM 891 #2019</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;COM 891 #2019 : An anonymous communicati&#x27; theirs…&#x27;An anonymous communication was received,&#x27;</td></tr><tr><td class='mono'>COF 2024 #157</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;the meeting agenda&#x27; theirs…&#x27;A communication was received from Counci&#x27;</td></tr><tr><td class='mono'>COF 2023 #101</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;an update regarding legislative activity&#x27; theirs…&#x27;A communication was received from Diane &#x27;</td></tr><tr><td class='mono'>COF 2019 #65</td><td>title MISMATCH</td><td class='dim'>diverge@0: ours…&#x27;suggested amendments to the Cambridgesid&#x27; theirs…&#x27;A communication was received from Counci&#x27;</td></tr><tr><td class='mono'>ORD 2023 # 9</td><td>tracking format</td><td class='dim'>the city displays a space after # (“ORD 2023 # 9”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>ORD 2025 # 8</td><td>tracking format</td><td class='dim'>the city displays a space after # (“ORD 2025 # 8”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 47</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 47”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>ORD 2017 # 2</td><td>tracking format</td><td class='dim'>the city displays a space after # (“ORD 2017 # 2”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>ORD 2025 # 12</td><td>tracking format</td><td class='dim'>the city displays a space after # (“ORD 2025 # 12”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 26</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 26”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 24</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 24”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 69</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 69”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 64</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 64”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 18</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 18”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>ORD 2023 # 7</td><td>tracking format</td><td class='dim'>the city displays a space after # (“ORD 2023 # 7”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 49</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 49”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 55</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 55”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>COF 2016 # 7</td><td>tracking format</td><td class='dim'>the city displays a space after # (“COF 2016 # 7”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 43</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 43”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 63</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 63”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 67</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 67”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2016 # 4</td><td>tracking format</td><td class='dim'>the city displays a space after # (“RES 2016 # 4”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>ORD 2017 # 8</td><td>tracking format</td><td class='dim'>the city displays a space after # (“ORD 2017 # 8”) our parser didn't expect, content identical</td></tr><tr><td class='mono'>RES 2024 #82</td><td>date display</td><td class='dim'>we date it to its meeting (2024-04-29); the portal displays the clerk's action date, one day later (past-midnight adjournment)</td></tr><tr><td class='mono'>RES 2024 #90</td><td>date display</td><td class='dim'>we date it to its meeting (2024-04-29); the portal displays the clerk's action date, one day later (past-midnight adjournment)</td></tr><tr><td class='mono'>RES 2024 #86</td><td>date display</td><td class='dim'>we date it to its meeting (2024-04-29); the portal displays the clerk's action date, one day later (past-midnight adjournment)</td></tr><tr><td class='mono'>POR 2024 #57</td><td>date display</td><td class='dim'>we date it to its meeting (2024-04-29); the portal displays the clerk's action date, one day later (past-midnight adjournment)</td></tr><tr><td class='mono'>COF 2024 #52</td><td>date display</td><td class='dim'>we date it to its meeting (2024-04-29); the portal displays the clerk's action date, one day later (past-midnight adjournment)</td></tr></table>
+
+
+<h2>Votes &amp; outcomes audit</h2>
+<p>Roll calls, outcomes, and sponsors on item pages come from a crawl of
+the city's own item records. Same discipline: we drew <b>150 crawled
+items at random</b> (seed 20260713), fetched each city page fresh,
+re-parsed it, and compared status, sponsors, and every named vote.
+Result: <b>150/150 exact</b> · 0 divergent · 0 fetch
+errors. <a href="audit/audit_item_details.csv">raw results</a> ·
+<a href="audit/audit_item_details.py">audit code</a>.
+Separately, every one of the 6,099 recorded roll calls must
+satisfy the city's own tally (&ldquo;[4 TO 5]&rdquo; must equal exactly
+4 + 5 parsed names) or it is withheld from display. 0 failed that
+check in the current build.</p>
+<h2>Method, honestly</h2>
+<p>The comparison is against what the city's portal displays <i>today</i>:
+if the clerk edits a record after we capture it, that surfaces here as a
+deviation. The auditor is software too, so the code and raw results above
+exist for checking the checker. This page regenerates with every audit run.
+Found something wrong anyway? Every page has an error-report link in its
+footer, and corrections are public.</p></main>
 <footer>
 <div class="frow">Assembled from the public record: the City Clerk's files and the city's meeting portals</div>
 <div class="frow">Unofficial, not affiliated with the City of Cambridge</div>
